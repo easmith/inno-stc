@@ -1,6 +1,6 @@
-= 4 апреля =
+# 4 апреля
     
-== Исключния ==
+## Исключни
 
 Ошибка -> Исправление || Извинение
 
@@ -27,9 +27,6 @@ catch не обязателен
     
 try with resources
 Closeable
-
-*** apr04 ***
-
 
 Generic
 Механизм для написания более универсального кода
@@ -89,7 +86,7 @@ List<Number> lst = new ArrayList<Integer>(); // не скомпилируетс�
 \ Queue // fifo
 
 
-=== ArrayList 
+### ArrayList 
 Индекс-значение
 Емкость capacity=10
 
@@ -100,21 +97,21 @@ containts(), indexOf() O(n)
 remove() O(n)
 systemArrayCopy
 
-=== LinkedList (Dequeue)
+### LinkedList (Dequeue)
 Двусвязанный список
 next()
 prev()
 length();
 head-tail
 
-=== Set
+### Set
 Список уникальны значений
 \ HashSet
 \ SortedSet
 -\ NavigableSet
 -\ TreeSet (Красно-черное)
 
-=== Map
+### Map
 \ SortedMap
 -\ NavigableMap
 -\ TreeMap
