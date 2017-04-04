@@ -28,7 +28,7 @@ catch не обязателен
 try with resources
 Closeable
 
-Generic
+## Generic
 Механизм для написания более универсального кода
 
 class SomeSlass<T>  {
@@ -72,7 +72,7 @@ List<Number> lst = new ArrayList<Integer>(); // не скомпилируетс�
 
 --
 
-Иерархия коллекций
+## Иерархия коллекций
 
 Динамическое расширение, отсутствие дубликатов
 
@@ -130,3 +130,15 @@ null bucket
 Вариант номер (2)
 
 LinkedList 
+
+# home
+
+https://habrahabr.ru/post/162017/
+
+Lafore_Robert_-_Struktury_dannykh_i_algoritmy_v.pdf
+
+http://www.quizful.net/post/Java-Collections
+
+http://www.quizful.net/post/java-generics-tutorial
+
+https://habrahabr.ru/post/128269/
