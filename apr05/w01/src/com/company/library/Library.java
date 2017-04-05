@@ -16,6 +16,19 @@ import java.util.UUID;
  */
 public class Library {
     private Set<Book> books;
+
+    public Set<BookInstance> getBookInstances() {
+        return bookInstances;
+    }
+
+    public Set<Reader> getReaders() {
+        return readers;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
     private Set<BookInstance> bookInstances;
     private Set<Reader> readers;
     private Set<Booking> bookings;
@@ -31,20 +44,12 @@ public class Library {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-
     public void buyBook(Book book, int quantity) {
         books.add(book);
         for (int i = 0; i < quantity; i++) {
             BookInstance bookInstance = new BookInstance(book, UUID.randomUUID());
             bookInstances.add(bookInstance);
         }
-    }
-
-    public void addReader(Reader reader) {
-        readers.add(reader);
     }
 
     public void takeBook(Reader reader, Book book) {

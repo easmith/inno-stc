@@ -1,20 +1,15 @@
 package com.company.library.models;
 
-import java.util.List;
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.UUID;
 
 /**
  * Created by eku on 05.04.17.
  */
-public class BookInstance {
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
+public class BookInstance implements Externalizable {
     private Book book;
     private UUID number;
 
@@ -22,6 +17,14 @@ public class BookInstance {
         this.book = book;
         this.number = number;
 
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     @Override
@@ -47,5 +50,19 @@ public class BookInstance {
     @Override
     public String toString() {
         return "[" + book + "] #" + number;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(this.book);
+        out.writeObject(this.number);
+        out.writeUTF("Evgeny Kuznetsov");
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        this.book = (Book) in.readObject();
+        this.number = (UUID) in.readObject();
+        in.readUTF();
     }
 }
