@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * Created by eku on 05.04.17.
  */
-public class BookInstance implements Externalizable {
+public class BookInstance extends Model {
     private Book book;
     private UUID number;
 
@@ -61,13 +61,13 @@ public class BookInstance implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeObject(this.book);
         out.writeObject(this.number);
-        out.writeUTF("Evgeny Kuznetsov");
+        super.writeExternal(out);
     }
 
     @Override
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         this.book = (Book) in.readObject();
         this.number = (UUID) in.readObject();
-        in.readUTF();
+        super.readExternal(in);
     }
 }

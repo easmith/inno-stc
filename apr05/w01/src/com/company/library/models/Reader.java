@@ -8,7 +8,7 @@ import java.io.ObjectOutput;
 /**
  * Created by eku on 05.04.17.
  */
-public class Reader implements Externalizable {
+public class Reader extends Model {
     private String firstName;
     private String secondName;
     private String lastName;
@@ -73,7 +73,7 @@ public class Reader implements Externalizable {
         out.writeUTF(this.firstName);
         out.writeUTF(this.secondName);
         out.writeUTF(this.lastName);
-        out.writeUTF("Evgeny Kuznetsov");
+        super.writeExternal(out);
     }
 
     @Override
@@ -82,6 +82,6 @@ public class Reader implements Externalizable {
         this.firstName = in.readUTF();
         this.secondName = in.readUTF();
         this.lastName = in.readUTF();
-        in.readUTF();
+        super.readExternal(in);
     }
 }

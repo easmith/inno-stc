@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Created by eku on 05.04.17.
  */
-public class Book implements Externalizable {
+public class Book extends Model {
 
     private static long serialVersionUID = 2L;
 
@@ -68,7 +68,7 @@ public class Book implements Externalizable {
         out.writeUTF(this.title);
         out.writeInt(this.year);
         out.writeUTF(this.isbn);
-        out.writeUTF(new String("Evgeny Kuznetsov"));
+        super.writeExternal(out);
     }
 
     @Override
@@ -77,6 +77,6 @@ public class Book implements Externalizable {
         this.title = (String) in.readUTF();
         this.year = in.readInt();
         this.isbn = (String) in.readUTF();
-        in.readUTF();
+        super.readExternal(in);
     }
 }

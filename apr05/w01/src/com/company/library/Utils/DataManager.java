@@ -1,10 +1,11 @@
 package com.company.library.Utils;
 
-import com.company.library.models.Book;
+import com.company.library.models.Model;
 
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
+
 
 /**
  * Created by eku on 05.04.17.
@@ -18,10 +19,10 @@ public class DataManager {
         fileName += ".txt";
 
         try (FileOutputStream fos = new FileOutputStream(fileName);
-             ObjectOutputStream oos = new ObjectOutputStream(fos)){
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 
             oos.writeInt(objects.size());
-            for (T obj: objects)
+            for (T obj : objects)
                 obj.writeExternal(oos);
 
         } catch (IOException e) {
@@ -29,10 +30,10 @@ public class DataManager {
         }
     }
 
-    public static <T extends Externalizable> Set<T> uDeserialize (T t) {
+    public static <T extends Model> Set<T> uDeserialize(T prototype) {
         Set<T> objects = new HashSet<>();
 
-        String fileName = t.getClass().getName().replace('.', '_');
+        String fileName = prototype.getClass().getName().replace('.', '_');
         fileName += ".txt";
 
         try (FileInputStream fis = new FileInputStream(fileName);
@@ -40,7 +41,7 @@ public class DataManager {
 
             int total = ois.readInt();
             for (int i = 0; i < total; i++) {
-                T obj = (T) t.getClass().newInstance();
+                T obj = (T) prototype.clone();
                 obj.readExternal(ois);
                 objects.add(obj);
             }

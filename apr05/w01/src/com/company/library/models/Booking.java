@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by eku on 05.04.17.
  */
-public class Booking implements Externalizable {
+public class Booking extends Model {
     private BookInstance bookInstance;
     private Reader reader;
     private Date startDate;
@@ -80,7 +80,7 @@ public class Booking implements Externalizable {
         out.writeObject(this.startDate);
         out.writeObject(this.finishDate);
         out.writeObject(this.returnDate);
-        out.writeUTF("Evgeny Kuznetsov");
+        super.writeExternal(out);
     }
 
     @Override
@@ -90,6 +90,6 @@ public class Booking implements Externalizable {
         this.startDate = (Date) in.readObject();
         this.finishDate = (Date) in.readObject();
         this.returnDate = (Date) in.readObject();
-        in.readUTF();
+        super.readExternal(in);
     }
 }
