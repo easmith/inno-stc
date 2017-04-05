@@ -5,6 +5,8 @@ import com.company.library.Utils.DataManager;
 import com.company.library.models.Book;
 import com.company.library.models.Reader;
 
+import java.io.Externalizable;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -31,15 +33,11 @@ public class Main {
 
         library.showAllData();
 
-//        DataManager.serializeBook(library.getBookInstances());
+        library.serialize();
 
-        DataManager.uSerialize(library.getBooks());
+        library = null;
 
-        library = new Library();
-
-        for (Book book : DataManager.deserializeBook()) {
-            library.buyBook(book, 5);
-        }
+        library = Library.unserialize();
 
         library.showAllData();
 

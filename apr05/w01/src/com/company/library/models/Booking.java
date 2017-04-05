@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * Created by eku on 05.04.17.
@@ -16,11 +15,19 @@ public class Booking implements Externalizable {
     private Date startDate;
     private Date returnDate;
     private Date finishDate;
+
     public Booking(BookInstance bookInstance, Reader reader, Date startDate, Date returnDate) {
         this.bookInstance = bookInstance;
         this.reader = reader;
         this.startDate = startDate;
         this.returnDate = returnDate;
+    }
+
+    public Booking() {
+        this.bookInstance = null;
+        this.reader = null;
+        this.startDate = null;
+        this.returnDate = null;
     }
 
     public BookInstance getBookInstance() {

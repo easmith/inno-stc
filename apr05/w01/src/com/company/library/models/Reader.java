@@ -20,6 +20,13 @@ public class Reader implements Externalizable {
         this.passportNumber = passportNumber;
     }
 
+    public Reader() {
+        this.firstName = null;
+        this.secondName = null;
+        this.lastName = null;
+        this.passportNumber = 0;
+    }
+
     public String getFirstName() {
         return firstName;
     }

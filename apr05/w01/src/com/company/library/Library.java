@@ -1,14 +1,11 @@
 package com.company.library;
 
+import com.company.library.Utils.DataManager;
 import com.company.library.models.Book;
 import com.company.library.models.BookInstance;
 import com.company.library.models.Booking;
 import com.company.library.models.Reader;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,8 +15,18 @@ import java.util.UUID;
 /**
  * Created by eku on 05.04.17.
  */
-public class Library implements Externalizable {
+public class Library {
     private Set<Book> books;
+    private Set<BookInstance> bookInstances;
+    private Set<Booking> bookings;
+    private Set<Reader> readers;
+
+    public Library() {
+        books = new HashSet<>(1024);
+        bookInstances = new HashSet<>(4096);
+        readers = new HashSet<>(512);
+        bookings = new HashSet<>(2048);
+    }
 
     public Set<BookInstance> getBookInstances() {
         return bookInstances;
@@ -31,17 +38,6 @@ public class Library implements Externalizable {
 
     public Set<Booking> getBookings() {
         return bookings;
-    }
-
-    private Set<BookInstance> bookInstances;
-    private Set<Reader> readers;
-    private Set<Booking> bookings;
-
-    public Library() {
-        books = new HashSet<>(1024);
-        bookInstances = new HashSet<>(4096);
-        readers = new HashSet<>(512);
-        bookings = new HashSet<>(2048);
     }
 
     public Set<Book> getBooks() {
@@ -120,13 +116,20 @@ public class Library implements Externalizable {
         }
     }
 
-    @Override
-    public void writeExternal(ObjectOutput out) throws IOException {
-
+    public void serialize() {
+        DataManager.uSerialize(books);
+        DataManager.uSerialize(bookInstances);
+        DataManager.uSerialize(bookings);
+        DataManager.uSerialize(readers);
     }
 
-    @Override
-    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    public static Library unserialize() {
+        Library library = new Library();
+        library.books = DataManager.uDeserialize(new Book());
+        library.bookInstances = DataManager.uDeserialize(new BookInstance());
+        library.bookings = DataManager.uDeserialize(new Booking());
+        library.readers = DataManager.uDeserialize(new Reader());
 
+        return library;
     }
 }

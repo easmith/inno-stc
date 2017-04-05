@@ -19,6 +19,11 @@ public class BookInstance implements Externalizable {
 
     }
 
+    public BookInstance() {
+        this.book = null;
+        this.number = null;
+    }
+
     public Book getBook() {
         return book;
     }

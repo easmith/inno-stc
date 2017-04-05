@@ -11,43 +11,13 @@ import java.util.Set;
  */
 public class DataManager {
 
-    public static void serializeBook(Set<Book> books) {
-
-        try (FileOutputStream fos = new FileOutputStream("books.txt");
-            ObjectOutputStream oos = new ObjectOutputStream(fos)){
-
-            oos.writeInt(books.size());
-            for (Book book: books)
-                book.writeExternal(oos);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static Set<Book> deserializeBook() {
-        Set<Book> books = new HashSet<>();
-        try (FileInputStream fis = new FileInputStream("books.txt");
-             ObjectInputStream ois = new ObjectInputStream(fis)) {
-
-            int total = ois.readInt();
-            System.out.println("Total "  + total);
-
-            for (int i = 0; i < total; i++) {
-                Book book = new Book();
-                book.readExternal(ois);
-                books.add(book);
-            }
-        } catch (EOFException e) {
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            return books;
-        }
-    }
 
     public static <T extends Externalizable> void uSerialize(Set<T> objects) {
-        try (FileOutputStream fos = new FileOutputStream("ubooks.txt");
+
+        String fileName = objects.iterator().next().getClass().getName().replace('.', '_');
+        fileName += ".txt";
+
+        try (FileOutputStream fos = new FileOutputStream(fileName);
              ObjectOutputStream oos = new ObjectOutputStream(fos)){
 
             oos.writeInt(objects.size());
@@ -59,21 +29,23 @@ public class DataManager {
         }
     }
 
-    public <T extends Externalizable> Set<T> uDeserialize () {
+    public static <T extends Externalizable> Set<T> uDeserialize (T t) {
         Set<T> objects = new HashSet<>();
 
-        try (FileInputStream fis = new FileInputStream("ubooks.txt");
+        String fileName = t.getClass().getName().replace('.', '_');
+        fileName += ".txt";
+
+        try (FileInputStream fis = new FileInputStream(fileName);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
 
             int total = ois.readInt();
-            System.out.println("Total "  + total);
-
             for (int i = 0; i < total; i++) {
-                T obj = (T)new Object();
+                T obj = (T) t.getClass().newInstance();
                 obj.readExternal(ois);
                 objects.add(obj);
             }
         } catch (EOFException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
