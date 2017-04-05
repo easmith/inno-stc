@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * Created by eku on 05.04.17.
  */
-public class DataManager<T extends Externalizable> {
+public class DataManager {
 
     public static void serializeBook(Set<Book> books) {
 
@@ -46,7 +46,7 @@ public class DataManager<T extends Externalizable> {
         }
     }
 
-    public void uSerialize(Set<T> objects) {
+    public static <T extends Externalizable> void uSerialize(Set<T> objects) {
         try (FileOutputStream fos = new FileOutputStream("ubooks.txt");
              ObjectOutputStream oos = new ObjectOutputStream(fos)){
 
@@ -59,7 +59,7 @@ public class DataManager<T extends Externalizable> {
         }
     }
 
-    public Set<T>  uDeserialize () {
+    public <T extends Externalizable> Set<T> uDeserialize () {
         Set<T> objects = new HashSet<>();
 
         try (FileInputStream fis = new FileInputStream("ubooks.txt");

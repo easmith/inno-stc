@@ -5,6 +5,10 @@ import com.company.library.models.BookInstance;
 import com.company.library.models.Booking;
 import com.company.library.models.Reader;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +18,7 @@ import java.util.UUID;
 /**
  * Created by eku on 05.04.17.
  */
-public class Library {
+public class Library implements Externalizable {
     private Set<Book> books;
 
     public Set<BookInstance> getBookInstances() {
@@ -116,4 +120,13 @@ public class Library {
         }
     }
 
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+
+    }
 }

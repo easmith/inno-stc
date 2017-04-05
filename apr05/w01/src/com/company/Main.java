@@ -33,10 +33,7 @@ public class Main {
 
 //        DataManager.serializeBook(library.getBookInstances());
 
-        DataManager<Book> dataManager = new DataManager<>();
-//        (new DataManager<>()).uSerialize(library.getBooks());
-
-//        new DataManager<>().uSerialize(library.getBooks());
+        DataManager.uSerialize(library.getBooks());
 
         library = new Library();
 
