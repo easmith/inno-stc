@@ -4,13 +4,13 @@
 
 Ошибка -> Исправление || Извинение
 
-
 Throwable (Интерфейс)
-\ Error (ошибки в JVM)
-\ Exception
--\ RuntimeException (NullPointerException)// не проверяемое
--\ IOException
--\ SQLException
+\ Error (ошибки в JVM)  
+\ Exception  
+-\ RuntimeException (NullPointerException)// не проверяемое  
+-\ IOException  
+-\ SQLException  
+
 
     try {
     } catch (NullPionterException ex) {
@@ -76,14 +76,14 @@ List<Number> lst = new ArrayList<Integer>(); // не скомпилируетс�
 
 Динамическое расширение, отсутствие дубликатов
 
-[Iterable]
+[Iterable]  
 .irerator()
 
-[Collection]
-\ List (.add() .remove() .indexOf())
--\ ArrayList
-\ Set // только уникальные 
-\ Queue // fifo
+[Collection]  
+\ List (.add() .remove() .indexOf())  
+-\ ArrayList  
+\ Set // только уникальные   
+\ Queue // fifo  
 
 
 ### ArrayList 
@@ -105,17 +105,18 @@ length();
 head-tail
 
 ### Set
-Список уникальны значений
-\ HashSet
-\ SortedSet
--\ NavigableSet
--\ TreeSet (Красно-черное)
+Список уникальны значений  
+\ HashSet  
+\ SortedSet  
+-\ NavigableSet  
+-\ TreeSet (Красно-черное)  
 
 ### Map
-\ SortedMap
--\ NavigableMap
--\ TreeMap
-\ HashMap (bucket)
+\ SortedMap  
+-\ NavigableMap  
+-\ TreeMap  
+\ HashMap (bucket)  
+
 capacity - кол-во бакетов (16) ~ 2^n
 loadfactor - 3/4
 
@@ -133,11 +134,11 @@ LinkedList
 
 # home
 
+http://www.quizful.net/post/Java-Collections
+https://habrahabr.ru/post/128017/
 https://habrahabr.ru/post/162017/
 
 Lafore_Robert_-_Struktury_dannykh_i_algoritmy_v.pdf
-
-http://www.quizful.net/post/Java-Collections
 
 http://www.quizful.net/post/java-generics-tutorial
 
