@@ -7,21 +7,27 @@ public class Reader {
     private String firstName;
     private String secondName;
     private String lastName;
+    private long passportNumber;
+    public Reader(String firstName, String secondName, String lastName, long passportNumber) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.lastName = lastName;
+        this.passportNumber = passportNumber;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 
     public long getPassportNumber() {
         return passportNumber;
     }
 
     public void setPassportNumber(long passportNumber) {
-        this.passportNumber = passportNumber;
-    }
-
-    private long passportNumber;
-
-    public Reader(String firstName, String secondName, String lastName, long passportNumber) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.lastName = lastName;
         this.passportNumber = passportNumber;
     }
 
@@ -46,11 +52,6 @@ public class Reader {
 
     @Override
     public String toString() {
-        return "Reader{" +
-                "firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", passportNumber=" + passportNumber +
-                '}';
+        return firstName + " " + lastName;
     }
 }

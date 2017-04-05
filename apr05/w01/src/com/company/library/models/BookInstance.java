@@ -18,13 +18,10 @@ public class BookInstance {
     private Book book;
     private UUID number;
 
-    private List<Booking> bookInstance;
-
     public BookInstance(Book book, UUID number) {
         this.book = book;
         this.number = number;
 
-//        bookInstance = new
     }
 
     @Override
@@ -49,6 +46,6 @@ public class BookInstance {
 
     @Override
     public String toString() {
-        return book + "@" + number;
+        return "[" + book + "] #" + number;
     }
 }

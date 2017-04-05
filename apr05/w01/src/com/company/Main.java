@@ -10,27 +10,36 @@ public class Main {
     public static void main(String[] args) {
         Library library = new Library();
 
-//        library.setCatalog(DataManager.deserialize());
-//        DataManager.deserialize();
+        Book book1 = new Book("schildt","Intro to Java",  2017, "345123isbn");
+        Book book2 = new Book("Snowden","How to hack pentagon", 2017, "345112isbn");
+        Book book3 = new Book("Author", "Secret Book", 2010, "345121isbn");
 
-        for (Book book: DataManager.deserialize()) {
-            library.buyBook(book.getTitle(), book.getAuthor(), book.getIsbn(), book.getYear(), book.getQuantity());
-        }
+        // закупаем две книги
+        library.buyBook(book1 , 5);
+        library.buyBook(book2 , 5);
 
         Reader john = new Reader("John", "Connor", "Androvich", 12345678);
-        Reader reader = new Reader("Sara", "Connor", "Human", 12345679);
+        Reader sarah = new Reader("Sarah", "Connor", "Human", 12345679);
 
-        library.buyBook("Intro to Java", "schildt", "123asd", 2017 , 5);
-        library.buyBook("How to hack pentagon", "Snowden", "124asd", 2015 , 5);
+        // берем кнги
+        library.takeBook(john, book1);
+        library.takeBook(sarah, book1);
+        library.takeBook(sarah, book2);
+        library.takeBook(sarah, book3);
 
-        library.takeBook("John", "Connor", "Androvich", 12345678,"Intro to Java");
-        library.takeBook("Sara", "Connor", "Human", 12345679,"How to hack pentagon");
-
-        library.returnBook("John", "Connor", "Androvich", 12345678, "Intro to Java");
+        library.returnBook(sarah, book2);
 
         library.showAllData();
 
-        DataManager.serializeToFile(library.getCatalog());
+        DataManager.serializeToFile(library.getBooks());
+
+        library = new Library();
+
+        for (Book book: DataManager.deserialize()) {
+            library.buyBook(book, 5);
+        }
+
+        library.showAllData();
 
     }
 }

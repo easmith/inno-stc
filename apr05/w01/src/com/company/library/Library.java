@@ -1,103 +1,113 @@
 package com.company.library;
 
-import com.company.library.models.*;
+import com.company.library.models.Book;
+import com.company.library.models.BookInstance;
+import com.company.library.models.Booking;
+import com.company.library.models.Reader;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 
 /**
  * Created by eku on 05.04.17.
  */
 public class Library {
-    public Set<Book> getCatalog() {
-        return catalog;
-    }
-
-    public void setCatalog(Set<Book> catalog) {
-        this.catalog = catalog;
-    }
-
-    private Set<Book> catalog;
-    private Set<BookInstance> store;
+    private Set<Book> books;
+    private Set<BookInstance> bookInstances;
     private Set<Reader> readers;
     private Set<Booking> bookings;
 
     public Library() {
-        catalog = new HashSet<>(1024);
-        store = new HashSet<>(4096);
+        books = new HashSet<>(1024);
+        bookInstances = new HashSet<>(4096);
         readers = new HashSet<>(512);
         bookings = new HashSet<>(2048);
     }
 
-    public void buyBook(String title, String author, String isbn, int year, int quantity) {
-        Book newBook = new Book(author, title, year, isbn);
+    public Set<Book> getBooks() {
+        return books;
+    }
 
-        catalog.add(newBook);
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 
+    public void buyBook(Book book, int quantity) {
+        books.add(book);
         for (int i = 0; i < quantity; i++) {
-            BookInstance bookInstance = new BookInstance(newBook, UUID.randomUUID());
-            store.add(bookInstance);
+            BookInstance bookInstance = new BookInstance(book, UUID.randomUUID());
+            bookInstances.add(bookInstance);
         }
     }
 
-    public void takeBook(String firstName, String secondName, String lastName, long passportNumber, String title) {
-        Object[] reader = (Object[]) readers.stream().filter((r)->r.getPassportNumber() == passportNumber).toArray();
+    public void addReader(Reader reader) {
+        readers.add(reader);
+    }
 
-        Reader tmpReader = null;
-        if (reader.length != 0) {
-            tmpReader = (Reader)reader[0];
-        } else {
-            tmpReader = new Reader(firstName, secondName, lastName, passportNumber);
-            readers.add(tmpReader);
+    public void takeBook(Reader reader, Book book) {
+        BookInstance bookInstance = null;
+
+        for (BookInstance forBookInstance :
+                bookInstances) {
+            if (forBookInstance.getBook().getIsbn() == book.getIsbn()) {
+                bookInstances.remove(forBookInstance);
+                bookings.add(new Booking(forBookInstance, reader, new Date(), new Date()));
+                bookInstance = forBookInstance;
+                break;
+            }
         }
 
-        BookInstance bookInstance = (BookInstance) store.stream().filter((s)->s.getBook().getTitle().equals(title)).toArray()[0];
         if (bookInstance == null) {
-            System.out.println("No such book");
-            return;
+            System.out.println("Unknown book '" + book.getTitle() + "'");
         }
 
-        Booking booking = new Booking(bookInstance, tmpReader, new Date(), new Date());
-
-        bookings.add(booking);
-
-        store.remove(bookInstance);
+        readers.add(reader);
     }
 
-    public void returnBook(String firstName, String secondName, String lastName, long passportNumber, String title) {
+    public void returnBook(Reader reader, Book book) {
+        Booking booking = null;
 
-        Reader reader = new Reader(firstName, secondName, lastName, passportNumber);
-
-        Booking booking = (Booking) bookings.stream().filter((b)->b.getBookInstance().getBook().getTitle().equals(title) && b.getReader().equals(reader)).toArray()[0];
+        for (Booking forBooking :
+                bookings) {
+            if (forBooking.getBookInstance().getBook().getIsbn() == book.getIsbn()) {
+                bookings.remove(forBooking);
+                bookInstances.add(forBooking.getBookInstance());
+                booking = forBooking;
+                break;
+            }
+        }
 
         if (booking == null) {
-            System.out.println("No such booking");
-            return;
+            System.out.println("Wow new book?");
         }
-
-        store.add(booking.getBookInstance());
-        bookings.remove(booking);
     }
 
     public void showAllData() {
+        System.out.println("\nLibrary:\nBooks:");
         for (Book book :
-                catalog) {
-            System.out.println(book);
+                books) {
+            System.out.println("\t" + book);
         }
 
+        System.out.println("BookInstance:");
         for (BookInstance bookInstance :
-                store) {
-            System.out.println(bookInstance);
+                bookInstances) {
+            System.out.println("\t" + bookInstance);
         }
 
+        System.out.println("Readers:");
         for (Reader reader :
                 readers) {
-            System.out.println(readers);
+            System.out.println("\t" + reader);
         }
 
+        System.out.println("Bookings:");
         for (Booking booking :
                 bookings) {
-            System.out.println(booking);
+            System.out.println("\t" + booking);
         }
     }
 

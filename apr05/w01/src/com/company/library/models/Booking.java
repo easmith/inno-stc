@@ -56,13 +56,7 @@ public class Booking implements Externalizable {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "bookInstance=" + bookInstance +
-                ", reader=" + reader +
-                ", startDate=" + startDate +
-                ", returnDate=" + returnDate +
-                ", finishDate=" + finishDate +
-                '}';
+        return "[" + reader + "] read [" + bookInstance.getBook() + "]";
     }
 
     public Date getReturnDate() {
