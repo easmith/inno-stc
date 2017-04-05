@@ -1,18 +1,31 @@
 package com.company.library.models;
 
+import java.io.Externalizable;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.Date;
 
 /**
  * Created by eku on 05.04.17.
  */
-public class Booking {
+public class Booking implements Externalizable {
+    public BookInstance getBookInstance() {
+        return bookInstance;
+    }
+
     private BookInstance bookInstance;
+
+    public Reader getReader() {
+        return reader;
+    }
+
     private Reader reader;
     private Date startDate;
     private Date returnDate;
     private Date finishDate;
 
-    public Booking(BookInstance bookInstance, Reader reader, Date startDate, Date returnDate, Date finishDate) {
+    public Booking(BookInstance bookInstance, Reader reader, Date startDate, Date returnDate) {
         this.bookInstance = bookInstance;
         this.reader = reader;
         this.startDate = startDate;
@@ -50,5 +63,23 @@ public class Booking {
                 ", returnDate=" + returnDate +
                 ", finishDate=" + finishDate +
                 '}';
+    }
+
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+
     }
 }

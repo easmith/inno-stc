@@ -1,25 +1,35 @@
 package com.company.library.models;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by eku on 05.04.17.
  */
 public class BookInstance {
-    private Book book;
-    private List<Reader> readers;
+    public Book getBook() {
+        return book;
+    }
 
-    private int number;
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    private Book book;
+    private UUID number;
 
     private List<Booking> bookInstance;
 
-    public BookInstance(Book book, int number) {
+    public BookInstance(Book book, UUID number) {
         this.book = book;
+        this.number = number;
+
+//        bookInstance = new
     }
 
     @Override
     public int hashCode() {
-        return number * 32;
+        return number.hashCode() * 32;
     }
 
     @Override
@@ -30,7 +40,7 @@ public class BookInstance {
         if (!(obj instanceof Book))
             return false;
 
-        if (number != ((BookInstance) obj).number) {
+        if (!this.number.equals(((BookInstance) obj).number)) {
             return false;
         }
 
