@@ -1,23 +1,25 @@
 package ru.easmith;
 
+import ru.easmith.FileChecker.*;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
+
 
 public class Main {
 
     public static void main(String[] args) {
         String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt"};
 
+        // заполняем файлы случайными "словами"
         for (String resource :
                 resources) {
             fileGenerator(resource, 10000);
         }
 
         WordBuffer<String> buffer = new WordBuffer<>();
-
         for (String fName :
                 resources) {
             new Thread(new FileChecker(fName, buffer)).start();
@@ -48,6 +50,10 @@ public class Main {
         }
     }
 
+    /**
+     * @param name Имя файла
+     * @param number Количество слов
+     */
     public static void fileGenerator(String name, int number) {
         String symbols = "АБВГДЕЁЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
         symbols += "абвгдеёжзиклмнопрстуфхцчшщъыьэюя";

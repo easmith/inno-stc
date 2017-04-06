@@ -1,4 +1,4 @@
-package ru.easmith;
+package ru.easmith.FileChecker;
 
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -19,6 +19,10 @@ public class WordBuffer<String> extends TreeSet {
         this.resources = resources;
     }
 
+    /**
+     * Активен ли буфер?
+     * @return
+     */
     public boolean isActive() {
         return isActive;
     }
