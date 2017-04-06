@@ -21,16 +21,20 @@ public class FileChecker implements Runnable {
         TreeSet<String> buffer = new TreeSet<>();
 
         try (Scanner sc = new Scanner(new File(fileName))) {
-            String delimiter = "[A-z0-9 .,\n\r?]+";
+            String delimiter = "[ \n]+";
             while (sc.useDelimiter(delimiter).hasNext()) {
                 String word = sc.useDelimiter(delimiter).next();
+                if (!word.matches("^[А-яёЁ]+$")) {
+                    System.out.println("Слово #" + buffer.size() + " нерусское: " + word + " " + buffer.size());
+                    return;
+                }
                 if (buffer.contains(word)) {
                     System.out.println("Дубликат в \"" + fileName + "\": " + word);
+                    System.out.println("Проверено слов: " + buffer.size());
                     return;
                 }
                 buffer.add(word);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -40,6 +44,7 @@ public class FileChecker implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("Start worker for " + resourceName);
         check(resourceName);
     }
 }
