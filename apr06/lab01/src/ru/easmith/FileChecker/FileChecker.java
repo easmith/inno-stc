@@ -10,23 +10,24 @@ import java.util.Scanner;
  */
 public class FileChecker implements Runnable {
     private String resourceName;
-
     private WordBuffer<String> buffer;
 
-    public FileChecker(String resourceName, WordBuffer<String> buffer) {
+    public FileChecker(String resourceName) {
         this.resourceName = resourceName;
-        this.buffer = buffer;
+        this.buffer = WordBuffer.getInstance();
     }
 
     /**
      * Проверяет файл на соответствие правилу - неповторяющиеся русские слова
+     *
      * @param resourceName Имя ресурса
      * @return
      */
     public boolean isValid(String resourceName) {
         try (Scanner sc = new Scanner(new File(resourceName))) {
             String delimiter = "[ \n]+";
-            wordByWordCycle: while (sc.useDelimiter(delimiter).hasNext()) {
+            wordByWordCycle:
+            while (sc.useDelimiter(delimiter).hasNext()) {
                 synchronized (this.buffer) {
                     if (!this.buffer.isActive()) {
                         return false;
@@ -59,8 +60,9 @@ public class FileChecker implements Runnable {
             this.buffer.getResources().put(this.resourceName, 0);
         }
         if (isValid(this.resourceName)) {
-            System.out.println(this.resourceName + " не содержит дубликатов");
-        };
+            System.out.println("Завершена проверка  " + this.resourceName);
+        }
+        ;
         synchronized (this.buffer) {
             this.buffer.getResources().put(this.resourceName, 1);
         }

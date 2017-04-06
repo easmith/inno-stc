@@ -1,11 +1,11 @@
 package ru.easmith;
 
-import ru.easmith.FileChecker.*;
+import ru.easmith.FileChecker.FileChecker;
+import ru.easmith.FileChecker.WordBuffer;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Map;
 
 
 public class Main {
@@ -19,11 +19,12 @@ public class Main {
             fileGenerator(resource, 10000);
         }
 
-        WordBuffer<String> buffer = new WordBuffer<>();
         for (String fName :
                 resources) {
-            new Thread(new FileChecker(fName, buffer)).start();
+            new Thread(new FileChecker(fName)).start();
         }
+
+        WordBuffer buffer = WordBuffer.getInstance();
 
         synchronized (buffer) {
             buffer.notifyAll();
@@ -31,18 +32,19 @@ public class Main {
 
         while (buffer.isActive()) {
             try {
-                Thread.sleep(300);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             synchronized (buffer) {
                 System.out.println("Проверено слов: " + buffer.size());
                 int sum = 0;
-                for(Map.Entry<String, Integer> entry : buffer.getResources().entrySet()) {
-                    String key = entry.getKey();
-                    Integer value = entry.getValue();
-                    sum += value;
+
+                for (String res :
+                        resources) {
+                    sum += (int) buffer.getResources().get(res);
                 }
+
                 if (sum == buffer.getResources().size()) {
                     break;
                 }
@@ -51,7 +53,7 @@ public class Main {
     }
 
     /**
-     * @param name Имя файла
+     * @param name   Имя файла
      * @param number Количество слов
      */
     public static void fileGenerator(String name, int number) {
@@ -64,7 +66,7 @@ public class Main {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             for (int i = 0; i < number; i++) {
                 String word = "";
-                int wordLen = (int) (Math.random() * 3 + 4);
+                int wordLen = (int) (Math.random() * 3 + 6);
                 for (int j = 0; j < wordLen; j++) {
                     word += symbols.charAt((int) (Math.random() * symbols.length()));
                 }
