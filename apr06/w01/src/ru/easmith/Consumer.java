@@ -18,8 +18,8 @@ class Consumer implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if (date.isMultipleOf(5)) {
-                    System.out.println("Step " + step);
+                if (date.isMultipleOf(step)) {
+                    System.out.println("Step: " + step);
                 }
             }
 
