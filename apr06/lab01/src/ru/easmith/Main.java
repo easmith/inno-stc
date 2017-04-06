@@ -39,7 +39,6 @@ public class Main {
                 for(Map.Entry<String, Integer> entry : buffer.getResources().entrySet()) {
                     String key = entry.getKey();
                     Integer value = entry.getValue();
-                    System.out.println(key + ": " + value);
                     sum += value;
                 }
                 if (sum == buffer.getResources().size()) {
@@ -59,7 +58,7 @@ public class Main {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             for (int i = 0; i < number; i++) {
                 String word = "";
-                int wordLen = (int) (Math.random() * 3 + 5);
+                int wordLen = (int) (Math.random() * 3 + 4);
                 for (int j = 0; j < wordLen; j++) {
                     word += symbols.charAt((int) (Math.random() * symbols.length()));
                 }

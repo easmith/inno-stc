@@ -55,14 +55,11 @@ public class FileChecker implements Runnable {
         synchronized (buffer) {
             buffer.getResources().put(resourceName, 0);
         }
-        System.out.println("Start worker for " + resourceName);
         if (isValid(resourceName)) {
             System.out.println(resourceName + " не содержит дубликатов");
         };
         synchronized (buffer) {
-            Integer obj = buffer.getResources().get(resourceName);
-            obj = 1;
-            System.out.println("AA" + obj);
+            buffer.getResources().put(resourceName, 1);
         }
     }
 }
