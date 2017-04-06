@@ -25,7 +25,7 @@ public class FileChecker implements Runnable {
             while (sc.useDelimiter(delimiter).hasNext()) {
                 String word = sc.useDelimiter(delimiter).next();
                 if (buffer.contains(word)) {
-                    System.out.println(word);
+                    System.out.println("Дубликат в \"" + fileName + "\": " + word);
                     return;
                 }
                 buffer.add(word);
