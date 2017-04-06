@@ -10,41 +10,59 @@ import java.util.TreeSet;
  * Created by eku on 06.04.17.
  */
 public class FileChecker implements Runnable {
-
     private String resourceName;
 
-    public FileChecker(String resourceName) {
+    private WordBuffer<String> buffer;
+
+    public FileChecker(String resourceName, WordBuffer<String> buffer) {
         this.resourceName = resourceName;
+        this.buffer = buffer;
     }
 
-    public static void check(String fileName) {
-        TreeSet<String> buffer = new TreeSet<>();
+    public boolean isValid(String fileName) {
 
         try (Scanner sc = new Scanner(new File(fileName))) {
             String delimiter = "[ \n]+";
-            while (sc.useDelimiter(delimiter).hasNext()) {
-                String word = sc.useDelimiter(delimiter).next();
-                if (!word.matches("^[А-яёЁ]+$")) {
-                    System.out.println("Слово #" + buffer.size() + " нерусское: " + word + " " + buffer.size());
-                    return;
+            wordByWordCycle: while (sc.useDelimiter(delimiter).hasNext()) {
+                synchronized (buffer) {
+                    if (!buffer.isActive()) {
+                        return false;
+                    }
+                    String word = sc.useDelimiter(delimiter).next();
+                    if (!word.matches("^[А-яёЁ]+$")) {
+                        System.out.println(fileName + ": Слово #" + buffer.size() + " нерусское: " + word);
+                        buffer.setIsActive(false);
+                        return false;
+                    }
+                    if (buffer.contains(word)) {
+                        System.out.println(fileName + ": Слово #" + buffer.size() + " '" + word + "' является дубликатом");
+                        buffer.setIsActive(false);
+                        return false;
+                    }
+                    buffer.add(word);
                 }
-                if (buffer.contains(word)) {
-                    System.out.println("Дубликат в \"" + fileName + "\": " + word);
-                    System.out.println("Проверено слов: " + buffer.size());
-                    return;
-                }
-                buffer.add(word);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return true;
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
+        synchronized (buffer) {
+            buffer.getResources().put(resourceName, 0);
+        }
         System.out.println("Start worker for " + resourceName);
-        check(resourceName);
+        if (isValid(resourceName)) {
+            System.out.println(resourceName + " не содержит дубликатов");
+        };
+        synchronized (buffer) {
+            Integer obj = buffer.getResources().get(resourceName);
+            obj = 1;
+            System.out.println("AA" + obj);
+        }
     }
 }
