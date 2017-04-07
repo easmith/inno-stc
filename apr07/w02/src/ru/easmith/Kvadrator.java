@@ -17,11 +17,11 @@ public class Kvadrator implements Runnable {
         synchronized (consumer) {
             int result = number * number;
             consumer.sum(0, result, 0);
-            try {
-                consumer.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                consumer.wait();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

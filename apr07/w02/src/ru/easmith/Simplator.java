@@ -17,11 +17,11 @@ public class Simplator implements Runnable {
         synchronized (consumer) {
             int result = number;
             consumer.sum(0, 0, result);
-            try {
-                consumer.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                consumer.wait();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }

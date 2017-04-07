@@ -1,29 +1,36 @@
 package ru.easmith;
 
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  * Created by eku on 07.04.17.
  */
-public class Consumer{
+public class Consumer {
 
-    private int cubator = 0;
-    private int kvadrator = 0;
-    private int simplator = 0;
+    private Stack<Integer> cubator = new Stack<>();
+    private Stack<Integer> kvadrator = new Stack<>();
+    private Stack<Integer> simplator = new Stack<>();
 
     public void sum(int resCubator, int resKvadrator, int resSimplator) {
-        if (resCubator > 0) {
-            cubator = resCubator;
-        }
-        if (resKvadrator > 0) {
-            kvadrator = resKvadrator;
-        }
-        if (resSimplator > 0) {
-            simplator = resSimplator;
-        }
-        if (cubator > 0 && kvadrator > 0 && simplator > 0) {
-            System.out.println("ConsumerSum: " + cubator + " + " + kvadrator + " + " + simplator + " = " + (cubator + kvadrator + simplator));
-            cubator = 0;
-            kvadrator = 0;
-            simplator = 0;
+        System.out.println(resCubator + " " + resKvadrator + " " + resSimplator);
+        synchronized (this) {
+            if (resCubator > 0) {
+                cubator.push(resCubator);
+            }
+            if (resKvadrator > 0) {
+                kvadrator.push(resKvadrator);
+            }
+            if (resSimplator > 0) {
+                simplator.push(resSimplator);
+            }
+            if (!cubator.empty() && !kvadrator.empty() && !simplator.empty()) {
+                int cub = cubator.pop();
+                int kva = kvadrator.pop();
+                int sim = simplator.pop();
+                System.out.println("ConsumerSum: " + cub + " + " + kva + " + " + sim + " = " + (cub + kva + sim));
+            }
         }
     }
 }
