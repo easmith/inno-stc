@@ -17,11 +17,6 @@ public class Cubator implements Runnable {
         synchronized (consumer) {
             int result = number * number * number;
             consumer.sum(result, 0, 0);
-//            try {
-//                consumer.wait();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
         }
     }
 }

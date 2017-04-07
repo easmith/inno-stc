@@ -14,7 +14,7 @@ public class Consumer {
     private Stack<Integer> simplator = new Stack<>();
 
     public void sum(int resCubator, int resKvadrator, int resSimplator) {
-        System.out.println(resCubator + " " + resKvadrator + " " + resSimplator);
+        System.out.println("invoke " + resCubator + " " + resKvadrator + " " + resSimplator);
         synchronized (this) {
             if (resCubator > 0) {
                 cubator.push(resCubator);
@@ -25,9 +25,9 @@ public class Consumer {
             if (resSimplator > 0) {
                 simplator.push(resSimplator);
             }
-            if (!cubator.empty() && !kvadrator.empty() && !simplator.empty()) {
-                int cub = cubator.pop();
+            while (!cubator.empty() && !kvadrator.empty() && !simplator.empty()) {
                 int kva = kvadrator.pop();
+                int cub = cubator.pop();
                 int sim = simplator.pop();
                 System.out.println("ConsumerSum: " + cub + " + " + kva + " + " + sim + " = " + (cub + kva + sim));
             }
