@@ -1,55 +1,31 @@
 package ru.easmith;
 
-import ru.easmith.FileChecker.FileChecker;
-import ru.easmith.FileChecker.WordBuffer;
+import ru.easmith.FileChecker.FileCheckerPool;
+import sun.net.util.URLUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 
 
 public class Main {
 
     public static void main(String[] args) {
-        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt"};
-
+        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt"};
         // заполняем файлы случайными "словами"
-        for (String resource :
-                resources) {
-            fileGenerator(resource, 10000);
-        }
+//        for (String resource :
+//                resources) {
+//            fileGenerator(resource, 10000);
+//        }
 
-        for (String fName :
-                resources) {
-            new Thread(new FileChecker(fName)).start();
-        }
+        // время для контроля производительности
+        long startDate = new Date().getTime();
 
-        WordBuffer buffer = WordBuffer.getInstance();
+        FileCheckerPool filecheckerPool = new FileCheckerPool(resources);
+        filecheckerPool.startCheck();
 
-        synchronized (buffer) {
-            buffer.notifyAll();
-        }
-
-        while (buffer.isActive()) {
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            synchronized (buffer) {
-                System.out.println("Проверено слов: " + buffer.size());
-                int sum = 0;
-
-                for (String res :
-                        resources) {
-                    sum += (int) buffer.getResources().get(res);
-                }
-
-                if (sum == buffer.getResources().size()) {
-                    break;
-                }
-            }
-        }
+        System.out.println("Потребовалось времени: " + (new Date().getTime() - startDate) + " мс");
     }
 
     /**
@@ -66,7 +42,7 @@ public class Main {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             for (int i = 0; i < number; i++) {
                 String word = "";
-                int wordLen = (int) (Math.random() * 3 + 4);
+                int wordLen = (int) (Math.random() * 5 + 4);
                 for (int j = 0; j < wordLen; j++) {
                     word += symbols.charAt((int) (Math.random() * symbols.length()));
                 }

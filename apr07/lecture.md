@@ -60,7 +60,7 @@ Exception - нужна на них реакция
 
 Пакет io. Самое узкое место при оптимизации
 
-Сериализация SerialiseVersionUID
+Сериализация SerialVersionUID
 
 Многопоточность. Синхронизация. Пакет Cuncurrent
 

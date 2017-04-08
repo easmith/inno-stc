@@ -1,8 +1,8 @@
 package ru.easmith.FileChecker;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Scanner;
 
 /**
@@ -10,11 +10,14 @@ import java.util.Scanner;
  */
 public class FileChecker implements Runnable {
     private String resourceName;
-    private WordBuffer<String> buffer;
+    private FileCheckerPool pool;
+    private WordSet<String> buffer;
+    private String word;
 
-    public FileChecker(String resourceName) {
+    public FileChecker(String resourceName, FileCheckerPool pool) {
         this.resourceName = resourceName;
-        this.buffer = WordBuffer.getInstance();
+        this.pool = pool;
+        this.buffer = WordSet.getInstance();
     }
 
     /**
@@ -23,35 +26,42 @@ public class FileChecker implements Runnable {
      * @param resourceName Имя ресурса
      * @return
      */
-    public boolean isValid(String resourceName) {
-        try (Scanner sc = new Scanner(new File(resourceName))) {
+    public int isValid(String resourceName) {
+        InputStream source = null;
+        try {
+            source = new URL(resourceName).openStream();
+        } catch (IOException e) {
+            try {
+                source = new FileInputStream(resourceName);
+            } catch (IOException e1) {
+                return -3;
+            }
+        }
+
+        try (Scanner sc = new Scanner(source)) {
             String delimiter = "[ \n]+";
             wordByWordCycle:
             while (sc.useDelimiter(delimiter).hasNext()) {
+                if (this.buffer.isDuplicateFound) {
+                    return 0;
+                }
+                word = sc.useDelimiter(delimiter).next();
+
+                if (!word.matches("^[А-яёЁ]+$")) {
+                    return -2;
+                }
                 synchronized (this.buffer) {
-                    if (!this.buffer.isActive()) {
-                        return false;
-                    }
-                    String word = sc.useDelimiter(delimiter).next();
-                    if (!word.matches("^[А-яёЁ]+$")) {
-                        System.out.println(resourceName + ": Слово #" + this.buffer.size() + " нерусское: " + word);
-                        this.buffer.setIsActive(false);
-                        return false;
-                    }
                     if (this.buffer.contains(word)) {
-                        System.out.println(resourceName + ": Слово #" + this.buffer.size() + " '" + word + "' является дубликатом");
-                        this.buffer.setIsActive(false);
-                        return false;
+                        this.buffer.isDuplicateFound = true;
+                        return -1;
                     }
                     this.buffer.add(word);
                 }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (NullPointerException e) {
+            return -3;
         }
-        return true;
+        return 1;
     }
 
     @Override
@@ -59,10 +69,10 @@ public class FileChecker implements Runnable {
         synchronized (this.buffer) {
             this.buffer.getResources().put(this.resourceName, 0);
         }
-        if (isValid(this.resourceName)) {
-            System.out.println("Завершена проверка  " + this.resourceName);
+        int result = isValid(this.resourceName);
+        synchronized (pool) {
+            pool.setComplete(resourceName, result, word);
         }
-        ;
         synchronized (this.buffer) {
             this.buffer.getResources().put(this.resourceName, 1);
         }
