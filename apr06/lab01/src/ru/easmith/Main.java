@@ -12,11 +12,11 @@ import java.util.concurrent.*;
 public class Main {
 
     public static void main(String[] args) {
-        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt"};
-//         заполняем файлы случайными "словами"
+        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt", "genText5.txt" , "genText6.txt", "genText7.txt", "genText8.txt"};
+        // заполняем файлы случайными "словами"
 //        for (String resource :
 //                resources) {
-//            fileGenerator(resource, 100000);
+//            fileGenerator(resource, 10000);
 //        }
 
         // время для контроля производительности
@@ -58,7 +58,7 @@ public class Main {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             for (int i = 0; i < number; i++) {
                 String word = "";
-                int wordLen = (int) (Math.random() * 5 + 5);
+                int wordLen = (int) (Math.random() * 5 + 6);
                 for (int j = 0; j < wordLen; j++) {
                     word += symbols.charAt((int) (Math.random() * symbols.length()));
                 }
