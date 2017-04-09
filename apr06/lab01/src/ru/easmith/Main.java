@@ -12,7 +12,7 @@ import java.util.Date;
 public class Main {
 
     public static void main(String[] args) {
-        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt"};
+        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt", "genText5.txt" , "genText6.txt", "genText7.txt", "genText8.txt"};
         // заполняем файлы случайными "словами"
 //        for (String resource :
 //                resources) {
