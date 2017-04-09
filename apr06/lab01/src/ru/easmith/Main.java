@@ -1,31 +1,47 @@
 package ru.easmith;
 
-import ru.easmith.FileChecker.FileCheckerPool;
-import sun.net.util.URLUtil;
+import ru.easmith.FileChecker.FileChecker;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.concurrent.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
         String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt"};
-        // заполняем файлы случайными "словами"
+//         заполняем файлы случайными "словами"
 //        for (String resource :
 //                resources) {
-//            fileGenerator(resource, 10000);
+//            fileGenerator(resource, 100000);
 //        }
 
         // время для контроля производительности
-        long startDate = new Date().getTime();
+        long startDate = System.currentTimeMillis();
 
-        FileCheckerPool filecheckerPool = new FileCheckerPool(resources);
-        filecheckerPool.startCheck();
+        ArrayList<Future> futures = new ArrayList<>();
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        for (String resource :
+                resources) {
+            futures.add(threadPool.submit(new FileChecker(resource)));
+        }
 
-        System.out.println("Потребовалось времени: " + (new Date().getTime() - startDate) + " мс");
+        for (Future future :
+                futures) {
+            try {
+                System.out.println(future.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
+        threadPool.shutdown();
+        System.out.println("Потребовалось времени: " + (System.currentTimeMillis() - startDate) + " мс");
     }
 
     /**
@@ -42,7 +58,7 @@ public class Main {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             for (int i = 0; i < number; i++) {
                 String word = "";
-                int wordLen = (int) (Math.random() * 5 + 4);
+                int wordLen = (int) (Math.random() * 5 + 5);
                 for (int j = 0; j < wordLen; j++) {
                     word += symbols.charAt((int) (Math.random() * symbols.length()));
                 }

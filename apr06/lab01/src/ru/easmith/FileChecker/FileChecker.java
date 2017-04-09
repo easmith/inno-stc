@@ -1,23 +1,21 @@
 package ru.easmith.FileChecker;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
 /**
  * Created by eku on 06.04.17.
  */
-public class FileChecker implements Runnable {
+public class FileChecker implements Callable {
     private String resourceName;
-    private FileCheckerPool pool;
-    private WordSet<String> buffer;
+    private WordSet<String> wordSet;
     private String word;
 
-    public FileChecker(String resourceName, FileCheckerPool pool) {
+    public FileChecker(String resourceName) {
         this.resourceName = resourceName;
-        this.pool = pool;
-        this.buffer = WordSet.getInstance();
+        this.wordSet = WordSet.getInstance();
     }
 
     /**
@@ -42,7 +40,7 @@ public class FileChecker implements Runnable {
             String delimiter = "[ \n]+";
             wordByWordCycle:
             while (sc.useDelimiter(delimiter).hasNext()) {
-                if (this.buffer.isDuplicateFound) {
+                if (this.wordSet.isDuplicateFound) {
                     return 0;
                 }
                 word = sc.useDelimiter(delimiter).next();
@@ -50,12 +48,12 @@ public class FileChecker implements Runnable {
                 if (!word.matches("^[А-яёЁ]+$")) {
                     return -2;
                 }
-                synchronized (this.buffer) {
-                    if (this.buffer.contains(word)) {
-                        this.buffer.isDuplicateFound = true;
+                synchronized (this.wordSet) {
+                    if (this.wordSet.contains(word)) {
+                        this.wordSet.isDuplicateFound = true;
                         return -1;
                     }
-                    this.buffer.add(word);
+                    this.wordSet.add(word);
                 }
             }
         } catch (NullPointerException e) {
@@ -64,17 +62,11 @@ public class FileChecker implements Runnable {
         return 1;
     }
 
-    @Override
-    public synchronized void run() {
-        synchronized (this.buffer) {
-            this.buffer.getResources().put(this.resourceName, 0);
-        }
-        int result = isValid(this.resourceName);
-        synchronized (pool) {
-            pool.setComplete(resourceName, result, word);
-        }
-        synchronized (this.buffer) {
-            this.buffer.getResources().put(this.resourceName, 1);
-        }
+    public Result call() {
+        Result result = new Result();
+        result.resourceName = this.resourceName;
+        result.result = isValid(this.resourceName);
+        result.word = this.word;
+        return result;
     }
 }

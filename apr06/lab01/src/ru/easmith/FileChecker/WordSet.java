@@ -15,7 +15,7 @@ public class WordSet<String> extends HashSet {
     }
 
     public static WordSet getInstance() {
-        return WordBufferHolder.instance;
+        return WordSetHolder.instance;
     }
 
     public HashMap<String, Integer> getResources() {
@@ -26,7 +26,7 @@ public class WordSet<String> extends HashSet {
         this.resources = resources;
     }
 
-    private static class WordBufferHolder {
+    private static class WordSetHolder {
         private final static WordSet instance = new WordSet();
     }
 
