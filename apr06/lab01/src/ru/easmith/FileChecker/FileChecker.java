@@ -48,13 +48,13 @@ public class FileChecker implements Callable {
                 if (!word.matches("^[А-яёЁ]+$")) {
                     return -2;
                 }
-                synchronized (this.wordSet) {
+//                synchronized (this.wordSet) {
                     if (this.wordSet.contains(word)) {
                         this.wordSet.isDuplicateFound = true;
                         return -1;
                     }
                     this.wordSet.add(word);
-                }
+//                }
             }
         } catch (NullPointerException e) {
             return -3;

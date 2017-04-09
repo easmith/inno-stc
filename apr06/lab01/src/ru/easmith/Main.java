@@ -16,7 +16,7 @@ public class Main {
 //         заполняем файлы случайными "словами"
 //        for (String resource :
 //                resources) {
-//            fileGenerator(resource, 100000);
+//            fileGenerator(resource, 10000);
 //        }
 
         // время для контроля производительности
@@ -41,6 +41,7 @@ public class Main {
         }
 
         threadPool.shutdown();
+
         System.out.println("Потребовалось времени: " + (System.currentTimeMillis() - startDate) + " мс");
     }
 
