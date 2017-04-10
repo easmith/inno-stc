@@ -7,7 +7,7 @@ public class Result {
     private final Results result;
     private String resourceName;
     private String word;
-    private enum Results {CANT_OPEN, BAD_WORD, DUPLICATE, STOP, OK};
+    public enum Results {CANT_OPEN, BAD_WORD, DUPLICATE, STOP, OK};
     private String[] status = { "неудалось открыть", "нерусское слово", "дубликат", "остановился на слове", "последнее слово"};
 
     public Result(String resourceName, String word, Results result) {
