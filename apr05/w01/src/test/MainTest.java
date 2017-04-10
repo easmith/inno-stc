@@ -3,6 +3,8 @@ package test;
 import com.company.library.Library;
 import com.company.library.models.Book;
 import com.company.library.models.BookInstance;
+import com.company.library.models.Booking;
+import com.company.library.models.Reader;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,6 +31,11 @@ class MainTest {
         library.buyBook(book, 5);
         assertEquals(1, library.getBooks().size());
         assertTrue(library.getBooks().contains(book));
+        for (Book testBook :
+                library.getBooks()) {
+            assertEquals(testBook.getTitle(), book.getTitle());
+            assertEquals(testBook.getIsbn(), book.getIsbn());
+        }
     }
 
     @Test
@@ -43,5 +50,61 @@ class MainTest {
         }
     }
 
+    @Test
+    public void takeBookReaderTest() {
+        Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
 
+        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
+
+        library.buyBook(book1, 5);
+
+        assertEquals(0, library.getBookings().size());
+        assertEquals(0, library.getReaders().size());
+
+        library.takeBook(john, book1);
+
+        assertEquals(1, library.getBookings().size());
+        assertEquals(4, library.getBookInstances().size());
+        assertEquals(1, library.getReaders().size());
+
+        assertTrue(library.getReaders().contains(john));
+
+        for (Booking booking :
+                library.getBookings()) {
+            assertTrue(booking.getReader().equals(john));
+            assertTrue(booking.getBookInstance().getBook().equals(book1));
+            assertTrue(booking.getBookInstance().getBook().getTitle().equals(book1.getTitle()));
+        }
+    }
+
+    @Test
+    public void takeBookOtherReaderTest() {
+        Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
+
+        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
+        Reader sarah = new Reader("Sarah", "Connor", "Human", 12345679);
+
+        library.buyBook(book1, 5);
+
+        library.takeBook(john, book1);
+
+        assertTrue(!library.getReaders().contains(sarah));
+    }
+
+    @Test
+    public void returnBookTest() {
+        Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
+
+        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
+
+        library.buyBook(book1, 5);
+
+        library.takeBook(john, book1);
+        library.returnBook(john, book1);
+
+
+        assertEquals(0, library.getBookings().size());
+        assertEquals(1, library.getReaders().size());
+        assertEquals(5, library.getBookInstances().size());
+    }
 }

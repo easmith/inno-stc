@@ -15,4 +15,4 @@
 
 Mock
 Iterator iter = mock(Iterator.class);
-when
+when (iter.next()).thenReturn("Hello").thenReturn("World").[...];

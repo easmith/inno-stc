@@ -45,12 +45,11 @@ public class Book extends Model {
         if (!(obj instanceof Book)) {
             return false;
         }
-
-        if (this.isbn.equals(((Book) obj).isbn)) {
+        if (!this.isbn.equals(((Book) obj).isbn)) {
             return false;
         }
 
-        return false;
+        return true;
     }
 
     @Override
