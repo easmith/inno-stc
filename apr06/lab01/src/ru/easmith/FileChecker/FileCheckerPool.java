@@ -18,7 +18,7 @@ public class FileCheckerPool {
                 resources) {
             new Thread(new FileChecker(fName, this)).start();
         }
-        while (!this.isComplete()) {
+        while (this.inPool > 0) {
             synchronized (this) {
                 try {
                     this.wait();
@@ -29,13 +29,11 @@ public class FileCheckerPool {
         }
     }
 
-    public boolean isComplete() {
-        return inPool == 0;
-    }
-
     public void setComplete(Result result) {
-        this.inPool--;
         System.out.println(result.toString());
-        this.notify();
+        synchronized (this) {
+            this.inPool--;
+            this.notify();
+        }
     }
 }
