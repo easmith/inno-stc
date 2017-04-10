@@ -1,15 +1,15 @@
 package ru.easmith;
 
-import ru.easmith.FileChecker.FileCheckerPool;
-import ru.easmith.FileChecker.ResourceStream;
-import sun.net.util.URLUtil;
+import ru.easmith.FileChecker.FileChecker;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 
 public class Main {
@@ -26,8 +26,25 @@ public class Main {
         // время для контроля производительности
         long startDate = System.currentTimeMillis();
 
-        FileCheckerPool filecheckerPool = new FileCheckerPool(resources);
-        filecheckerPool.startCheck();
+        ArrayList<Future> futures = new ArrayList<>();
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        for (String resource :
+                resources) {
+            futures.add(threadPool.submit(new FileChecker(resource)));
+        }
+
+        for (Future future :
+                futures) {
+            try {
+                System.out.println(future.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
+        threadPool.shutdown();
 
         System.out.println("Потребовалось времени: " + (System.currentTimeMillis() - startDate) + " мс");
     }
