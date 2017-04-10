@@ -53,6 +53,7 @@ class MainTest {
     @Test
     public void takeBookReaderTest() {
         Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
+        Book book2 = new Book("Snowden", "How to hack pentagon", 2017, "345112isbn");
 
         Reader john = new Reader("John", "Connor", "Androvich", 12345678);
 
@@ -72,8 +73,8 @@ class MainTest {
         for (Booking booking :
                 library.getBookings()) {
             assertTrue(booking.getReader().equals(john));
-            assertTrue(booking.getBookInstance().getBook().equals(book1));
-            assertTrue(booking.getBookInstance().getBook().getTitle().equals(book1.getTitle()));
+            assertTrue(!booking.getBookInstance().getBook().equals(book2));
+            assertTrue(!booking.getBookInstance().getBook().getTitle().equals(book2.getTitle()));
         }
     }
 
@@ -89,6 +90,13 @@ class MainTest {
         library.takeBook(john, book1);
 
         assertTrue(!library.getReaders().contains(sarah));
+
+        for (Booking booking :
+                library.getBookings()) {
+            assertTrue(!booking.getReader().equals(john));
+            assertTrue(booking.getBookInstance().getBook().equals(book1));
+            assertTrue(booking.getBookInstance().getBook().getTitle().equals(book1.getTitle()));
+        }
     }
 
     @Test
