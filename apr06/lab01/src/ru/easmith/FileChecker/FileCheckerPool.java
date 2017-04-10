@@ -33,9 +33,9 @@ public class FileCheckerPool {
         return inPool == 0;
     }
 
-    public void setComplete(String resourceName, int result, String word) {
+    public void setComplete(Result result) {
         this.inPool--;
-        System.out.println(resourceName + ": " + status[result + 3] + " " + (result > -3 ? word : ""));
+        System.out.println(result.toString());
         this.notify();
     }
 }

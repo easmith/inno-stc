@@ -1,31 +1,35 @@
 package ru.easmith;
 
 import ru.easmith.FileChecker.FileCheckerPool;
+import ru.easmith.FileChecker.ResourceStream;
 import sun.net.util.URLUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Date;
 
 
 public class Main {
 
     public static void main(String[] args) {
-        String[] resources = {"genText1.txt", "genText2.txt", "genText3.txt", "genText4.txt", "genText5.txt" , "genText6.txt", "genText7.txt", "genText8.txt"};
-        // заполняем файлы случайными "словами"
-//        for (String resource :
-//                resources) {
-//            fileGenerator(resource, 10000);
-//        }
+
+        int resourcesCount = 100;
+        String[] resources = new String[resourcesCount];
+        for (int i = 0; i < resourcesCount; i++) {
+            resources[i] = "texts/file" + i + ".txt";
+//            fileGenerator(resources[i], 10000);
+        }
 
         // время для контроля производительности
-        long startDate = new Date().getTime();
+        long startDate = System.currentTimeMillis();
 
         FileCheckerPool filecheckerPool = new FileCheckerPool(resources);
         filecheckerPool.startCheck();
 
-        System.out.println("Потребовалось времени: " + (new Date().getTime() - startDate) + " мс");
+        System.out.println("Потребовалось времени: " + (System.currentTimeMillis() - startDate) + " мс");
     }
 
     /**
@@ -42,7 +46,7 @@ public class Main {
         try (FileOutputStream fos = new FileOutputStream(name)) {
             for (int i = 0; i < number; i++) {
                 String word = "";
-                int wordLen = (int) (Math.random() * 5 + 4);
+                int wordLen = (int) (Math.random() * 3 + 7);
                 for (int j = 0; j < wordLen; j++) {
                     word += symbols.charAt((int) (Math.random() * symbols.length()));
                 }
