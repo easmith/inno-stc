@@ -36,13 +36,13 @@ public class ResourceParser {
                 if (!WordChecker.isValid(word)) {
                     return new Result(resourceName, word, Result.Results.BAD_WORD);
                 }
-                synchronized (wordSet) {
+//                synchronized (wordSet) {
                     if (wordSet.contains(word)) {
                         wordSet.isDuplicateFound = true;
                         return new Result(resourceName, word, Result.Results.DUPLICATE);
                     }
                     wordSet.add(word);
-                }
+//                }
             }
         } catch (NullPointerException e) {
             return new Result(resourceName, word, Result.Results.CANT_OPEN);
