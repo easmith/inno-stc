@@ -1,6 +1,7 @@
 package ru.easmith.FileChecker;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by eku on 06.04.17.

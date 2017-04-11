@@ -3,6 +3,7 @@ package ru.easmith.FileChecker;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by eku-win on 10.04.2017.
@@ -36,6 +37,7 @@ public class ResourceParser {
                 if (!WordChecker.isValid(word)) {
                     return new Result(resourceName, word, Result.Results.BAD_WORD);
                 }
+
                 synchronized (wordSet) {
                     if (wordSet.contains(word)) {
                         wordSet.isDuplicateFound = true;
@@ -43,6 +45,17 @@ public class ResourceParser {
                     }
                     wordSet.add(word);
                 }
+
+//                wordSet.lock.lock();  // block until condition holds
+//                try {
+//                    if (wordSet.contains(word)) {
+//                        wordSet.isDuplicateFound = true;
+//                        return new Result(resourceName, word, Result.Results.DUPLICATE);
+//                    }
+//                    wordSet.add(word);
+//                } finally {
+//                    wordSet.lock.unlock();
+//                }
             }
         } catch (NullPointerException e) {
             return new Result(resourceName, word, Result.Results.CANT_OPEN);

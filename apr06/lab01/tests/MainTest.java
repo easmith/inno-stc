@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import ru.easmith.FileChecker.*;
 
 import java.io.IOException;
+import java.util.concurrent.locks.ReentrantLock;
 
 import static org.junit.jupiter.api.Assertions.*;
 
