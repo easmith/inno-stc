@@ -1,6 +1,22 @@
 package com.company.library.models;
 
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 /**
  * Created by eku on 05.04.17.
@@ -50,6 +66,69 @@ public class Book extends Model {
         }
 
         return true;
+    }
+
+    public String toXML () {
+        String xml = "";
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.newDocument();
+
+            // root element
+            Element rootElement = doc.createElement("Book");
+            doc.appendChild(rootElement);
+
+            Element fieldsElem = this.getFields(doc);
+            rootElement.appendChild(fieldsElem);
+
+            Element methodsElem = this.getMethods(doc);
+            rootElement.appendChild(methodsElem);
+
+            DOMSource domSource = new DOMSource(doc);
+            StringWriter writer = new StringWriter();
+            StreamResult result = new StreamResult(writer);
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.transform(domSource, result);
+            writer.flush();
+
+            xml = writer.toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return xml;
+    }
+
+    public void printClassInfo() {
+        System.out.println(Book.class.getCanonicalName());
+
+        for (Method met :
+                getClass().getMethods()) {
+            System.out.println(met.getName());
+            System.out.println(met.getReturnType().getCanonicalName());
+            for (Parameter parameter:
+                 met.getParameters()) {
+                System.out.println("\t" + parameter.getName() + " " + parameter.getType().getName());
+            }
+            System.out.println(met.getModifiers());
+        }
+
+        try {
+            for (Field field :
+                    Class.forName("com.company.library.models.Book").getFields()) {
+                System.out.println(field.getName());
+                System.out.println(field.getType().getCanonicalName());
+                System.out.println(field.isAccessible());
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
