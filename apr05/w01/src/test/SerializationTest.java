@@ -1,17 +1,15 @@
 package test;
 
-import com.company.library.Library;
 import com.company.library.Utils.DataManager;
 import com.company.library.models.Book;
+import com.company.library.models.Model;
+import com.company.library.models.ModelInterface;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.*;
-import java.util.Collection;
+import java.lang.reflect.Proxy;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by Arch on 10.04.2017.
@@ -26,28 +24,12 @@ public class SerializationTest {
     }
 
     @Test
-    public void testDeserializationBook() {
-        File file = mock(File.class);
-        FileReader fileReader =  mock(FileReader.class);
-        BufferedReader bufferedReader = mock(BufferedReader.class);
+    public void bookToXmlTest() {
+        ModelInterface book = (ModelInterface) Proxy.newProxyInstance(
+            Book.class.getClassLoader(), Model.class.getInterfaces(),
+            new ProxyModel());
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        try (BufferedReader br = new BufferedReader(new FileReader("com_company_library_models_Book.txt"))) {
-            stringBuilder.append(br.readLine());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            when(bufferedReader.readLine()).thenReturn(stringBuilder.toString());
-//            Collection<Book> collection = dataManager.uDeserialize(bufferedReader.readLine());
-//            Book book = collection.iterator().next();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        assertTrue(book.toXML().equals("this is xml"));
     }
 
 

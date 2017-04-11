@@ -18,7 +18,7 @@ import java.lang.reflect.Modifier;
 /**
  * Created by eku on 05.04.17.
  */
-public abstract class Model implements Cloneable, Externalizable {
+public abstract class Model implements Cloneable, Externalizable, ModelInterface {
     @Override
     public Model clone() throws CloneNotSupportedException {
         return (Model) super.clone();
