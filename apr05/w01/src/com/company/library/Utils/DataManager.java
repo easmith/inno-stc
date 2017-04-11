@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by eku on 05.04.17.
  */
-public class DataManager {
+public class DataManager implements DataManagerInterface {
 
 
     public static <T extends Externalizable> void uSerialize(Set<T> objects) {
