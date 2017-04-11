@@ -3,6 +3,7 @@ package ru.easmith.FileChecker;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -17,7 +18,7 @@ public class ResourceParser {
      * @param wordSet Набор вхождений
      * @return
      */
-    public static Result parse(String resourceName, WordSet wordSet) {
+    public static Result parse(String resourceName, WordSet wordSet, Lock lockerFromMain) {
         String word = new String();
         InputStream source = null;
         try {
@@ -38,13 +39,13 @@ public class ResourceParser {
                     return new Result(resourceName, word, Result.Results.BAD_WORD);
                 }
 
-                synchronized (wordSet) {
-                    if (wordSet.contains(word)) {
-                        wordSet.isDuplicateFound = true;
-                        return new Result(resourceName, word, Result.Results.DUPLICATE);
-                    }
-                    wordSet.add(word);
-                }
+//                synchronized (wordSet) {
+//                    if (wordSet.contains(word)) {
+//                        wordSet.isDuplicateFound = true;
+//                        return new Result(resourceName, word, Result.Results.DUPLICATE);
+//                    }
+//                    wordSet.add(word);
+//                }
 
 //                wordSet.lock.lock();  // block until condition holds
 //                try {
@@ -56,6 +57,17 @@ public class ResourceParser {
 //                } finally {
 //                    wordSet.lock.unlock();
 //                }
+
+                lockerFromMain.lock();  // block until condition holds
+                try {
+                    if (wordSet.contains(word)) {
+                        wordSet.isDuplicateFound = true;
+                        return new Result(resourceName, word, Result.Results.DUPLICATE);
+                    }
+                    wordSet.add(word);
+                } finally {
+                    lockerFromMain.unlock();
+                }
             }
         } catch (NullPointerException e) {
             return new Result(resourceName, word, Result.Results.CANT_OPEN);

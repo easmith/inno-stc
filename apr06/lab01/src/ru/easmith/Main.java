@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Main {
@@ -28,9 +29,10 @@ public class Main {
 
         ArrayList<Future> futures = new ArrayList<>();
         ExecutorService threadPool = Executors.newCachedThreadPool();
+        ReentrantLock locker = new ReentrantLock();
         for (String resource :
                 resources) {
-            futures.add(threadPool.submit(new FileChecker(resource)));
+            futures.add(threadPool.submit(new FileChecker(resource, locker)));
         }
 
         for (Future future :

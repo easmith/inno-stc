@@ -45,7 +45,7 @@ public class MainTest {
     @Test
     public void resourceParserTest() {
         WordSet wordSet = new WordSet();
-        ResourceParser.parse("texts/file0.txt", wordSet);
+        ResourceParser.parse("texts/file0.txt", wordSet, new ReentrantLock());
 
         assertEquals(10000, wordSet.size());
     }
