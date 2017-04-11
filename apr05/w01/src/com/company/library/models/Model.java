@@ -1,5 +1,6 @@
 package com.company.library.models;
 
+import org.mockito.internal.util.reflection.Fields;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -57,12 +58,27 @@ public abstract class Model implements Cloneable, Externalizable {
 
                 field.setAccessible(true);
                 if (field.getType().getName().equals("com.company.library.models.Book")) {
-                    field.get(this).getClass().getDeclaredMethod("toXML");
-//                    fieldElem.appendChild(doc.createTextNode());
+                    Method methodFields = field.get(this).getClass().getMethod("getFields", Document.class);
+                    Method methodMethods = field.get(this).getClass().getMethod("getMethods", Document.class);
+                    fieldElem.appendChild((Element)methodFields.invoke(field.get(this), doc));
+                    fieldElem.appendChild((Element)methodMethods.invoke(field.get(this), doc));
+                } if (field.getType().getName().equals("com.company.library.models.BookInstance")) {
+                    Method methodFields = field.get(this).getClass().getMethod("getFields", Document.class);
+                    Method methodMethods = field.get(this).getClass().getMethod("getMethods", Document.class);
+                    fieldElem.appendChild((Element)methodFields.invoke(field.get(this), doc));
+                    fieldElem.appendChild((Element)methodMethods.invoke(field.get(this), doc));
+                } if (field.getType().getName().equals("com.company.library.models.Booking")) {
+                    Method methodFields = field.get(this).getClass().getMethod("getFields", Document.class);
+                    Method methodMethods = field.get(this).getClass().getMethod("getMethods", Document.class);
+                    fieldElem.appendChild((Element) methodFields.invoke(field.get(this), doc));
+                    fieldElem.appendChild((Element) methodMethods.invoke(field.get(this), doc));
                 } else {
-                    fieldElem.appendChild(doc.createTextNode(field.get(this).toString()));
+                    if (field.get(this) != null) {
+                        fieldElem.appendChild(doc.createTextNode(field.get(this).toString()));
+                    } else {
+                        fieldElem.appendChild(doc.createTextNode("null"));
+                    }
                 }
-
 
                 fieldsElem.appendChild(fieldElem);
             }

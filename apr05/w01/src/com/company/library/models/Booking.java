@@ -1,9 +1,16 @@
 package com.company.library.models;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.*;
 import java.util.Date;
 
 /**
@@ -28,6 +35,44 @@ public class Booking extends Model {
         this.reader = null;
         this.startDate = null;
         this.returnDate = null;
+    }
+
+    public String toXML() {
+        String xml = "";
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.newDocument();
+
+            // root element
+            Element rootElement = doc.createElement("Booking");
+            doc.appendChild(rootElement);
+
+            Element fieldsElem = this.getFields(doc);
+            rootElement.appendChild(fieldsElem);
+
+            Element methodsElem = this.getMethods(doc);
+            rootElement.appendChild(methodsElem);
+
+            DOMSource domSource = new DOMSource(doc);
+            StringWriter writer = new StringWriter();
+            StreamResult result = new StreamResult(writer);
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.transform(domSource, result);
+            writer.flush();
+
+            xml = writer.toString();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return xml;
     }
 
     public BookInstance getBookInstance() {
