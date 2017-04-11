@@ -2,6 +2,11 @@ import org.junit.jupiter.api.Test;
 import ru.easmith.FileChecker.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,5 +53,29 @@ public class MainTest {
         ResourceParser.parse("texts/file0.txt", wordSet, new ReentrantLock());
 
         assertEquals(10000, wordSet.size());
+    }
+
+    @Test
+    public void founDuplicate() {
+        ReentrantLock locker = new ReentrantLock();
+        String[] resources = {"texts/file0.txt", "texts/file99.txt"};
+
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        ArrayList<Future> futures = new ArrayList<>();
+        for (String resource :
+                resources) {
+            futures.add(threadPool.submit(new FileChecker(resource, locker)));
+        }
+
+        for (Future future :
+                futures) {
+            try {
+                assertEquals("texts/file99.txt: дубликат 'ГНюТЦФиц'", futures.get(1).get().toString());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
