@@ -43,7 +43,7 @@ public class MainTest {
 
     @Test
     public void resourceParserTest() {
-        WordSet wordSet = new WordSet();
+        ConcurrentWordSet wordSet = new ConcurrentWordSet();
         ResourceParser.parse("texts/file0.txt", wordSet);
 
         assertEquals(10000, wordSet.size());

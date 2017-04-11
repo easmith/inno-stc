@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
  * Created by eku on 06.04.17.
  */
 public class FileChecker implements Callable {
-    private static WordSet<String> wordSet = new WordSet<>();
+    private static ConcurrentWordSet<String> wordSet = new ConcurrentWordSet<>();
     private String resourceName;
 
     public FileChecker(String resourceName) {

@@ -16,7 +16,7 @@ public class ResourceParser {
      * @param wordSet Набор вхождений
      * @return
      */
-    public static Result parse(String resourceName, WordSet wordSet) {
+    public static Result parse(String resourceName, ConcurrentWordSet wordSet) {
         String word = new String();
         InputStream source = null;
         try {
