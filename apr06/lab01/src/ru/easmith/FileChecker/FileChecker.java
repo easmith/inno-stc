@@ -14,8 +14,9 @@ public class FileChecker implements Runnable {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         Result result = ResourceParser.parse(this.resourceName, wordSet);
+//        System.out.println(result);
         pool.setComplete(result);
     }
 }

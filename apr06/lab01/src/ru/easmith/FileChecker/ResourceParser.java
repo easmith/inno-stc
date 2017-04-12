@@ -43,6 +43,15 @@ public class ResourceParser {
                     }
                     wordSet.add(word);
                 }
+
+//                wordSet.lock.lock();
+//                if (wordSet.contains(word)) {
+//                    wordSet.isDuplicateFound = true;
+//                    wordSet.lock.unlock();
+//                    return new Result(resourceName, word, Result.Results.DUPLICATE);
+//                }
+//                wordSet.add(word);
+//                wordSet.lock.unlock();
             }
         } catch (NullPointerException e) {
             return new Result(resourceName, word, Result.Results.CANT_OPEN);
