@@ -26,13 +26,13 @@ public class MainTest {
         Consumer consumer = new Consumer(monitor);
 
         // i == 1 чтобы не выводилось сообщение
-        consumer.putNumber(1, 1);
-        consumer.putNumber(1, 1);
+        consumer.putNumber(1);
+        consumer.putNumber(1);
 
         assertEquals(1, monitor.numbers.size());
 
-        consumer.putNumber(1, 2);
-        consumer.putNumber(1, 3);
+        consumer.putNumber(2);
+        consumer.putNumber(3);
 
         assertEquals(3, monitor.numbers.size());
 

@@ -11,13 +11,15 @@ import java.util.Map.Entry;
  */
 public class Consumer implements Runnable {
     protected MyNumber monitor;
+    protected static int i = 0;
+
     public Consumer(MyNumber monitor) {
         this.monitor = monitor;
     }
 
-    public void putNumber (int i, int number) {
+    public void putNumber (int number) {
         monitor.numbers.put(number, true);
-        if (i % 5 == 0) {
+        if (i++ % 5 == 0) {
             for (Entry entry:
                     monitor.numbers.entrySet()) {
                 System.out.println(entry.getKey() + "=>" + entry.getValue());
@@ -28,7 +30,6 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        int i = 0;
         while (true) {
             synchronized (monitor) {
                 try {
@@ -36,12 +37,12 @@ public class Consumer implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                this.putNumber(i, monitor.number);
+                this.putNumber(monitor.number);
+
                 if (monitor.numbers.size() == 100) {
                     break;
                 }
             }
-            i++;
         }
     }
 }
