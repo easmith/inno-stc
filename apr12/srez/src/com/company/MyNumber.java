@@ -7,5 +7,5 @@ import java.util.HashMap;
  */
 public class MyNumber {
     public volatile int number;
-    protected HashMap<Integer, Boolean> numbers = new HashMap<>();
+    public HashMap<Integer, Boolean> numbers = new HashMap<>();
 }

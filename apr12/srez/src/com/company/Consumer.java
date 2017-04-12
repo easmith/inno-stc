@@ -15,6 +15,17 @@ public class Consumer implements Runnable {
         this.monitor = monitor;
     }
 
+    public void putNumber (int i, int number) {
+        monitor.numbers.put(number, true);
+        if (i % 5 == 0) {
+            for (Entry entry:
+                    monitor.numbers.entrySet()) {
+                System.out.println(entry.getKey() + "=>" + entry.getValue());
+            }
+            System.out.println("SIZE: " + monitor.numbers.size());
+        }
+    }
+
     @Override
     public void run() {
         int i = 0;
@@ -25,18 +36,12 @@ public class Consumer implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                monitor.numbers.put(monitor.number, true);
-                if (i % 5 == 0) {
-                    for (Entry entry:
-                            monitor.numbers.entrySet()) {
-                        System.out.println(entry.getKey() + "=>" + entry.getValue());
-                    }
-                    System.out.println("SIZE: " + monitor.numbers.size());
-                }
+                this.putNumber(i, monitor.number);
                 if (monitor.numbers.size() == 100) {
                     break;
                 }
             }
+            i++;
         }
     }
 }

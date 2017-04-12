@@ -15,7 +15,7 @@ public class Producer implements Runnable {
         while (true) {
             synchronized (monitor) {
                 if (monitor.numbers.size() == 100) {
-                    System.out.println("break");
+                    System.out.println("Total size:" + monitor.numbers.size());
                     break;
                 }
                 monitor.number = (int) (Math.random() * 100);
@@ -23,7 +23,7 @@ public class Producer implements Runnable {
             }
 
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
