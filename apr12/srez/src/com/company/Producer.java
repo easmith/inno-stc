@@ -10,6 +10,10 @@ public class Producer implements Runnable {
         this.monitor = monitor;
     }
 
+    public void setNumber(int number) {
+        monitor.number = number;
+    }
+
     @Override
     public void run() {
         while (true) {
@@ -18,7 +22,8 @@ public class Producer implements Runnable {
                     System.out.println("Total size:" + monitor.numbers.size());
                     break;
                 }
-                monitor.number = (int) (Math.random() * 100);
+                setNumber((int) (Math.random() * 100));
+
                 monitor.notifyAll();
             }
 

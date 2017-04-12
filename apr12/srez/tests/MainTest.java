@@ -10,6 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class MainTest {
 
+    public void setNumberTest() {
+        MyNumber monitor = new MyNumber();
+
+        Producer producer = new Producer(monitor);
+        producer.setNumber(42);
+
+        assertEquals(42, monitor.number);
+    }
+
     @Test
     public void putNumberTest() {
         MyNumber monitor = new MyNumber();
