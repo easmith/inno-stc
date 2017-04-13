@@ -17,28 +17,30 @@ public class Main {
         Library library = new Library();
 
         Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
-        Book book2 = new Book("Snowden", "How to hack pentagon", 2017, "345112isbn");
-        Book book3 = new Book("Author", "Secret Book", 2010, "345121isbn");
 
-//        // закупаем две книги
-        library.buyBook(book1, 5);
-        library.buyBook(book2, 5);
+//        System.out.println(book1.toXML());
+//        Book book2 = new Book("Snowden", "How to hack pentagon", 2017, "345112isbn");
+//        Book book3 = new Book("Author", "Secret Book", 2010, "345121isbn");
 //
-        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
-        Reader sarah = new Reader("Sarah", "Connor", "Human", 12345679);
+////        // закупаем две книги
+//        library.buyBook(book1, 5);
+//        library.buyBook(book2, 5);
+////
+//        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
+//        Reader sarah = new Reader("Sarah", "Connor", "Human", 12345679);
+//
+//        // берем кнги
+//        library.takeBook(john, book1);
+//        library.takeBook(sarah, book1);
+//        library.takeBook(sarah, book2);
+//        library.takeBook(sarah, book3);
 
-        // берем кнги
-        library.takeBook(john, book1);
-        library.takeBook(sarah, book1);
-        library.takeBook(sarah, book2);
-        library.takeBook(sarah, book3);
-
-        library.returnBook(sarah, book2);
-
-        for (Booking booking:
-                library.getBookings()) {
-            System.out.println(booking.toXML());
-        }
+//        library.returnBook(sarah, book2);
+//
+//        for (Booking booking:
+//                library.getBookings()) {
+//            System.out.println(booking.toXML());
+//        }
 
 //        library.showAllData();
 //

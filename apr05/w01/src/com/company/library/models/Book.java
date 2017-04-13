@@ -79,9 +79,6 @@ public class Book extends Model {
             Element fieldsElem = this.getFields(doc);
             rootElement.appendChild(fieldsElem);
 
-            Element methodsElem = this.getMethods(doc);
-            rootElement.appendChild(methodsElem);
-
             DOMSource domSource = new DOMSource(doc);
             StringWriter writer = new StringWriter();
             StreamResult result = new StreamResult(writer);

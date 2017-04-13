@@ -42,36 +42,18 @@ public abstract class Model implements Cloneable, Externalizable, ModelInterface
             fieldsElem = doc.createElement("Fields");
             for (Field field :
                     getClass().getDeclaredFields()) {
-                Element fieldElem = doc.createElement("Field");
-
-                Attr attrName = doc.createAttribute("name");
-                attrName.setValue(field.getName());
-                fieldElem.setAttributeNode(attrName);
-
-                Attr attrType = doc.createAttribute("type");
-                attrType.setValue(field.getType().getName());
-                fieldElem.setAttributeNode(attrType);
-
-                Attr attrAccess = doc.createAttribute("modifiers");
-                attrAccess.setValue(Modifier.toString(field.getModifiers()));
-                fieldElem.setAttributeNode(attrAccess);
+                Element fieldElem = doc.createElement(field.getName());
 
                 field.setAccessible(true);
                 if (field.getType().getName().equals("com.company.library.models.Book")) {
                     Method methodFields = field.get(this).getClass().getMethod("getFields", Document.class);
-                    Method methodMethods = field.get(this).getClass().getMethod("getMethods", Document.class);
                     fieldElem.appendChild((Element)methodFields.invoke(field.get(this), doc));
-                    fieldElem.appendChild((Element)methodMethods.invoke(field.get(this), doc));
                 } if (field.getType().getName().equals("com.company.library.models.BookInstance")) {
                     Method methodFields = field.get(this).getClass().getMethod("getFields", Document.class);
-                    Method methodMethods = field.get(this).getClass().getMethod("getMethods", Document.class);
                     fieldElem.appendChild((Element)methodFields.invoke(field.get(this), doc));
-                    fieldElem.appendChild((Element)methodMethods.invoke(field.get(this), doc));
                 } if (field.getType().getName().equals("com.company.library.models.Booking")) {
                     Method methodFields = field.get(this).getClass().getMethod("getFields", Document.class);
-                    Method methodMethods = field.get(this).getClass().getMethod("getMethods", Document.class);
                     fieldElem.appendChild((Element) methodFields.invoke(field.get(this), doc));
-                    fieldElem.appendChild((Element) methodMethods.invoke(field.get(this), doc));
                 } else {
                     if (field.get(this) != null) {
                         fieldElem.appendChild(doc.createTextNode(field.get(this).toString()));
