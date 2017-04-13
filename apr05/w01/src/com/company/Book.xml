@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Book xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/Arch/Documents/Inno/inno-stc/apr05/w01/src/com/company/Book.xsd">
+	<Fields>
+		<Field name="serialVersionUID">2</Field>
+		<Field name="author">schildt</Field>
+		<Field name="title">Intro to Java</Field>
+		<Field name="year">2017</Field>
+		<Field name="isbn">345123isbn</Field>
+	</Fields>
+</Book>
