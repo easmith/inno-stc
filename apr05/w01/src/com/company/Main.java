@@ -27,12 +27,17 @@ public class Main {
         library.buyBook(book2, 5);
         library.buyBook(book3, 5);
 
-        Reader john = new Reader("John", "Connor", "Androvich", "user1@server.ru", 12345678);
-        Reader sarah = new Reader("Sarah", "Connor", "Human", "user2@server.ru", 12345679);
+        Reader john = new Reader("John", "Connor", "Androvich", "john@server.ru", 12345678);
+        Reader sarah = new Reader("Sarah", "Connor", "Human", "sarah@server.ru", 12345679);
+        Reader terminator = new Reader("Terminator", "t1000", "lastName", "terminator@server.ru", 12345670);
 
         // берем кнги
         library.takeBook(john, book1, 10);
         library.takeBook(sarah, book2, 20);
+        library.takeBook(sarah, book3, 50);
+
+
+        MailNotifer.checkBooking(library.getBookings());
 
 
 //        System.out.println(book1.toXML());

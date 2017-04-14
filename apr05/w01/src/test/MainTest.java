@@ -55,14 +55,14 @@ class MainTest {
         Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
         Book book2 = new Book("Snowden", "How to hack pentagon", 2017, "345112isbn");
 
-        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
+        Reader john = new Reader("John", "Connor", "Androvich", "email", 12345678);
 
         library.buyBook(book1, 5);
 
         assertEquals(0, library.getBookings().size());
         assertEquals(0, library.getReaders().size());
 
-        library.takeBook(john, book1);
+        library.takeBook(john, book1, 10);
 
         assertEquals(1, library.getBookings().size());
         assertEquals(4, library.getBookInstances().size());
@@ -82,12 +82,12 @@ class MainTest {
     public void takeBookOtherReaderTest() {
         Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
 
-        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
-        Reader sarah = new Reader("Sarah", "Connor", "Human", 12345679);
+        Reader john = new Reader("John", "Connor", "Androvich", "email",  12345678);
+        Reader sarah = new Reader("Sarah", "Connor", "Human","email", 12345679);
 
         library.buyBook(book1, 5);
 
-        library.takeBook(john, book1);
+        library.takeBook(john, book1, 10);
 
         assertTrue(!library.getReaders().contains(sarah));
 
@@ -103,11 +103,11 @@ class MainTest {
     public void returnBookTest() {
         Book book1 = new Book("schildt", "Intro to Java", 2017, "345123isbn");
 
-        Reader john = new Reader("John", "Connor", "Androvich", 12345678);
+        Reader john = new Reader("John", "Connor", "Androvich", "email",  12345678);
 
         library.buyBook(book1, 5);
 
-        library.takeBook(john, book1);
+        library.takeBook(john, book1, 10);
         library.returnBook(john, book1);
 
 
