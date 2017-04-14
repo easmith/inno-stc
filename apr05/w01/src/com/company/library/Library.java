@@ -1,21 +1,30 @@
 package com.company.library;
 
+import com.company.Main;
 import com.company.library.Utils.DataManager;
 import com.company.library.models.Book;
 import com.company.library.models.BookInstance;
 import com.company.library.models.Booking;
 import com.company.library.models.Reader;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.xml.DOMConfigurator;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 
 /**
  * Created by eku on 05.04.17.
  */
 public class Library {
+
+    static {
+//        DOMConfigurator.configure("log4j.xml");
+        PropertyConfigurator.configure("/home/eku/proj/stc/apr05/w01/log4j.properties");
+    }
+
+    private static final Logger LOGGER = Logger.getLogger(Library.class);
+
     private Set<Book> books;
     private Set<BookInstance> bookInstances;
     private Set<Booking> bookings;
@@ -50,16 +59,30 @@ public class Library {
             BookInstance bookInstance = new BookInstance(book, UUID.randomUUID());
             bookInstances.add(bookInstance);
         }
+//        LOGGER.debug(this);
     }
 
-    public void takeBook(Reader reader, Book book) {
+    public void takeBook(Reader reader, Book book, int days) {
         BookInstance bookInstance = null;
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+
+        cal.add(Calendar.DATE, -30);
+        Date startDate = cal.getTime();
+
+        cal.add(Calendar.DATE, days);
+        Date returnDate = cal.getTime();
+
+
+        System.out.println(startDate);
+        System.out.println(returnDate);
 
         for (BookInstance forBookInstance :
                 bookInstances) {
             if (forBookInstance.getBook().getIsbn() == book.getIsbn()) {
                 bookInstances.remove(forBookInstance);
-                bookings.add(new Booking(forBookInstance, reader, new Date(), new Date()));
+                bookings.add(new Booking(forBookInstance, reader, startDate, returnDate));
                 bookInstance = forBookInstance;
                 break;
             }

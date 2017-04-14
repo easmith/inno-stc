@@ -19,11 +19,14 @@ public class Reader extends Model {
     private String firstName;
     private String secondName;
     private String lastName;
+    private String email;
     private long passportNumber;
-    public Reader(String firstName, String secondName, String lastName, long passportNumber) {
+
+    public Reader(String firstName, String secondName, String lastName, String email, long passportNumber) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.lastName = lastName;
+        this.email = email;
         this.passportNumber = passportNumber;
     }
 

@@ -1,6 +1,5 @@
 package com.company.library.models;
 
-import org.mockito.internal.util.reflection.Fields;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

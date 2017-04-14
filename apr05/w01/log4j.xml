@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+    <appender name="MyLogAppender" class="com.company.MyLogAppender">
+        <param name="user" value="root"/>
+        <param name="pass" value="password"/>
+        <param name="to" value="password"/>
+
+        <layout class="com.company.MyLogLayout">
+        </layout>
+    </appender>
+
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="com.company.MyLogLayout" />
+    </root>
+
+</log4j:configuration>
