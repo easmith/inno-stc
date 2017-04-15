@@ -94,8 +94,9 @@ public class Result implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        return dbm.execute("insert into results (id, user_id, category_id) value (?, ?, ?)",
+        dbm.execute("insert into results (id, user_id, category_id) value (?, ?, ?)",
                 this.id, this.userId, this.categoryId);
+        return true;
     }
 
     @Override

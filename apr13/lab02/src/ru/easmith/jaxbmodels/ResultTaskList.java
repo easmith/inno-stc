@@ -74,7 +74,7 @@ public class ResultTaskList implements DBInterface {
         boolean result = true;
         for (ResultTask resultTask :
                 this.getResultTask()) {
-            result = result && resultTask.toDB();
+            result = result & resultTask.toDB();
         }
         return result;
     }

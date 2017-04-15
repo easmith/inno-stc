@@ -121,11 +121,12 @@ public class Category implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        boolean result = dbm.execute("insert into categories (id, name) value (?, ?)", this.id, this.name);
+        dbm.execute("insert into categories (id, name) value (?, ?)", this.id, this.name);
+        boolean result = true;
 
         for (Task task :
                 this.getTasks()) {
-            result = result && task.toDB();
+            result = result & task.toDB();
         }
         return result;
     }

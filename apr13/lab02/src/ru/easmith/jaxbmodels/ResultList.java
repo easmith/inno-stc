@@ -74,7 +74,7 @@ public class ResultList implements DBInterface {
         boolean res = true;
         for (Result result :
                 this.getResult()) {
-            res = res && result.toDB();
+            res = res & result.toDB();
         }
         return res;
     }

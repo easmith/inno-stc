@@ -2,7 +2,10 @@
 package ru.easmith.jaxbmodels;
 
 import ru.easmith.DBInterface;
+import ru.easmith.DatabaseManager;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.*;
@@ -71,13 +74,28 @@ public class UserList implements DBInterface {
         boolean result = true;
         for (User user :
                 this.getUser()) {
-            result = result && user.toDB();
+            result = result & user.toDB();
         }
         return result;
     }
 
     @Override
     public boolean fromDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        ResultSet resultSet = dbm.executeQuery("select * from users");
+        try {
+            while(resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setLogin(resultSet.getString("login"));
+                user.setName(resultSet.getString("name"));
+                user.setPassword(resultSet.getString("password"));
+                this.getUser().add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return true;
     }
 }

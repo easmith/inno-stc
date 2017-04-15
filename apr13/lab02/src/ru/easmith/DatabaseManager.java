@@ -3,6 +3,7 @@ package ru.easmith;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
+import java.util.Arrays;
 
 /**
  * Created by eku on 15.04.17.
@@ -89,7 +90,7 @@ public class DatabaseManager {
             PreparedStatement preparedStatement = getPreparedStatement(sql, params);
             return preparedStatement.execute();
         } catch (SQLException e) {
-            LOGGER.error("Ошибка при выполении запроса: " + e.getMessage());
+            LOGGER.error("Ошибка при выполении запроса: " + e);
         }
         return false;
     }

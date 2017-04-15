@@ -92,7 +92,7 @@ public class CategoryList implements DBInterface {
         boolean result = true;
         for (Category category :
                 this.getCategory()) {
-            result = result && category.toDB();
+            result = result & category.toDB();
         }
         return result;
     }

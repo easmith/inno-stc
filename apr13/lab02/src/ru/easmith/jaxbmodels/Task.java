@@ -143,7 +143,7 @@ public class Task implements DBInterface {
         boolean result = dbm.execute("insert into tasks (id, category_id, text) value (?, ?, ?)", this.id, this.categoryId, this.text);
         for (Answer answer :
                 this.getAnswers()) {
-            result = result && answer.toDB();
+            result = result & answer.toDB();
         }
         return result;
     }
