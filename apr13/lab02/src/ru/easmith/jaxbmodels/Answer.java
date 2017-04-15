@@ -1,6 +1,9 @@
 
 package ru.easmith.jaxbmodels;
 
+import ru.easmith.DatabaseManager;
+import ru.easmith.DBInterface;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,19 +11,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Answer complex type.
+ * <p>Java class for answer complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Answer">
+ * &lt;complexType name="answer">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="task_id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="text" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="isCorrect" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="is_correct" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,19 +33,20 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Answer", propOrder = {
+@XmlType(name = "answer", propOrder = {
     "id",
     "taskId",
     "text",
     "isCorrect"
 })
-public class Answer {
+public class Answer implements DBInterface {
 
     protected int id;
     @XmlElement(name = "task_id")
     protected int taskId;
     @XmlElement(required = true)
     protected String text;
+    @XmlElement(name = "is_correct")
     protected boolean isCorrect;
 
     /**
@@ -117,4 +121,15 @@ public class Answer {
         this.isCorrect = value;
     }
 
+    @Override
+    public boolean toDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        return dbm.execute("insert into answers (id, task_id, text, is_correct) value (?, ?, ?, ?)",
+                this.id, this.taskId, this.text, this.isCorrect);
+    }
+
+    @Override
+    public boolean fromDB() {
+        return true;
+    }
 }

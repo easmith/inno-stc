@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.0">
-    <xsd:include schemaLocation="category.xsd" />
+    <xsd:include schemaLocation="result_task.xsd" />
 
-    <xsd:complexType name="categoryList">
+    <xsd:complexType name="resultTaskList">
         <xsd:sequence>
-            <xsd:element name="category" type="category" maxOccurs="unbounded"/>
+            <xsd:element name="resultTask" type="result_task" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 

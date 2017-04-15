@@ -1,19 +1,21 @@
 
 package ru.easmith.jaxbmodels;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import ru.easmith.DatabaseManager;
+import ru.easmith.DBInterface;
+
+import javax.xml.bind.annotation.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 /**
- * <p>Java class for ResultTask complex type.
+ * <p>Java class for result_task complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ResultTask">
+ * &lt;complexType name="result_task">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,14 +31,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ResultTask", propOrder = {
+@XmlType(name = "result_task", propOrder = {
     "id",
     "resultId",
     "taskId",
     "answers"
 })
-public class ResultTask {
+public class ResultTask implements DBInterface {
 
     protected int id;
     @XmlElement(name = "result_id")
@@ -118,4 +121,15 @@ public class ResultTask {
         this.answers = value;
     }
 
+    @Override
+    public boolean toDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        return dbm.execute("insert into result_tasks (id, result_id, task_id, answers) value (?, ?, ?, ?)",
+                this.id, this.resultId, this.taskId, this.answers);
+    }
+
+    @Override
+    public boolean fromDB() {
+        return true;
+    }
 }

@@ -1,6 +1,11 @@
 
 package ru.easmith.jaxbmodels;
 
+import ru.easmith.DatabaseManager;
+import ru.easmith.DBInterface;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -10,19 +15,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Task complex type.
+ * <p>Java class for task complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Task">
+ * &lt;complexType name="task">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="text" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="categoryId" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="answers" type="{}Answer" maxOccurs="unbounded"/>
+ *         &lt;element name="answers" type="{}answer" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,7 +43,7 @@ import javax.xml.bind.annotation.XmlType;
     "categoryId",
     "answers"
 })
-public class Task {
+public class Task implements DBInterface {
 
     protected int id;
     @XmlElement(required = true)
@@ -132,4 +137,33 @@ public class Task {
         return this.answers;
     }
 
+    @Override
+    public boolean toDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        boolean result = dbm.execute("insert into tasks (id, category_id, text) value (?, ?, ?)", this.id, this.categoryId, this.text);
+        for (Answer answer :
+                this.getAnswers()) {
+            result = result && answer.toDB();
+        }
+        return result;
+    }
+
+    @Override
+    public boolean fromDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        ResultSet resultSet = dbm.executeQuery("select * from answers where task_id = ?", this.getId());
+        try {
+            while(resultSet.next()) {
+                Answer answer = new Answer();
+                answer.setId(resultSet.getInt("id"));
+                answer.setTaskId(resultSet.getInt("task_id"));
+                answer.setText(resultSet.getString("text"));
+                answer.setIsCorrect(resultSet.getBoolean("is_correct"));
+                this.getAnswers().add(answer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 }

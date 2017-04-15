@@ -1,26 +1,25 @@
 
 package ru.easmith.jaxbmodels;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import ru.easmith.DatabaseManager;
+import ru.easmith.DBInterface;
+
+import javax.xml.bind.annotation.*;
 
 
 /**
- * <p>Java class for Result complex type.
+ * <p>Java class for result complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Result">
+ * &lt;complexType name="result">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="result_id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="task_id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="answers" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="user_id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="category_id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,22 +28,20 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Result", propOrder = {
+@XmlType(name = "result", propOrder = {
     "id",
-    "resultId",
-    "taskId",
-    "answers"
+    "userId",
+    "categoryId"
 })
-public class Result {
+public class Result implements DBInterface {
 
     protected int id;
-    @XmlElement(name = "result_id")
-    protected int resultId;
-    @XmlElement(name = "task_id")
-    protected int taskId;
-    @XmlElement(required = true)
-    protected String answers;
+    @XmlElement(name = "user_id")
+    protected int userId;
+    @XmlElement(name = "category_id")
+    protected int categoryId;
 
     /**
      * Gets the value of the id property.
@@ -63,59 +60,46 @@ public class Result {
     }
 
     /**
-     * Gets the value of the resultId property.
+     * Gets the value of the userId property.
      * 
      */
-    public int getResultId() {
-        return resultId;
+    public int getUserId() {
+        return userId;
     }
 
     /**
-     * Sets the value of the resultId property.
+     * Sets the value of the userId property.
      * 
      */
-    public void setResultId(int value) {
-        this.resultId = value;
+    public void setUserId(int value) {
+        this.userId = value;
     }
 
     /**
-     * Gets the value of the taskId property.
+     * Gets the value of the categoryId property.
      * 
      */
-    public int getTaskId() {
-        return taskId;
+    public int getCategoryId() {
+        return categoryId;
     }
 
     /**
-     * Sets the value of the taskId property.
+     * Sets the value of the categoryId property.
      * 
      */
-    public void setTaskId(int value) {
-        this.taskId = value;
+    public void setCategoryId(int value) {
+        this.categoryId = value;
     }
 
-    /**
-     * Gets the value of the answers property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAnswers() {
-        return answers;
+    @Override
+    public boolean toDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        return dbm.execute("insert into results (id, user_id, category_id) value (?, ?, ?)",
+                this.id, this.userId, this.categoryId);
     }
 
-    /**
-     * Sets the value of the answers property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAnswers(String value) {
-        this.answers = value;
+    @Override
+    public boolean fromDB() {
+        return true;
     }
-
 }

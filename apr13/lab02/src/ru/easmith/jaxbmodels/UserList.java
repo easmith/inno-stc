@@ -1,22 +1,24 @@
 
 package ru.easmith.jaxbmodels;
 
+import ru.easmith.DBInterface;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.*;
 
 
 /**
- * <p>Java class for Categories complex type.
+ * <p>Java class for userList complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Categories">
+ * &lt;complexType name="userList">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="Category" type="{}Category" maxOccurs="unbounded"/>
+ *         &lt;element name="user" type="{}user" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,41 +29,55 @@ import javax.xml.bind.annotation.*;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Categories", propOrder = {
-    "category"
+@XmlType(name = "userList", propOrder = {
+    "user"
 })
-public class Categories {
+public class UserList implements DBInterface {
 
-    @XmlElement(name = "category", required = true)
-    protected List<Category> category;
+    @XmlElement(required = true)
+    protected List<User> user;
 
     /**
-     * Gets the value of the category property.
+     * Gets the value of the user property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the category property.
+     * This is why there is not a <CODE>set</CODE> method for the user property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getCategory().add(newItem);
+     *    getUser().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Category }
+     * {@link User }
      * 
      * 
      */
-    public List<Category> getCategory() {
-        if (category == null) {
-            category = new ArrayList<Category>();
+    public List<User> getUser() {
+        if (user == null) {
+            user = new ArrayList<User>();
         }
-        return this.category;
+        return this.user;
     }
 
+    @Override
+    public boolean toDB() {
+        boolean result = true;
+        for (User user :
+                this.getUser()) {
+            result = result && user.toDB();
+        }
+        return result;
+    }
+
+    @Override
+    public boolean fromDB() {
+        return true;
+    }
 }

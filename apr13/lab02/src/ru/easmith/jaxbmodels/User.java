@@ -1,6 +1,9 @@
 
 package ru.easmith.jaxbmodels;
 
+import ru.easmith.DatabaseManager;
+import ru.easmith.DBInterface;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,12 +11,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for User complex type.
+ * <p>Java class for user complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="User">
+ * &lt;complexType name="user">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -21,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="isAdmin" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="is_admin" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
     "password",
     "isAdmin"
 })
-public class User {
+public class User implements DBInterface {
 
     protected int id;
     @XmlElement(required = true)
@@ -47,6 +50,7 @@ public class User {
     protected String login;
     @XmlElement(required = true)
     protected String password;
+    @XmlElement(name = "is_admin")
     protected boolean isAdmin;
 
     /**
@@ -153,4 +157,15 @@ public class User {
         this.isAdmin = value;
     }
 
+    @Override
+    public boolean toDB() {
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        return dbm.execute("insert into users (id, login, name, password, is_admin) value (?, ?, ?, ?, ?)",
+                this.id, this.login, this.name, this.password, this.isAdmin);
+    }
+
+    @Override
+    public boolean fromDB() {
+        return true;
+    }
 }
