@@ -6,4 +6,4 @@
 
 w** - idea project практик на занятии
 
-еask** - idea project самостоятельных занятий
+lab** - idea project самостоятельных занятий

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.0">
+
+<xsd:complexType name="answer">
+    <xsd:sequence>
+        <xsd:element name="id" type="xsd:int"/>
+        <xsd:element name="task_id" type="xsd:int"/>
+        <xsd:element name="text" type="xsd:string"/>
+        <xsd:element name="is_correct" type="xsd:boolean"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

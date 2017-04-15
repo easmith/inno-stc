@@ -1,5 +1,7 @@
 package ru.easmith.models;
 
+import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +17,8 @@ public class Task {
 
     private int category_id;
 
+    private ArrayList answerList;
+
     public String getText() {
         return text;
     }
@@ -22,4 +26,6 @@ public class Task {
     public void setText(String text) {
         this.text = text;
     }
+
+
 }

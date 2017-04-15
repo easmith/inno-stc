@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="2.0">
+    <xsd:include schemaLocation="task.xsd" />
+
+    <xsd:complexType name="category">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="Tasks" type="task" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
