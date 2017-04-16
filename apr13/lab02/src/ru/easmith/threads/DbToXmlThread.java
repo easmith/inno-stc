@@ -6,10 +6,12 @@ import ru.easmith.DatabaseManager;
 import ru.easmith.Main;
 import ru.easmith.XmlManager;
 
+import java.util.concurrent.Callable;
+
 /**
  * Created by eku on 16.04.17.
  */
-public class DbToXmlThread implements Runnable {
+public class DbToXmlThread implements Callable {
     protected static final Logger LOGGER = Logger.getLogger(DbToXmlThread.class);
 
     private DBInterface object;
@@ -21,10 +23,11 @@ public class DbToXmlThread implements Runnable {
     }
 
     @Override
-    public void run() {
+    public Boolean call() {
         LOGGER.trace("Старт потока для " + this.fileName);
         DatabaseManager.getInstance().restoreObject(this.object);
         XmlManager.exportObject(this.object, this.fileName);
         LOGGER.trace("Завершение потока для " + this.fileName);
+        return true;
     }
 }

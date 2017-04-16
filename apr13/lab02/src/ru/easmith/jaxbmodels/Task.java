@@ -169,4 +169,9 @@ public class Task implements DBInterface {
         }
         return true;
     }
+
+    @Override
+    public String[] getDepends() {
+        return null;
+    }
 }

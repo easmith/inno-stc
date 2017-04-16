@@ -134,4 +134,9 @@ public class ResultTask implements DBInterface {
     public boolean fromDB() {
         return true;
     }
+
+    @Override
+    public String[] getDepends() {
+        return null;
+    }
 }

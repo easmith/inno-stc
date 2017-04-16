@@ -151,4 +151,9 @@ public class Category implements DBInterface {
         }
         return true;
     }
+
+    @Override
+    public String[] getDepends() {
+        return null;
+    }
 }

@@ -98,4 +98,9 @@ public class ResultList implements DBInterface {
 
         return true;
     }
+
+    @Override
+    public String[] getDepends() {
+        return new String[]{UserList.class.getName(), CategoryList.class.getName()};
+    }
 }

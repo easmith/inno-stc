@@ -6,4 +6,5 @@ package ru.easmith;
 public interface DBInterface {
     boolean toDB();
     boolean fromDB();
+    String[] getDepends();
 }

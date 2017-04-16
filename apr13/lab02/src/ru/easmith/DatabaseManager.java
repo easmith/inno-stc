@@ -59,6 +59,29 @@ public class DatabaseManager {
         return preparedStatement;
     }
 
+    public void insertBatch(String sql, Object[][] objects) {
+        final int batchSize = 1000;
+        int count = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
+            for (Object[] object: objects) {
+                for (int i = 0; i < object.length; i++) {
+                    preparedStatement.setString(i + 1, object[i].toString());
+                }
+                preparedStatement.addBatch();
+                if(++count % batchSize == 0) {
+                    preparedStatement.executeBatch();
+                }
+            }
+            preparedStatement.executeBatch(); // insert remaining records
+            preparedStatement.close();
+        } catch (SQLException e) {
+            LOGGER.error("sql: " + e.getMessage());
+        }
+
+    }
+
     /**
      * Отключает проверку внешних ключей
      */

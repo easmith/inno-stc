@@ -71,12 +71,24 @@ public class ResultTaskList implements DBInterface {
 
     @Override
     public boolean toDB() {
-        boolean result = true;
+//        boolean result = true;
+//        for (ResultTask resultTask :
+//                this.getResultTask()) {
+//            result = result & resultTask.toDB();
+//        }
+//        return result;
+
+        Object[][] objects = new Object[this.getResultTask().size()][];
+        int i = 0;
         for (ResultTask resultTask :
                 this.getResultTask()) {
-            result = result & resultTask.toDB();
+            objects[i++] = new Object[]{resultTask.getId(), resultTask.getResultId(), resultTask.getTaskId(), resultTask.getAnswers()};
         }
-        return result;
+
+        DatabaseManager.getInstance().insertBatch("INSERT INTO result_tasks (id, result_id, task_id, answers) VALUE (?, ?, ?, ?) " +
+        "ON DUPLICATE KEY UPDATE answers = VALUES(answers)", objects);
+
+        return true;
     }
 
     @Override
@@ -98,5 +110,10 @@ public class ResultTaskList implements DBInterface {
         }
 
         return true;
+    }
+
+    @Override
+    public String[] getDepends() {
+        return new String[] {CategoryList.class.getName(), ResultList.class.getName()};
     }
 }
