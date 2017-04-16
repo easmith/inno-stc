@@ -124,7 +124,8 @@ public class Answer implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        dbm.execute("insert into answers (id, task_id, text, is_correct) value (?, ?, ?, ?)",
+        dbm.execute("INSERT INTO answers (id, task_id, text, is_correct) VALUE (?, ?, ?, ?) " +
+                        "ON DUPLICATE KEY UPDATE text = VALUES(text)",
                 this.id, this.taskId, this.text, this.isCorrect);
         return true;
     }

@@ -140,7 +140,10 @@ public class Task implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        boolean result = dbm.execute("insert into tasks (id, category_id, text) value (?, ?, ?)", this.id, this.categoryId, this.text);
+        dbm.execute("INSERT INTO tasks (id, category_id, text) VALUE (?, ?, ?) " +
+                "ON DUPLICATE KEY UPDATE text = VALUES(text)",
+                this.id, this.categoryId, this.text);
+        boolean result = true;
         for (Answer answer :
                 this.getAnswers()) {
             result = result & answer.toDB();

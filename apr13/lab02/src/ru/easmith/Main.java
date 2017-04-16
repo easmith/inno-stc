@@ -3,8 +3,12 @@ package ru.easmith;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import ru.easmith.jaxbmodels.*;
+import ru.easmith.threads.DbToXmlThread;
+import ru.easmith.threads.XmlToDbThread;
 
 import java.util.Collections;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
@@ -17,9 +21,11 @@ public class Main {
 
     public static void main(String args[]) {
         LOGGER.trace("Работу начал");
-        createXml();
-        xmlToDB();
-        dbToXml();
+//        createXml();
+//        xmlToDB();
+//        dbToXml();
+        dbToXmlMultiThread();
+        xmlToDbMultiThread();
         LOGGER.trace("Работу завершил");
     }
 
@@ -89,11 +95,13 @@ public class Main {
         ResultList resultList = (ResultList) XmlManager.importObject("resultList.xml", ResultList.class);
         ResultTaskList resultTaskList = (ResultTaskList) XmlManager.importObject("resultTaskList.xml", ResultTaskList.class);
 
-        DatabaseManager.getInstance().clearDB();
+//        DatabaseManager.getInstance().clearDB();
+//        DatabaseManager.getInstance().disableForeignKey();
         DatabaseManager.getInstance().storeObject(categoryList);
         DatabaseManager.getInstance().storeObject(userList);
         DatabaseManager.getInstance().storeObject(resultList);
         DatabaseManager.getInstance().storeObject(resultTaskList);
+//        DatabaseManager.getInstance().enableForeignKey();
     }
 
     /**
@@ -109,5 +117,27 @@ public class Main {
         XmlManager.exportObject(userList, "fromDB_userList.xml");
         XmlManager.exportObject(resultList, "fromDB_resultList.xml");
         XmlManager.exportObject(resultTaskList, "fromDB_resultTaskList.xml");
+    }
+
+    public static void dbToXmlMultiThread () {
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        threadPool.submit(new DbToXmlThread(new CategoryList(), "thread_categoryList.xml"));
+        threadPool.submit(new DbToXmlThread(new UserList(), "thread_userList.xml"));
+        threadPool.submit(new DbToXmlThread(new ResultList(), "thread_resultList.xml"));
+        threadPool.submit(new DbToXmlThread(new ResultTaskList(), "thread_resultTaskList.xml"));
+        threadPool.shutdown();
+    }
+
+    public static void xmlToDbMultiThread () {
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        DatabaseManager.getInstance().disableForeignKey();
+
+        threadPool.submit(new XmlToDbThread(CategoryList.class, "thread_categoryList.xml"));
+        threadPool.submit(new XmlToDbThread(UserList.class, "thread_userList.xml"));
+        threadPool.submit(new XmlToDbThread(ResultList.class, "thread_resultList.xml"));
+        threadPool.submit(new XmlToDbThread(ResultTaskList.class, "thread_resultTaskList.xml"));
+
+        DatabaseManager.getInstance().enableForeignKey();
+        threadPool.shutdown();
     }
 }

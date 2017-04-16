@@ -121,7 +121,9 @@ public class Category implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        dbm.execute("insert into categories (id, name) value (?, ?)", this.id, this.name);
+        dbm.execute("INSERT INTO categories (id, name) value (?, ?) " +
+                        "ON DUPLICATE KEY UPDATE name = VALUES(name)",
+                this.id, this.name);
         boolean result = true;
 
         for (Task task :
@@ -134,7 +136,7 @@ public class Category implements DBInterface {
     @Override
     public boolean fromDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        ResultSet resultSet = dbm.executeQuery("select * from tasks where category_id = ?", this.getId());
+        ResultSet resultSet = dbm.executeQuery("SELECT * FROM tasks WHERE category_id = ?", this.getId());
         try {
             while(resultSet.next()) {
                 Task task = new Task();

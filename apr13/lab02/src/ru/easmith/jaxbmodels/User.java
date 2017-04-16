@@ -160,7 +160,8 @@ public class User implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        dbm.execute("insert into users (id, login, name, password, is_admin) value (?, ?, ?, ?, ?)",
+        dbm.execute("INSERT INTO users (id, login, name, password, is_admin) VALUE (?, ?, ?, ?, ?) " +
+                        "ON DUPLICATE KEY UPDATE name = VALUES(name)",
                 this.id, this.login, this.name, this.password, this.isAdmin);
         return true;
     }

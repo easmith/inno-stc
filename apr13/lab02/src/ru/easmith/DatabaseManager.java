@@ -90,7 +90,7 @@ public class DatabaseManager {
             PreparedStatement preparedStatement = getPreparedStatement(sql, params);
             return preparedStatement.execute();
         } catch (SQLException e) {
-            LOGGER.error("Ошибка при выполении запроса: " + e);
+            LOGGER.error("Ошибка при выполении запроса: " + e.getMessage());
         }
         return false;
     }

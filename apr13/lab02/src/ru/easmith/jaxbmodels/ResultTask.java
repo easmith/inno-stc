@@ -124,7 +124,8 @@ public class ResultTask implements DBInterface {
     @Override
     public boolean toDB() {
         DatabaseManager dbm = DatabaseManager.getInstance();
-        dbm.execute("insert into result_tasks (id, result_id, task_id, answers) value (?, ?, ?, ?)",
+        dbm.execute("INSERT INTO result_tasks (id, result_id, task_id, answers) VALUE (?, ?, ?, ?) " +
+                        "ON DUPLICATE KEY UPDATE answers = VALUES(answers)",
                 this.id, this.resultId, this.taskId, this.answers);
         return true;
     }
