@@ -1,12 +1,9 @@
 
 package ru.easmith.jaxbmodels;
 
-import ru.easmith.DatabaseManager;
-import ru.easmith.DBInterface;
+import ru.easmith.utils.DatabaseManager;
 
 import javax.xml.bind.annotation.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 
 /**

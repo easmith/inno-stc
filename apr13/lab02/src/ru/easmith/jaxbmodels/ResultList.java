@@ -1,8 +1,7 @@
 
 package ru.easmith.jaxbmodels;
 
-import ru.easmith.DBInterface;
-import ru.easmith.DatabaseManager;
+import ru.easmith.utils.DatabaseManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

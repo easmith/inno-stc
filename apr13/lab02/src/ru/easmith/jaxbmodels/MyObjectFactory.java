@@ -30,7 +30,7 @@ public class MyObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.easmith.jaxbmodels
+     * Create a new MyObjectFactory that can be used to create new instances of schema derived classes for package: ru.easmith.jaxbmodels
      *
      */
     public MyObjectFactory() {
@@ -39,8 +39,12 @@ public class MyObjectFactory {
     /**
      * Create an instance of {@link Answer }
      *
+     * @param taskId Id заданния
+     * @param text Текст ответа
+     * @param isCorrect Это правильный ответ?
+     * @return {@link Answer }
      */
-    public Answer createAnswer(int taskId, String text, Boolean isCorrect) {
+    public static Answer createAnswer(int taskId, String text, Boolean isCorrect) {
         Answer answer = new Answer();
         answer.setId(++answerCounter);
         answer.setTaskId(taskId);
@@ -53,8 +57,11 @@ public class MyObjectFactory {
     /**
      * Create an instance of {@link Task }
      *
+     * @param categoryId Id категории
+     * @param text Текст задания
+     * @return {@link Task }
      */
-    public Task createTask(int categoryId, String text) {
+    public static Task createTask(int categoryId, String text) {
         Task task = new Task();
         task.setId(++taskCounter);
         task.setCategoryId(categoryId);
@@ -65,8 +72,10 @@ public class MyObjectFactory {
     /**
      * Create an instance of {@link Category }
      *
+     * @param name Название категории
+     * @return {@link Category }
      */
-    public Category createCategory(String name) {
+    public static Category createCategory(String name) {
         Category category = new Category();
         category.setId(++categoryCounter);
         category.setName(name);
@@ -74,7 +83,16 @@ public class MyObjectFactory {
         return category;
     }
 
-    public User createUser(String login, String name, String password, boolean isAdmin) {
+    /**
+     * Создает пользователя
+     *
+     * @param login Логин
+     * @param name Имя
+     * @param password Пароль
+     * @param isAdmin Это администратор?
+     * @return {@link User }
+     */
+    public static User createUser(String login, String name, String password, boolean isAdmin) {
         User user = new User();
         user.setId(++userCounter);
         user.setLogin(login);
@@ -85,7 +103,14 @@ public class MyObjectFactory {
         return user;
     }
 
-    public Result createResult(int categoryId, int userId) {
+    /**
+     * Создает результат
+     *
+     * @param categoryId Id кактегории заданий
+     * @param userId Id пользователя
+     * @return {@link Result }
+     */
+    public static Result createResult(int categoryId, int userId) {
         Result result = new Result();
         result.setId(++resultCounter);
         result.setCategoryId(categoryId);
@@ -94,7 +119,15 @@ public class MyObjectFactory {
         return result;
     }
 
-    public ResultTask createResultTask(int resultId, int taskId, String answers) {
+    /**
+     * Создает выбранное решение для результата и соответствующего названия
+     *
+     * @param resultId Id результата
+     * @param taskId Id задания
+     * @param answers Пересичленные через запятую выбранные ответы
+     * @return {@link ResultTask }
+     */
+    public static ResultTask createResultTask(int resultId, int taskId, String answers) {
         ResultTask resultTask = new ResultTask();
 
         resultTask.setId(++resultTaskCounter);
@@ -105,19 +138,39 @@ public class MyObjectFactory {
         return resultTask;
     }
 
-    public CategoryList createCategoryList() {
+    /**
+     * Создает список для категорий
+     *
+     * @return {@link CategoryList }
+     */
+    public static CategoryList createCategoryList() {
         return new CategoryList();
     }
 
-    public UserList createUserList() {
+    /**
+     * Создает список для пользователей
+     *
+     * @return {@link UserList }
+     */
+    public static UserList createUserList() {
         return new UserList();
     }
 
-    public ResultList createResultList() {
+    /**
+     * Создает список для результатов
+     *
+     * @return {@link ResultList }
+     */
+    public static ResultList createResultList() {
         return new ResultList();
     }
 
-    public ResultTaskList createResultTaskList() {
+    /**
+     * Создает список для заданий в результатах
+     *
+     * @return {@link ResultTaskList }
+     */
+    public static ResultTaskList createResultTaskList() {
         return new ResultTaskList();
     }
 }

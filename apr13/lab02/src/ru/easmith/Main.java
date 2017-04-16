@@ -6,7 +6,8 @@ import ru.easmith.jaxbmodels.*;
 import ru.easmith.threads.DbToXmlThread;
 import ru.easmith.threads.XmlToDbCareThread;
 import ru.easmith.threads.XmlToDbThread;
-import sun.reflect.Reflection;
+import ru.easmith.utils.DatabaseManager;
+import ru.easmith.utils.XmlManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,9 +33,9 @@ public class Main {
 //        xmlToDB();
 //        dbToXml();
 //        dbToXmlMultiThread();
-        xmlToDbMultiThread();
-        xmlToDbMultiThreadCare();
-        xmlToDbMultiThreadCare2();
+//        xmlToDbMultiThread();
+//        xmlToDbMultiThreadCare();
+//        xmlToDbMultiThreadCare2();
         LOGGER.trace("Работу завершил");
     }
 
@@ -129,7 +130,7 @@ public class Main {
     }
 
     /**
-     * Выгружает базу данных в XML
+     * Выгружает базу данных в XML последовательно
      */
     public static void dbToXml() {
         LOGGER.info("Выгружаем из базы в XML");
@@ -148,6 +149,9 @@ public class Main {
         LOGGER.info("Файлы выгружены за " + (System.currentTimeMillis() - startTime) + " мс");
     }
 
+    /**
+     * Выгружает базу данных в XML в несколько потоков
+     */
     public static void dbToXmlMultiThread() {
         LOGGER.info("Многопоточно выгружаем из базы в XML");
         long startTime = System.currentTimeMillis();
@@ -167,6 +171,9 @@ public class Main {
         LOGGER.info("Многопоточно файлы выгружены за " + (System.currentTimeMillis() - startTime) + " мс");
     }
 
+    /**
+     * Выгружает базу данных в XML в несколько потоков, отключая проверку внешних ключей
+     */
     public static void xmlToDbMultiThread() {
         LOGGER.info("Многопоточно загружаем в базу из XML");
         long startTime = System.currentTimeMillis();
@@ -190,6 +197,9 @@ public class Main {
         LOGGER.info("Многопоточно файлы загружены за " + (System.currentTimeMillis() - startTime) + " мс");
     }
 
+    /**
+     * Выгружает базу данных в XML в несколько потоков поочередно
+     */
     public static void xmlToDbMultiThreadCare() {
         LOGGER.info("Многопоточно загружаем в базу из XML");
         long startTime = System.currentTimeMillis();
@@ -211,6 +221,9 @@ public class Main {
         LOGGER.info("Многопточно файлы загружены за " + (System.currentTimeMillis() - startTime) + " мс");
     }
 
+    /**
+     * Выгружает базу данных в XML в несколько потоков с учетом зависимостей
+     */
     public static void xmlToDbMultiThreadCare2() {
         LOGGER.info("Многопоточно загружаем в базу из XML");
         long startTime = System.currentTimeMillis();
@@ -232,7 +245,11 @@ public class Main {
         LOGGER.info("Многопоточно файлы загружены за " + (System.currentTimeMillis() - startTime) + " мс");
     }
 
-    private static void waitFuture(ArrayList<Future> futures) {
+    /**
+     * Служит для ожидания результатов работы потоков
+     * @param futures
+     */
+    public static void waitFuture(ArrayList<Future> futures) {
         for (Future future :
                 futures) {
             try {

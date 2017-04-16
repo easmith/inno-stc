@@ -1,8 +1,7 @@
 
 package ru.easmith.jaxbmodels;
 
-import ru.easmith.DatabaseManager;
-import ru.easmith.DBInterface;
+import ru.easmith.utils.DatabaseManager;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

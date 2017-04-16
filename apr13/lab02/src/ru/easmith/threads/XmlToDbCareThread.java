@@ -2,9 +2,9 @@ package ru.easmith.threads;
 
 import com.sun.deploy.util.ArrayUtil;
 import org.apache.log4j.Logger;
-import ru.easmith.DBInterface;
-import ru.easmith.DatabaseManager;
-import ru.easmith.XmlManager;
+import ru.easmith.jaxbmodels.DBInterface;
+import ru.easmith.utils.DatabaseManager;
+import ru.easmith.utils.XmlManager;
 
 import java.util.Set;
 

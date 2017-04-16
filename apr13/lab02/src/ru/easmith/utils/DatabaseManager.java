@@ -1,9 +1,9 @@
-package ru.easmith;
+package ru.easmith.utils;
 
 import org.apache.log4j.Logger;
+import ru.easmith.jaxbmodels.DBInterface;
 
 import java.sql.*;
-import java.util.Arrays;
 
 /**
  * Created by eku on 15.04.17.
@@ -59,6 +59,12 @@ public class DatabaseManager {
         return preparedStatement;
     }
 
+    /**
+     * Вставляет записи порциями по 1000 штук за раз
+     *
+     * @param sql Текст SQL запроса
+     * @param objects Масив массивов парметров для замены в preparedStatement
+     */
     public void insertBatch(String sql, Object[][] objects) {
         final int batchSize = 1000;
         int count = 0;
@@ -84,6 +90,7 @@ public class DatabaseManager {
 
     /**
      * Отключает проверку внешних ключей
+     *
      */
     public void disableForeignKey() {
         Statement disableForeign = null;
@@ -97,6 +104,7 @@ public class DatabaseManager {
 
     /**
      * Включает проверку внешних ключей
+     *
      */
     public void enableForeignKey() {
         Statement disableForeign = null;
@@ -108,6 +116,13 @@ public class DatabaseManager {
         }
     }
 
+    /**
+     * Выполняет запрос к базе данных и не ждет ответа
+     *
+     * @param sql Строка SQL зпроса
+     * @param params Параметры для preparedStatement
+     * @return true, если запрос вернул ResultSet
+     */
     public boolean execute(String sql, Object... params) {
         try {
             PreparedStatement preparedStatement = getPreparedStatement(sql, params);
@@ -119,10 +134,11 @@ public class DatabaseManager {
     }
 
     /**
-     * Формирует
+     * Формирует sql запрос и возвращает результат
+     *
      * @param sql SQL запрос select
-     * @param params
-     * @return
+     * @param params Параметры запроса
+     * @return {@link ResultSet}
      */
     public ResultSet executeQuery(String sql, Object... params) {
         try {
@@ -157,7 +173,8 @@ public class DatabaseManager {
 
     /**
      * Сохраняет обект в базу данных
-     * @param object
+     *
+     * @param object Сохраняемый объект
      */
     public void storeObject(DBInterface object) {
         LOGGER.trace("Сохраняю в базу данных объект " + object.getClass().getCanonicalName());
@@ -166,6 +183,7 @@ public class DatabaseManager {
 
     /**
      * Заполняет обект данными их базы данных
+     *
      * @param object Объект
      * @return
      */

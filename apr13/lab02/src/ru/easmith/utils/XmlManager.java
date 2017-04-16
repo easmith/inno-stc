@@ -1,4 +1,4 @@
-package ru.easmith;
+package ru.easmith.utils;
 
 import org.apache.log4j.Logger;
 
@@ -16,6 +16,12 @@ public class XmlManager {
     private static final Logger LOGGER = Logger.getLogger(XmlManager.class);
 
 
+    /**
+     * Маршаллинг объекта в XML файл
+     *
+     * @param object экспортируемый объект
+     * @param fileName имя файла в директори xml/
+     */
     public static void exportObject(Object object, String fileName) {
         try {
             JAXBContext context = JAXBContext.newInstance(object.getClass());
@@ -29,6 +35,13 @@ public class XmlManager {
         }
     }
 
+    /**
+     * Импорт XML в экземпляр класса clazz
+     *
+     * @param fileName Имя файла
+     * @param clazz Класс
+     * @return Object
+     */
     public static Object importObject(String fileName, Class clazz) {
         Object object = new Object();
         try {

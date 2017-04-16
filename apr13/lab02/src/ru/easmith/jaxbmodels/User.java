@@ -1,8 +1,7 @@
 
 package ru.easmith.jaxbmodels;
 
-import ru.easmith.DatabaseManager;
-import ru.easmith.DBInterface;
+import ru.easmith.utils.DatabaseManager;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -168,6 +167,29 @@ public class User implements DBInterface {
 
     @Override
     public boolean fromDB() {
+        return true;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (!(obj instanceof User)) {
+            return false;
+        }
+
+        if (this.id != ((User) obj).id) {
+            return false;
+        }
+        if (!this.name.equals(((User) obj).name)) {
+            return false;
+        }
+        if (!this.login.equals(((User) obj).login)) {
+            return false;
+        }
+
         return true;
     }
 
