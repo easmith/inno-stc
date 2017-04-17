@@ -29,6 +29,7 @@ public class Main {
 
     public static void main(String args[]) {
         LOGGER.trace("Работу начал");
+        DatabaseManager.getInstance().clearDB();
         createXml();
         xmlToDB();
         dbToXml();
