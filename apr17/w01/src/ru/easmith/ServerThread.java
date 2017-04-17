@@ -27,7 +27,7 @@ public class ServerThread extends Thread {
 
             while (true) {
                 String input = in.readLine();
-                if (input == null || input.equals(".")) {
+                if (input == null || input.equals("exit")) {
                     break;
                 }
                 out.println("Answer on: " +input);
