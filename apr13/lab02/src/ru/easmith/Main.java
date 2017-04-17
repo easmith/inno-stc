@@ -29,10 +29,10 @@ public class Main {
 
     public static void main(String args[]) {
         LOGGER.trace("Работу начал");
-//        createXml();
-//        xmlToDB();
-//        dbToXml();
-//        dbToXmlMultiThread();
+        createXml();
+        xmlToDB();
+        dbToXml();
+        dbToXmlMultiThread();
 //        xmlToDbMultiThread();
 //        xmlToDbMultiThreadCare();
 //        xmlToDbMultiThreadCare2();
