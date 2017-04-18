@@ -36,6 +36,9 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     public Student getStudentById(int userId) {
-        return null;
+        Student student = new Student();
+        student.setId(1);
+        student.setName("name");
+        return student;
     }
 }

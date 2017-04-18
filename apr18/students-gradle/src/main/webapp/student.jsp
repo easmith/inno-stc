@@ -11,8 +11,8 @@
 <body>
 
 <form method="POST" action='student'>
-    student id : <input type="text" readonly="readonly" name="userid" value="<c:out value="${student.userid}" />" /> <br />
-    student name : <input type="text" readonly="readonly" name="userid" value="<c:out value="${student.name}" />" /> <br />
+    student id : <input type="text" name="id" value="<c:out value="${student.id}" />" /> <br />
+    student name : <input type="text" name="name" value="<c:out value="${student.name}" />" /> <br />
     <input type="submit" value="Submit" />
 </form>
 </body>

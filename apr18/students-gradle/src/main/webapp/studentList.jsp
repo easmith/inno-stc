@@ -8,7 +8,6 @@
     <title>Show All Users</title>
 </head>
 <body>
-${var}
 <table border=1>
     <thead>
     <tr>
