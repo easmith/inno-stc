@@ -1,7 +1,9 @@
 package controllers;
 
 import Utils.Converter;
+import models.DAO.GroupDaoImpl;
 import models.DAO.StudentDaoImpl;
+import models.POJO.Group;
 import models.POJO.Student;
 
 import javax.servlet.RequestDispatcher;
@@ -14,12 +16,12 @@ import java.io.IOException;
 /**
  * Created by eku on 18.04.17.
  */
-public class StudentController extends HttpServlet {
-    private StudentDaoImpl dao;
+public class GroupController extends HttpServlet {
+    private GroupDaoImpl dao;
 
-    public StudentController() {
+    public GroupController() {
         super();
-        dao = new StudentDaoImpl();
+        dao = new GroupDaoImpl();
     }
 
     @Override
@@ -33,17 +35,17 @@ public class StudentController extends HttpServlet {
 
         if (action.equalsIgnoreCase("delete")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
-            dao.deleteStudent(studentId);
-            req.setAttribute("students", dao.getAllStudents());
+            dao.deleteGroup(studentId);
+            req.setAttribute("students", dao.getAllGroups());
             forward = "/studentList.jsp";
         } else if (action.equalsIgnoreCase("list")) {
-            req.setAttribute("students", dao.getAllStudents());
+            req.setAttribute("students", dao.getAllGroups());
             forward = "/studentList.jsp";
         } else if (action.equalsIgnoreCase("edit")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
-            Student student = dao.getStudentById(studentId);
-            req.setAttribute("student", student);
-            forward = "/student.jsp";
+            Group group = dao.getGroupById(studentId);
+            req.setAttribute("group", group);
+            forward = "/group.jsp";
         } else {
             forward = "/student.jsp";
         }
@@ -54,18 +56,18 @@ public class StudentController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Student student = new Student();
-        student.setName(req.getParameter("name"));
+        Group group = new Group();
+//        group.setName(req.getParameter("name"));
         Integer studentId = Converter.strToInteger(req.getParameter("id"));
 
         if (studentId == 0)
-            dao.addStudent(student);
+            dao.addGroup(group);
         else {
-            student.setId(studentId);
-            dao.updateStudent(student);
+            group.setId(studentId);
+            dao.updateGroup(group);
         }
         RequestDispatcher view = req.getRequestDispatcher("/studentList.jsp");
-        req.setAttribute("students", dao.getAllStudents());
+        req.setAttribute("students", dao.getAllGroups());
         view.forward(req, resp);
     }
 }

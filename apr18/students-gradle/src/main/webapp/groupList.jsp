@@ -8,7 +8,7 @@
     <title>Show All Users</title>
 </head>
 <body>
-<h3>Студенты</h3>
+<h3>Группы</h3>
 <table border=1>
     <thead>
     <tr>
@@ -17,15 +17,15 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${students}" var="student">
+    <c:forEach items="${groups}" var="group">
         <tr>
-            <td><c:out value="${student.getName()}" /></td>
-            <td><a href="student?action=edit&id=<c:out value="${student.getId()}"/>">Update</a></td>
-            <td><a href="student?action=delete&id=<c:out value="${student.getId()}"/>">Delete</a></td>
+            <td><c:out value="${group.getId()}" /></td>
+            <td><a href="group?action=edit&id=<c:out value="${group.getId()}"/>">Update</a></td>
+            <td><a href="group?action=delete&id=<c:out value="${group.getId()}"/>">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<p><a href="student?action=insert">Добавить студента</a></p>
+<p><a href="group?action=insert">Добавить Группу</a></p>
 </body>
 </html>

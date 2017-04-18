@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
          version="2.4">
     <display-name>Archetype Created Web Application</display-name>
+
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>WEB-INF/log4j.properties</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>StudentController</servlet-name>
         <servlet-class>controllers.StudentController</servlet-class>
@@ -12,4 +18,17 @@
         <servlet-name>StudentController</servlet-name>
         <url-pattern>/student</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GroupController</servlet-name>
+        <servlet-class>controllers.GroupController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GroupController</servlet-name>
+        <url-pattern>/group</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>Utils.ContextListener</listener-class>
+    </listener>
 </web-app>

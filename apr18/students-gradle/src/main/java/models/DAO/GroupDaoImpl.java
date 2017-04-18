@@ -1,9 +1,8 @@
 package models.DAO;
 
-import Utils.DatabaseManager;
+import models.POJO.Group;
 import models.POJO.Student;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,29 +12,26 @@ import java.util.List;
 /**
  * Created by eku on 18.04.17.
  */
-public class StudentDaoImpl implements StudentDao {
-//    private final Connection conn;
+public class GroupDaoImpl implements GroupDao {
 
-    public StudentDaoImpl() {
-//        conn = DatabaseManager.getConnection();
-    }
 
     @Override
-    public void addStudent(Student student) {
-
-    }
-
-    public void deleteStudent(int userId) {
+    public void addGroup(Group group) {
 
     }
 
     @Override
-    public void updateStudent(Student student) {
+    public void deleteGroup(int groupId) {
 
     }
 
-    public List<Student> getAllStudents() {
-        List<Student> students = new ArrayList<>();
+    @Override
+    public void updateGroup(Group group) {
+
+    }
+
+    public List<Student> getAllGroups() {
+        List<Student> groups = new ArrayList<>();
 //        try {
 //            Statement statement = conn.createStatement();
 //            ResultSet resultSet = statement.executeQuery("select * from groups");
@@ -43,20 +39,20 @@ public class StudentDaoImpl implements StudentDao {
 //                Student student = new Student();
 //                student.setId(resultSet.getInt("id"));
 //                student.setName(resultSet.getString("name"));
-//                students.add(student);
+//                groups.add(student);
 //            }
 //            resultSet.close();
 //            statement.close();
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }
-        return students;
+        return groups;
     }
 
-    public Student getStudentById(int userId) {
-        Student student = new Student();
-        student.setId(1);
-        student.setName("name");
-        return student;
+    public Group getGroupById(int userId) {
+        Group group = new Group();
+        group.setId(1);
+//        group.setName("name");
+        return group;
     }
 }

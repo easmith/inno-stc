@@ -18,8 +18,9 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
-          <element id="library" level="project" name="Gradle: javax:javaee-web-api:7.0" />
           <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.41" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.0.1/6bf0ebb7efd993e222fc1112377b5e92a13b38dd/javax.servlet-api-3.0.1.jar" />
         </element>
       </element>
     </root>

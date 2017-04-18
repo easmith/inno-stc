@@ -11,8 +11,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="students-gradle_main" />
     <orderEntry type="library" name="Gradle: log4j:log4j:1.2.17" level="project" />
-    <orderEntry type="library" name="Gradle: javax:javaee-web-api:7.0" level="project" />
+    <orderEntry type="library" name="Gradle: javax.servlet:javax.servlet-api:3.0.1" level="project" />
     <orderEntry type="library" name="Gradle: jstl:jstl:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:5.1.41" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
   </component>
