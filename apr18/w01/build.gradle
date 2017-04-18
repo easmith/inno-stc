@@ -1,0 +1,25 @@
+group 'ru.innopolis'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+task ver() << {
+    def f1 = new File('log.txt')
+    def version = f1.exists() ? f1.text.toInteger() + 1 : 1;
+    f1.text = version;
+    if ((version % 5 == 0) && version > 0) {
+        def f2 = new File('log' + (version / 5) + '.txt')
+        f2.text = version
+    }
+}
