@@ -18,7 +18,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax/javaee-web-api/7.0/b1fce45ba94108ebf7e1cace6427ec8761cabec1/javaee-web-api-7.0.jar" />
+          <element id="library" level="project" name="Gradle: javax:javaee-web-api:7.0" />
+          <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
         </element>
       </element>
     </root>
