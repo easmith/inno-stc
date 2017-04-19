@@ -16,4 +16,6 @@ dependencies {
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
     compile 'jstl:jstl:1.2'
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.41'
+    compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '9.0.0.M19'
+
 }

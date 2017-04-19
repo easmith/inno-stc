@@ -36,6 +36,11 @@ public class StudentDaoImpl implements StudentDao {
 
     public List<Student> getAllStudents() {
         List<Student> students = new ArrayList<>();
+        Student student = new Student();
+        student.setId(1);
+        student.setName("name");
+        students.add(student);
+
 //        try {
 //            Statement statement = conn.createStatement();
 //            ResultSet resultSet = statement.executeQuery("select * from groups");

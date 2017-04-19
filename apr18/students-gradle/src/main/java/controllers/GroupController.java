@@ -36,18 +36,18 @@ public class GroupController extends HttpServlet {
         if (action.equalsIgnoreCase("delete")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
             dao.deleteGroup(studentId);
-            req.setAttribute("students", dao.getAllGroups());
-            forward = "/studentList.jsp";
+            req.setAttribute("groups", dao.getAllGroups());
+            forward = "/groupList.jsp";
         } else if (action.equalsIgnoreCase("list")) {
-            req.setAttribute("students", dao.getAllGroups());
-            forward = "/studentList.jsp";
+            req.setAttribute("groups", dao.getAllGroups());
+            forward = "/groupList.jsp";
         } else if (action.equalsIgnoreCase("edit")) {
             int studentId = Integer.parseInt(req.getParameter("id"));
             Group group = dao.getGroupById(studentId);
             req.setAttribute("group", group);
             forward = "/group.jsp";
         } else {
-            forward = "/student.jsp";
+            forward = "/group.jsp";
         }
 
         RequestDispatcher view = req.getRequestDispatcher(forward);

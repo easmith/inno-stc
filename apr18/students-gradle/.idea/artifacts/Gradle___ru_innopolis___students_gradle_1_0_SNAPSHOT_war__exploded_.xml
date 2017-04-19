@@ -18,9 +18,11 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:3.0.1" />
           <element id="library" level="project" name="Gradle: jstl:jstl:1.2" />
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.41" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.servlet/javax.servlet-api/3.0.1/6bf0ebb7efd993e222fc1112377b5e92a13b38dd/javax.servlet-api-3.0.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jdbc/9.0.0.M19/159a466c3abd8c9c2c74a3ffd1896a0f0d805234/tomcat-jdbc-9.0.0.M19.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/9.0.0.M19/491fe66a5881d469208e8eadf8bcd4762076c32b/tomcat-juli-9.0.0.M19.jar" />
         </element>
       </element>
     </root>

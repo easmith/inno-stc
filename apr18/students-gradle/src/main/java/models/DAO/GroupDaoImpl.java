@@ -2,7 +2,10 @@ package models.DAO;
 
 import models.POJO.Group;
 import models.POJO.Student;
+import org.apache.log4j.Logger;
+import services.DataSourceFactory;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +17,16 @@ import java.util.List;
  */
 public class GroupDaoImpl implements GroupDao {
 
+    private static Connection connection;
+    private static final Logger LOGGER = Logger.getLogger(GroupDaoImpl.class);
+
+    public GroupDaoImpl() {
+        try {
+            connection = DataSourceFactory.getDataSource().getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void addGroup(Group group) {
@@ -30,22 +43,22 @@ public class GroupDaoImpl implements GroupDao {
 
     }
 
-    public List<Student> getAllGroups() {
-        List<Student> groups = new ArrayList<>();
-//        try {
-//            Statement statement = conn.createStatement();
-//            ResultSet resultSet = statement.executeQuery("select * from groups");
-//            while (resultSet.next()) {
-//                Student student = new Student();
-//                student.setId(resultSet.getInt("id"));
-//                student.setName(resultSet.getString("name"));
-//                groups.add(student);
-//            }
-//            resultSet.close();
-//            statement.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+    public List<Group> getAllGroups() {
+        List<Group> groups = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from groups");
+            while (resultSet.next()) {
+                Group group = new Group();
+                group.setId(resultSet.getInt("id"));
+                group.setName(resultSet.getString("name"));
+                groups.add(group);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+        }
         return groups;
     }
 

@@ -89,3 +89,34 @@ web.xml
 - - Connection
 
 
+## как работает приложение
+Filter -> servlet
+forward - перенаправление внутри страницы
+getParametr
+setParametr
+getAttribute
+setAttribute
+
+
+Лаба #3
+
+- Трехслойная архитектура
+- Три страницы
+- - логин (AuthorizationService) фильтрация HttpSession(.getAttribute .setAttribute)  
+- - регистрация
+- - список
+- Servlet фильтры (whiteList, AdminList)
+- Logout
+- ошибки
+
+
+
+
+
+
+
+
+
+
+
+

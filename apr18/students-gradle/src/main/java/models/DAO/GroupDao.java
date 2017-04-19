@@ -12,6 +12,6 @@ public interface GroupDao {
     public void addGroup( Group group );
     public void deleteGroup( int groupId );
     public void updateGroup( Group group );
-    public List<Student> getAllGroups();
+    public List<Group> getAllGroups();
     public Group getGroupById(int groupId );
 }
