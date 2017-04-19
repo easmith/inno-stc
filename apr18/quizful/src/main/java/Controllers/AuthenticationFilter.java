@@ -1,6 +1,8 @@
 package Controllers;
 
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,8 @@ public class AuthenticationFilter implements Filter {
 
     private ServletContext context;
 
+    private static final Logger LOGGER = Logger.getLogger(AuthenticationFilter.class);
+
     public void init(FilterConfig fConfig) throws ServletException {
         this.context = fConfig.getServletContext();
         this.context.log("AuthenticationFilter initialized");
@@ -27,12 +31,13 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         String uri = req.getRequestURI();
-        this.context.log("Requested Resource::" + uri);
-
+//        this.context.log("Requested Resource::" + uri);
         HttpSession session = req.getSession(false);
+        LOGGER.info("Requested Resource::" + uri);
 
-        if (session == null && !(uri.endsWith("html") || uri.endsWith("LoginServlet"))) {
-            this.context.log("Unauthorized access request");
+        if (session == null && !(uri.endsWith("login.jsp") || uri.endsWith("LoginServlet"))) {
+//            this.context.log("Unauthorized access request");
+            LOGGER.info("Unauthorized access request");
             res.sendRedirect("login.jsp");
         } else {
             // pass the request along the filter chain

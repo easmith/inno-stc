@@ -32,8 +32,14 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/home/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-
+    <listener>
+        <listener-class>ContextListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>WEB-INF/log4j.properties</param-value>
+    </context-param>
 </web-app>

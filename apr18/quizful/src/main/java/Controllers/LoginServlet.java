@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 
         if(userID.equals(user) && password.equals(pwd)){
             HttpSession session = request.getSession();
-            session.setAttribute("user", "Pankaj");
+            session.setAttribute("user", "easmith");
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
             Cookie userName = new Cookie("user", user);
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
             response.addCookie(userName);
             response.sendRedirect("LoginSuccess.jsp");
         }else{
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
             PrintWriter out= response.getWriter();
             out.println("<font color=red>Either user name or password is wrong.</font>");
             rd.include(request, response);

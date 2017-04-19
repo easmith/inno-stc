@@ -1,6 +1,8 @@
 package Controllers;
 
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
@@ -15,6 +17,7 @@ import java.util.Enumeration;
 public class RequestLoggingFilter implements Filter {
 
     private ServletContext context;
+    private static final Logger LOGGER = Logger.getLogger(RequestLoggingFilter.class);
 
     public void init(FilterConfig fConfig) throws ServletException {
         this.context = fConfig.getServletContext();
@@ -27,13 +30,15 @@ public class RequestLoggingFilter implements Filter {
         while (params.hasMoreElements()) {
             String name = params.nextElement();
             String value = request.getParameter(name);
-            this.context.log(req.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
+//            this.context.log(req.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
+            LOGGER.info(req.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
         }
 
         Cookie[] cookies = req.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                this.context.log(req.getRemoteAddr() + "::Cookie::{" + cookie.getName() + "," + cookie.getValue() + "}");
+//                this.context.log(req.getRemoteAddr() + "::Cookie::{" + cookie.getName() + "," + cookie.getValue() + "}");
+                LOGGER.info(req.getRemoteAddr() + "::Cookie::{" + cookie.getName() + "," + cookie.getValue() + "}");
             }
         }
         // pass the request along the filter chain

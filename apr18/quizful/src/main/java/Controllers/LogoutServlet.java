@@ -1,5 +1,7 @@
 package Controllers;
 
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -17,20 +19,24 @@ import javax.servlet.http.HttpSession;
 public class LogoutServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private static final Logger LOGGER = Logger.getLogger(LogoutServlet.class);
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         Cookie[] cookies = request.getCookies();
         if(cookies != null){
             for(Cookie cookie : cookies){
                 if(cookie.getName().equals("JSESSIONID")){
-                    System.out.println("JSESSIONID="+cookie.getValue());
+//                    System.out.println("JSESSIONID="+cookie.getValue());
+                    LOGGER.info("JSESSIONID="+cookie.getValue());
                     break;
                 }
             }
         }
         //invalidate the session if exists
         HttpSession session = request.getSession(false);
-        System.out.println("User="+session.getAttribute("user"));
+//        System.out.println("User="+session.getAttribute("user"));
+        LOGGER.info("User="+session.getAttribute("user"));
         if(session != null){
             session.invalidate();
         }
