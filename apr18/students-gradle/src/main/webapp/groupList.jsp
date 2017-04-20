@@ -19,7 +19,7 @@
     <tbody>
     <c:forEach items="${groups}" var="group">
         <tr>
-            <td><c:out value="${group.getId()}" /></td>
+            <td><c:out value="${group.name}" /></td>
             <td><a href="group?action=edit&id=<c:out value="${group.getId()}"/>">Update</a></td>
             <td><a href="group?action=delete&id=<c:out value="${group.getId()}"/>">Delete</a></td>
         </tr>

@@ -1,7 +1,5 @@
 package services;
 
-import models.DAO.StudentDao;
-import models.DAO.StudentDaoImpl;
 import models.POJO.Student;
 
 import java.util.List;
@@ -9,10 +7,14 @@ import java.util.List;
 /**
  * Created by eku on 19.04.17.
  */
-public class StudentService implements StudentsServiceInterface {
-    public static StudentDao studentDao = new StudentDaoImpl();
+public interface StudentService {
+    public List<Student> getAllStudents();  
 
-    public List<Student> getAllStudents() {
-        return studentDao.getAllStudents();
-    }
+    void deleteStudent(Integer studentId);
+
+    Student getStudentById(int studentId);
+
+    void addStudent(Student student);
+
+    void updateStudent(Student student);
 }

@@ -5,10 +5,7 @@ import models.POJO.Student;
 import org.apache.log4j.Logger;
 import services.DataSourceFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,41 +14,52 @@ import java.util.List;
  */
 public class GroupDaoImpl implements GroupDao {
 
-    private static Connection connection;
     private static final Logger LOGGER = Logger.getLogger(GroupDaoImpl.class);
 
-    public GroupDaoImpl() {
-        try {
-            connection = DataSourceFactory.getDataSource().getConnection();
+    @Override
+    public void addGroup(Group group) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO groups (name) VALUES (?)");
+            statement.setString(1, group.getName());
+            statement.execute();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void addGroup(Group group) {
-
-    }
-
-    @Override
     public void deleteGroup(int groupId) {
-
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM groups WHERE id = ?");
+            statement.setInt(1, groupId);
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void updateGroup(Group group) {
-
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE groups SET name = ? WHERE id = ?");
+            statement.setString(1, group.getName());
+            statement.setInt(2, group.getId());
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Group> getAllGroups() {
         List<Group> groups = new ArrayList<>();
-        try {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from groups");
             while (resultSet.next()) {
-                Group group = new Group();
-                group.setId(resultSet.getInt("id"));
-                group.setName(resultSet.getString("name"));
+                Group group = new Group(resultSet.getInt("id"), resultSet.getString("name"));
                 groups.add(group);
             }
             resultSet.close();
@@ -62,10 +70,20 @@ public class GroupDaoImpl implements GroupDao {
         return groups;
     }
 
-    public Group getGroupById(int userId) {
-        Group group = new Group();
-        group.setId(1);
-//        group.setName("name");
+    public Group getGroupById(int groupId) {
+        Group group = null;
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("select * from groups where id = ?");
+            statement.setInt(1, groupId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                group = new Group(resultSet.getInt("id"), resultSet.getString("name"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return group;
     }
 }

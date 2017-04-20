@@ -5,6 +5,11 @@ import models.DAO.GroupDaoImpl;
 import models.DAO.StudentDaoImpl;
 import models.POJO.Group;
 import models.POJO.Student;
+import org.apache.log4j.Logger;
+import services.GroupService;
+import services.GroupServiceImpl;
+import services.StudentService;
+import services.StudentServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,12 +22,9 @@ import java.io.IOException;
  * Created by eku on 18.04.17.
  */
 public class GroupController extends HttpServlet {
-    private GroupDaoImpl dao;
+    private static GroupService groupService = new GroupServiceImpl();
 
-    public GroupController() {
-        super();
-        dao = new GroupDaoImpl();
-    }
+    private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,16 +36,16 @@ public class GroupController extends HttpServlet {
         }
 
         if (action.equalsIgnoreCase("delete")) {
-            int studentId = Integer.parseInt(req.getParameter("id"));
-            dao.deleteGroup(studentId);
-            req.setAttribute("groups", dao.getAllGroups());
+            int groupId = Integer.parseInt(req.getParameter("id"));
+            groupService.deleteGroup(groupId);
+            req.setAttribute("groups", groupService.getAllGroups());
             forward = "/groupList.jsp";
         } else if (action.equalsIgnoreCase("list")) {
-            req.setAttribute("groups", dao.getAllGroups());
+            req.setAttribute("groups", groupService.getAllGroups());
             forward = "/groupList.jsp";
         } else if (action.equalsIgnoreCase("edit")) {
-            int studentId = Integer.parseInt(req.getParameter("id"));
-            Group group = dao.getGroupById(studentId);
+            int groupId = Integer.parseInt(req.getParameter("id"));
+            Group group = groupService.getGroupById(groupId);
             req.setAttribute("group", group);
             forward = "/group.jsp";
         } else {
@@ -56,18 +58,26 @@ public class GroupController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Group group = new Group();
 //        group.setName(req.getParameter("name"));
-        Integer studentId = Converter.strToInteger(req.getParameter("id"));
+        Integer groupId = Converter.strToInteger(req.getParameter("id"));
 
-        if (studentId == 0)
-            dao.addGroup(group);
-        else {
-            group.setId(studentId);
-            dao.updateGroup(group);
+        Group group = groupService.getGroupById(groupId);
+
+        String groupName = req.getParameter("name");
+        Integer age = Converter.strToInteger(req.getParameter("age"));
+        LOGGER.debug("group name:" + groupName);
+        if (groupId == 0) {
+            groupService.addGroup(new Group(0, groupName));
+        } else {
+            group = groupService.getGroupById(groupId);
+            if (group != null) {
+                group.setName(groupName);
+                groupService.updateGroup(group);
+            }
         }
-        RequestDispatcher view = req.getRequestDispatcher("/studentList.jsp");
-        req.setAttribute("students", dao.getAllGroups());
+
+        RequestDispatcher view = req.getRequestDispatcher("/groupList.jsp");
+        req.setAttribute("groups", groupService.getAllGroups());
         view.forward(req, resp);
     }
 }

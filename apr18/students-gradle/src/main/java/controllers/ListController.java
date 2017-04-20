@@ -1,7 +1,7 @@
 package controllers;
 
+import services.StudentServiceImpl;
 import services.StudentService;
-import services.StudentsServiceInterface;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class ListController extends HttpServlet {
 
-    private static StudentsServiceInterface studentsService = new StudentService();
+    private static StudentService studentsService = new StudentServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

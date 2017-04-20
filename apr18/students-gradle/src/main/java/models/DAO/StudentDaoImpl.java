@@ -13,13 +13,7 @@ import java.util.List;
  * Created by eku on 18.04.17.
  */
 public class StudentDaoImpl implements StudentDao {
-//    private final Connection conn;
-
     private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
-
-    public StudentDaoImpl() {
-//        conn = DatabaseManager.getConnection();
-    }
 
     @Override
     public void addStudent(Student student) {

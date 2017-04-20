@@ -11,8 +11,8 @@
 <body>
 
 <form method="POST" action='group'>
-    student id : <input type="text" name="id" value="<c:out value="${group.id}" />" /> <br />
-    student name : <input type="text" name="name" value="<c:out value="${group.name}" />" /> <br />
+    group id : <input type="text" name="id" readonly value="<c:out value="${group.id}" />" /> <br />
+    group name : <input type="text" name="name" value="<c:out value="${group.name}" />" /> <br />
     <input type="submit" value="Submit" />
 </form>
 </body>
