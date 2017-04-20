@@ -20,7 +20,7 @@
     <c:forEach items="${students}" var="student">
         <tr>
             <td><c:out value="${student.getName()}" /></td>
-            <td><a href="student?action=edit&id=<c:out value="${student.getId()}"/>">Update</a></td>
+            <td><a href="student?action=edit&id=<c:out value="${student.getId()}"/>">Edit</a></td>
             <td><a href="student?action=delete&id=<c:out value="${student.getId()}"/>">Delete</a></td>
         </tr>
     </c:forEach>

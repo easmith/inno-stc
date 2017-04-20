@@ -23,11 +23,6 @@
         <url-pattern>/listStudents</url-pattern>
     </servlet-mapping>
 
-    <context-param>
-        <param-name>log4j-config-location</param-name>
-        <param-value>WEB-INF/log4j.properties</param-value>
-    </context-param>
-
     <servlet>
         <servlet-name>StudentController</servlet-name>
         <servlet-class>controllers.StudentController</servlet-class>
@@ -45,6 +40,20 @@
         <servlet-name>GroupController</servlet-name>
         <url-pattern>/group</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>WhiteFilter</filter-name>
+        <filter-class>controllers.WhiteListFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>WhiteFilter</filter-name>
+        <url-pattern>/listStudents</url-pattern>
+    </filter-mapping>
+
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>WEB-INF/log4j.properties</param-value>
+    </context-param>
 
     <listener>
         <listener-class>Utils.ContextListener</listener-class>

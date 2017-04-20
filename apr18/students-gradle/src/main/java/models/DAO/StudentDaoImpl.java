@@ -2,11 +2,10 @@ package models.DAO;
 
 import Utils.DatabaseManager;
 import models.POJO.Student;
+import org.apache.log4j.Logger;
+import services.DataSourceFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,52 +15,81 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao {
 //    private final Connection conn;
 
+    private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
+
     public StudentDaoImpl() {
 //        conn = DatabaseManager.getConnection();
     }
 
     @Override
     public void addStudent(Student student) {
-
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO students (name, age, group_id) VALUES (?, ?, 1)");
+            statement.setString(1, student.getName());
+            statement.setInt(2, student.getAge());
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void deleteStudent(int userId) {
-
+    public void deleteStudent(int studentId) {
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM students WHERE id = ?");
+            statement.setInt(1, studentId);
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void updateStudent(Student student) {
-
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("UPDATE students SET name = ? WHERE id = ?");
+            statement.setString(1, student.getName());
+            statement.setInt(2, student.getId());
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Student> getAllStudents() {
         List<Student> students = new ArrayList<>();
-        Student student = new Student();
-        student.setId(1);
-        student.setName("name");
-        students.add(student);
 
-//        try {
-//            Statement statement = conn.createStatement();
-//            ResultSet resultSet = statement.executeQuery("select * from groups");
-//            while (resultSet.next()) {
-//                Student student = new Student();
-//                student.setId(resultSet.getInt("id"));
-//                student.setName(resultSet.getString("name"));
-//                students.add(student);
-//            }
-//            resultSet.close();
-//            statement.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("select * from students");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Student student = new Student(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getInt("age"));
+                students.add(student);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return students;
     }
 
-    public Student getStudentById(int userId) {
-        Student student = new Student();
-        student.setId(1);
-        student.setName("name");
+    public Student getStudentById(int studentId) {
+        Student student = null;
+        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("select * from students where id = ?");
+            statement.setInt(1, studentId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                student = new Student(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getInt("age"));
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return student;
     }
 }

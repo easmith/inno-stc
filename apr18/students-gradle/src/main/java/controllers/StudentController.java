@@ -3,6 +3,7 @@ package controllers;
 import Utils.Converter;
 import models.DAO.StudentDaoImpl;
 import models.POJO.Student;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +17,8 @@ import java.io.IOException;
  */
 public class StudentController extends HttpServlet {
     private StudentDaoImpl dao;
+
+    private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
     public StudentController() {
         super();
@@ -32,7 +35,7 @@ public class StudentController extends HttpServlet {
         }
 
         if (action.equalsIgnoreCase("delete")) {
-            int studentId = Integer.parseInt(req.getParameter("id"));
+            Integer studentId = Converter.strToInteger(req.getParameter("id"));
             dao.deleteStudent(studentId);
             req.setAttribute("students", dao.getAllStudents());
             forward = "/studentList.jsp";
@@ -54,16 +57,22 @@ public class StudentController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Student student = new Student();
-        student.setName(req.getParameter("name"));
         Integer studentId = Converter.strToInteger(req.getParameter("id"));
+        Student student = dao.getStudentById(studentId);
 
-        if (studentId == 0)
-            dao.addStudent(student);
-        else {
-            student.setId(studentId);
-            dao.updateStudent(student);
+        String studentName = req.getParameter("name");
+        Integer age = Converter.strToInteger(req.getParameter("age"));
+        LOGGER.debug("stud name:" + studentName);
+        if (studentId == 0) {
+            dao.addStudent(new Student(0, studentName, age));
+        } else {
+            student = dao.getStudentById(studentId);
+            if (student != null) {
+                student.setName(studentName);
+                dao.updateStudent(student);
+            }
         }
+
         RequestDispatcher view = req.getRequestDispatcher("/studentList.jsp");
         req.setAttribute("students", dao.getAllStudents());
         view.forward(req, resp);
