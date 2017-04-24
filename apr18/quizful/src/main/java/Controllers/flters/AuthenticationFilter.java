@@ -1,4 +1,4 @@
-package Controllers;
+package Controllers.flters;
 
 
 import org.apache.log4j.Logger;
@@ -35,7 +35,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = req.getSession(false);
         LOGGER.info("Requested Resource::" + uri);
 
-        if (session == null && !(uri.endsWith("login.jsp") || uri.endsWith("LoginServlet"))) {
+        if (session == null && !(uri.endsWith("login.jsp") || uri.endsWith("LoginController"))) {
 //            this.context.log("Unauthorized access request");
             LOGGER.info("Unauthorized access request");
             res.sendRedirect("login.jsp");

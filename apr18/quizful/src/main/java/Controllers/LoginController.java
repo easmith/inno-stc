@@ -15,33 +15,38 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by eku on 20.04.17.
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+//@WebServlet("/LoginController")
+public class LoginController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final String userID = "admin";
     private final String password = "password";
 
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("menuItem", "login");
+        req.getRequestDispatcher("/login.jsp").forward(req, resp);
+    }
+
+    protected void doPost(HttpServletRequest req,
+                          HttpServletResponse resp) throws ServletException, IOException {
 
         // get request parameters for userID and password
-        String user = request.getParameter("user");
-        String pwd = request.getParameter("pwd");
+        String user = req.getParameter("user");
+        String pwd = req.getParameter("pwd");
 
         if(userID.equals(user) && password.equals(pwd)){
-            HttpSession session = request.getSession();
+            HttpSession session = req.getSession();
             session.setAttribute("user", "easmith");
             //setting session to expiry in 30 mins
             session.setMaxInactiveInterval(30*60);
             Cookie userName = new Cookie("user", user);
             userName.setMaxAge(30*60);
-            response.addCookie(userName);
-            response.sendRedirect("LoginSuccess.jsp");
+            resp.addCookie(userName);
+            resp.sendRedirect("LoginSuccess.jsp");
         }else{
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
-            PrintWriter out= response.getWriter();
-            out.println("<font color=red>Either user name or password is wrong.</font>");
-            rd.include(request, response);
+            req.setAttribute("menuItem", "login");
+            req.setAttribute("error", "Неправильный логин или пароль");
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
 
     }

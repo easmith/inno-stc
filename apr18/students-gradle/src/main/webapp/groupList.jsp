@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Show All Users</title>
+    <title>Группы</title>
 </head>
 <body>
 <h3>Группы</h3>

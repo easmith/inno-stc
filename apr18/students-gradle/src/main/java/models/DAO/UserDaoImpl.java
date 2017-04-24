@@ -1,9 +1,8 @@
 package models.DAO;
 
-import controllers.LoginController;
 import models.POJO.User;
 import org.apache.log4j.Logger;
-import services.DataSourceFactory;
+import utils.DataSourceFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,9 +1,8 @@
 package models.DAO;
 
 import models.POJO.Group;
-import models.POJO.Student;
 import org.apache.log4j.Logger;
-import services.DataSourceFactory;
+import utils.DataSourceFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class GroupDaoImpl implements GroupDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
     }
 
@@ -49,7 +48,7 @@ public class GroupDaoImpl implements GroupDao {
             statement.execute();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
     }
 
@@ -65,7 +64,7 @@ public class GroupDaoImpl implements GroupDao {
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error(e);
         }
         return groups;
     }
@@ -82,7 +81,7 @@ public class GroupDaoImpl implements GroupDao {
             resultSet.close();
             statement.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
         return group;
     }

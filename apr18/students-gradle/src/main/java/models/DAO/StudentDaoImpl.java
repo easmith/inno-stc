@@ -1,9 +1,8 @@
 package models.DAO;
 
-import Utils.DatabaseManager;
 import models.POJO.Student;
 import org.apache.log4j.Logger;
-import services.DataSourceFactory;
+import utils.DataSourceFactory;
 
 import java.sql.*;
 import java.util.ArrayList;

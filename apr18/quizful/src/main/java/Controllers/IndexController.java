@@ -12,7 +12,7 @@ import java.io.IOException;
 public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("msg", "Привет!");
-        req.getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+        req.setAttribute("menuItem", "index");
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }

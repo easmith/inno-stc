@@ -1,6 +1,5 @@
 package controllers;
 
-import Utils.DatabaseManager;
 import org.apache.log4j.Logger;
 import services.UserServiceImpl;
 import services.UserServiceInterface;

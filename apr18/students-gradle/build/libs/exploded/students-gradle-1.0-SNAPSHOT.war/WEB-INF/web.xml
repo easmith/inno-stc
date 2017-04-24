@@ -43,7 +43,7 @@
 
     <filter>
         <filter-name>WhiteFilter</filter-name>
-        <filter-class>controllers.WhiteListFilter</filter-class>
+        <filter-class>controllers.filters.WhiteListFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>WhiteFilter</filter-name>
@@ -55,7 +55,21 @@
         <param-value>WEB-INF/log4j.properties</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>admin-email</param-name>
+        <param-value>easmithrus@gmail.com</param-value>
+    </context-param>
+
     <listener>
-        <listener-class>Utils.ContextListener</listener-class>
+        <listener-class>controllers.listeners.AppStartListener</listener-class>
     </listener>
+
+    <listener>
+        <listener-class>controllers.listeners.MySessionListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>controllers.listeners.MyServletRequestListener</listener-class>
+    </listener>
+
 </web-app>

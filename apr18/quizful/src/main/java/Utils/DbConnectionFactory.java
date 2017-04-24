@@ -1,20 +1,18 @@
-package services;
-
-/**
+package Utils; /**
  * Created by eku on 19.04.17.
  */
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 
-public class DataSourceFactory {
+public class DbConnectionFactory {
 
 
     private static DataSource datasource = new DataSource();
     static {
         PoolProperties p = new PoolProperties();
 //        p.setUrl("jdbc:postgresql://localhost:5432/students");
-        p.setUrl("jdbc:mysql://localhost/students?useSSL=false");
+        p.setUrl("jdbc:mysql://localhost/mydb?useSSL=false");
         p.setDriverClassName("com.mysql.jdbc.Driver");
         p.setUsername("root");
         p.setPassword("pass");

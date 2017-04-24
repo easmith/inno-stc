@@ -112,6 +112,22 @@ setAttribute
 
 
 
+# 20 апреля
+
+init
+service
+destory
+
+ServletConfig - К одному сервлету
+ServletContext - ко всему приложеию
+
+Listner
+HttpSessionListner
+HttpSessionAttributeListner
+ServletRequestListner
+ServletRequestAttrbuteListner
+ContextLoaderListner
+ServletContextListener
 
 
 

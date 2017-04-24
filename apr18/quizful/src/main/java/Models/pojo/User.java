@@ -7,10 +7,18 @@ package Models.pojo;
 public class User {
 
     private int id;
-    private String isAdmin;
+    private Boolean isAdmin;
     private String name;
     private String login;
     private String password;
+
+    public User(int id, String name, String login, String password, boolean isAdmin) {
+        this.id = id;
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.isAdmin = isAdmin;
+    }
 
     public int getId() {
         return id;
@@ -18,14 +26,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(String isAdmin) {
-        this.isAdmin = isAdmin;
     }
 
     public String getName() {
@@ -42,5 +42,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
     }
 }
