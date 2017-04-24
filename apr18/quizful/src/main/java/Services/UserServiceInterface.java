@@ -7,4 +7,6 @@ import Models.pojo.User;
  */
 public interface UserServiceInterface {
     User auth(String login, String password);
+    boolean existUser(String login);
+    void addUser(User user);
 }

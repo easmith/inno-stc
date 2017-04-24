@@ -20,4 +20,12 @@ public class UserService implements UserServiceInterface {
         LOGGER.debug("User: " + user);
         return user;
     }
+
+    public boolean existUser(String login) {
+        return userDao.existUser(login);
+    }
+
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
 }

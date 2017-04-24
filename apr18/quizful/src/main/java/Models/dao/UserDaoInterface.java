@@ -7,4 +7,6 @@ import Models.pojo.User;
  */
 public interface UserDaoInterface {
     User findUserByLoginAndPassword(String login, String password);
+    void addUser(User user);
+    boolean existUser(String login);
 }

@@ -2,9 +2,9 @@
 
 ## Classloader
 
-- bootstrap - прогрузка базовых классов %JAVA_HOME%/lib  
 - system - classpath, глобальная переменная в окружении /CLASSPATH  
 - extension - %JAVA_HOME%/lib/ext
+- bootstrap - прогрузка базовых классов %JAVA_HOME%/lib  
 - custom - наследует от system свой
 
 class.getClassLoader() - null bootstrap. В остальных случаях вернет название класса загрузчика

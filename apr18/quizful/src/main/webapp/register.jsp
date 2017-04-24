@@ -23,6 +23,12 @@
 
         <form class="form-horizontal" action="${pageContext.request.contextPath}/register" method="POST">
             <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">Имя</label>
+                <div class="col-sm-4">
+                    <input type="text" name="name" class="form-control" id="inputName" placeholder="Имя">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="inputLogin" class="col-sm-2 control-label">Логин</label>
                 <div class="col-sm-4">
                     <input type="text" name="login" class="form-control" id="inputLogin" placeholder="Логин">

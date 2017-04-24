@@ -2,12 +2,11 @@ package Models.dao;
 
 import Models.pojo.User;
 import Utils.DbConnectionFactory;
+import Utils.PasswordManager;
+import com.mysql.jdbc.JDBC4ResultSet;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by eku on 24.04.17.
@@ -21,23 +20,73 @@ public class UserDao implements UserDaoInterface {
         User user = null;
 
         try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? AND password = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
             statement.setString(1, login);
-            statement.setString(2, password);
             ResultSet result = statement.executeQuery();
+            LOGGER.debug("executed " + login);
             while (result.next()) {
-                User m = new User(result.getInt("id"),
-                        result.getString("name"),
-                        result.getString("login"),
-                        result.getString("password"),
-                        result.getBoolean("is_admin"));
-                return m;
+                LOGGER.debug("found " + result.getInt("id"));
+                LOGGER.debug("check " + password + " = " + result.getString("password"));
+                if (PasswordManager.checkHash(password, result.getString("password"))) {
+                    LOGGER.debug("password ok");
+                    return new User(result.getInt("id"),
+                            result.getString("name"),
+                            result.getString("login"),
+                            password,
+                            result.getBoolean("is_admin"));
+                }
             }
-            LOGGER.debug("User " + user);
         } catch (SQLException e) {
             LOGGER.error(e);
         }
 
         return user;
     }
+
+    @Override
+    public void addUser(User user) {
+        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO users (name, login, password, is_admin) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getLogin());
+            statement.setString(3, PasswordManager.createHash(user.getPassword()));
+            statement.setBoolean(4, user.getAdmin());
+            int affectedRows = statement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Creating user failed, no rows affected.");
+            }
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                user.setId(generatedKeys.getInt(1));
+            } else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+
+            statement.close();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+    }
+
+    @Override
+    public boolean existUser(String login) {
+        boolean result = false;
+        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                result = true;
+            }
+            statement.close();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+        }
+        return result;
+    }
+
+
 }

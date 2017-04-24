@@ -38,42 +38,27 @@ public class RegisterController extends HttpServlet {
         req.setAttribute("menuItem", "register");
 
         // get request parameters for userID and password
+        String name = req.getParameter("name");
         String login = req.getParameter("login");
         String password1 = req.getParameter("password1");
         String password2 = req.getParameter("password2");
-
-        if (password2 == null | !password2.equals(password1)) {
+        if (name == null || login == null) {
+            req.setAttribute("error", "Имя и логин не могут быть пустыми");
+        } else if (password2 == null && password2.length() < 5) {
+            req.setAttribute("error", "Пароль слишком короткий");
+        } else if (password2 == null | !password2.equals(password1)) {
             req.setAttribute("error", "Пароли не совпадают");
         } else if (password2 != null && password2.equals(password1)) {
-            String hashed = BCrypt.hashpw(password1, BCrypt.gensalt(12));
-            req.setAttribute("error", hashed);
-
-            User user = userService.auth("admin", "pass");
-
-            req.setAttribute("error", user.getName());
-
-//            if (BCrypt.checkpw(login, hashed))
-//                req.setAttribute("error", "ok");
-//            else
-//                req.setAttribute("error", "Bad");
-
-//            HttpSession session = req.getSession();
-//            session.setAttribute("user", "easmith");
-//            //setting session to expiry in 30 mins
-//            session.setMaxInactiveInterval(30*60);
-//            Cookie userName = new Cookie("user", user);
-//            userName.setMaxAge(30*60);
-//            resp.addCookie(userName);
-//            resp.sendRedirect("LoginSuccess.jsp");
+            if(userService.existUser(login)) {
+                req.setAttribute("error", "Пользователь с таким логином уже существует");
+            } else {
+                User user = new User(0, name, login, password1, "admin".equals(login));
+                userService.addUser(user);
+                req.setAttribute("error", "User id: " + user.getId());
+            }
         } else {
             req.setAttribute("error", "Непредвиденная ошибка");
         }
-
-        User user = userService.auth("admin", "pass");
-
-        req.setAttribute("error", user.getName());
-
-        LOGGER.info(user.getName());
 
         req.getRequestDispatcher(mainPage).forward(req, resp);
     }

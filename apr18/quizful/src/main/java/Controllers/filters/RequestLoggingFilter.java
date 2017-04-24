@@ -1,4 +1,4 @@
-package Controllers.flters;
+package Controllers.filters;
 
 
 import org.apache.log4j.Logger;
@@ -30,14 +30,12 @@ public class RequestLoggingFilter implements Filter {
         while (params.hasMoreElements()) {
             String name = params.nextElement();
             String value = request.getParameter(name);
-//            this.context.log(req.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
             LOGGER.info(req.getRemoteAddr() + "::Request Params::{" + name + "=" + value + "}");
         }
 
         Cookie[] cookies = req.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-//                this.context.log(req.getRemoteAddr() + "::Cookie::{" + cookie.getName() + "," + cookie.getValue() + "}");
                 LOGGER.info(req.getRemoteAddr() + "::Cookie::{" + cookie.getName() + "," + cookie.getValue() + "}");
             }
         }

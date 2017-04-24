@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +31,33 @@
         <div id="navbar" class="collapse navbar-collapse">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">Project QUIZ</a>
             <ul class="nav navbar-nav navbar-right">
-                <li ${ "index".equals(menuItem) ? " class=\"active\" " : ""}><a href="${pageContext.request.contextPath}/">Главная</a></li>
-                <li ${ "login".equals(menuItem) ? " class=\"active\" " : ""}><a href="login">Логин</a></li>
-                <li ${ "register".equals(menuItem) ? " class=\"active\" " : ""}><a href="register">Регистрация</a></li>
+                <li ${ "index".equals(menuItem) ? " class=\"active\" " : ""}><a
+                        href="${pageContext.request.contextPath}/">Главная</a></li>
+                <%
+                    String userLogin = null;
+                    Boolean userIsAdmin = null;
+                    if (session != null) {
+                        userLogin = (String) session.getAttribute("userLogin");
+                        userIsAdmin = (Boolean) session.getAttribute("userIsAdmin");
+                    }
+                %>
+                <c:choose>
+                    <c:when test="${userLogin != null}">
+                        <c:choose>
+                            <c:when test="${userIsAdmin}">
+                                <li><a href="${pageContext.request.contextPath}/admin">Админка</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="${pageContext.request.contextPath}/user">Личный кабинет</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                        <li><a href="${pageContext.request.contextPath}/user/logout">Выйти (${userLogin})</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li ${ "login".equals(menuItem) ? " class=\"active\" " : ""}><a href="login">Логин</a></li>
+                        <li ${ "register".equals(menuItem) ? " class=\"active\" " : ""}><a href="register">Регистрация</a></li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
         </div>
     </div>

@@ -34,6 +34,21 @@
         <servlet-class>Controllers.LoginController</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>UserHome</servlet-name>
+        <servlet-class>Controllers.UserController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AdminHome</servlet-name>
+        <servlet-class>Controllers.AdminController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Controllers.LogoutController</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -49,14 +64,34 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>UserHome</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AdminHome</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/user/logout</url-pattern>
+    </servlet-mapping>
+
 
     <!--<filter>-->
         <!--<filter-name>RequestLoggingFilter</filter-name>-->
-        <!--<filter-clControllers.flters.RequestLoggingFilterlter</filter-class>-->
+        <!--<filter-clControllfiltersters.RequestLoggingFilterlter</filter-class>-->
     <!--</filter>-->
     <filter>
-        <filter-name>AuthenticationFilter</filter-name>
-        <filter-class>Controllers.flters.AuthenticationFilter</filter-class>
+        <filter-name>UserFileter</filter-name>
+        <filter-class>Controllers.filters.UserFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>Controllers.filters.AdminFilter</filter-class>
     </filter>
 
     <!--<filter-mapping>-->
@@ -65,8 +100,13 @@
         <!--<dispatcher>REQUEST</dispatcher>-->
     <!--</filter-mapping>-->
     <filter-mapping>
-        <filter-name>AuthenticationFilter</filter-name>
-        <url-pattern>/home/*</url-pattern>
+        <filter-name>UserFileter</filter-name>
+        <url-pattern>/user</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin</url-pattern>
     </filter-mapping>
 
 </web-app>
