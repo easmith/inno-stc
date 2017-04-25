@@ -1,0 +1,1152 @@
+INFO    2017-04-20 02:06:57,222 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,D397B54E8F03D29AB338D4A0459A19BC}
+INFO    2017-04-20 02:06:57,225 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:07:02,662 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{user=admin}
+INFO    2017-04-20 02:07:02,663 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{pwd=pass}
+INFO    2017-04-20 02:07:02,663 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:07:02,664 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:07:18,274 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{user=admin}
+INFO    2017-04-20 02:07:18,274 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{pwd=password}
+INFO    2017-04-20 02:07:18,275 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:07:18,275 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:07:18,295 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:07:18,296 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:07:47,070 [http-nio-8080-exec-9] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:07:47,071 [http-nio-8080-exec-9] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:08:55,615 [http-nio-8080-exec-10] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:08:55,616 [http-nio-8080-exec-10] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:08:55,617 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/
+INFO    2017-04-20 02:09:00,249 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:09:00,249 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:09:00,249 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/qweqwe
+INFO    2017-04-20 02:09:24,078 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:24,081 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,093 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,096 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,106 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,107 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,113 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,114 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,119 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,120 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,125 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,125 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,129 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,129 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,133 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,134 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,137 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,138 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,142 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,142 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,146 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,147 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,150 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,150 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,153 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,154 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,157 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,158 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,161 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,161 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,165 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,165 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,168 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,169 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,177 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,177 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,180 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,180 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,183 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,184 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,691 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:24,691 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,694 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,695 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,699 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,699 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,705 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,705 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,711 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,713 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,716 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,716 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,720 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,720 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,723 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,723 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,726 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,727 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,729 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,730 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,732 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,733 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,735 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,736 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,738 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,738 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,741 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,741 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,745 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,745 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,748 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,748 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,750 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,751 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,753 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,754 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,756 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,757 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:24,759 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:24,759 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,264 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:25,265 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,269 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,269 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,272 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,272 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,275 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,275 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,277 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,277 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,280 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,280 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,283 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,283 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,286 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,286 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,289 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,289 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,291 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,291 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,294 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,294 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,296 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,296 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,299 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,299 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,301 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,301 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,304 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,304 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,306 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,306 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,309 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,309 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,312 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,312 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,314 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,315 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:25,317 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:25,317 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,176 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:27,177 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,180 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,181 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,185 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,185 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,189 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,189 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,193 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,194 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,199 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,199 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,202 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,203 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,206 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,206 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,208 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,208 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,210 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,210 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,213 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,213 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,216 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,216 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,218 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,218 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,224 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,224 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,229 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,229 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,231 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,232 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,234 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,234 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,236 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,237 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,239 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,239 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,244 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,245 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,749 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:27,750 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,752 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,752 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,756 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,756 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,758 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,759 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,762 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,762 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,766 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,766 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,768 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,769 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,771 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,771 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,774 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,775 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,777 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,777 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,780 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,780 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,786 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,786 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,788 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,788 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,790 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,790 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,796 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,796 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,799 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,799 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,801 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,801 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,803 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,803 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,805 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,805 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:27,807 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:27,808 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,312 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:28,313 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,316 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,316 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,318 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,318 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,321 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,321 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,323 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,323 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,325 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,325 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,327 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,327 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,330 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,330 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,331 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,332 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,333 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,334 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,335 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,335 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,337 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,337 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,339 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,340 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,345 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,345 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,347 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,347 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,350 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,350 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,352 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,352 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,354 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,355 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,357 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,357 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,359 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,359 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,863 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:28,863 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,866 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,866 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,869 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,869 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,871 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,871 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,874 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,874 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,876 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,876 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,878 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,878 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,881 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,881 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,883 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,884 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,886 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,886 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,888 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,888 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,890 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,890 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,892 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,892 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,894 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,894 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,896 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,896 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,897 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,898 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,899 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,899 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,901 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,901 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,903 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,903 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:28,905 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:28,905 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,410 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:29,410 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,413 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,413 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,415 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,415 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,417 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,417 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,419 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,419 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,421 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,421 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,424 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,424 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,426 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,426 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,428 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,428 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,430 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,430 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,432 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,433 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,435 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,435 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,437 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,437 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,439 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,439 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,440 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,441 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,442 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,442 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,444 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,444 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,446 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,446 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,448 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,448 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,451 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,451 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,956 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:29,956 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,958 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,958 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,960 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,960 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,962 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,962 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,965 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,965 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,967 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,967 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,969 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,969 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,971 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,971 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,974 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,974 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,976 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,976 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,978 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,978 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,981 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,981 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,983 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,983 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,985 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,986 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,987 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,988 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,989 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,989 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,991 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,991 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,993 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,993 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,995 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,995 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:29,997 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:29,997 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,501 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:30,502 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,509 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,509 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,511 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,511 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,513 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,513 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,515 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,515 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,517 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,517 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,519 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,519 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,521 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,522 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,523 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,523 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,525 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,525 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,527 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,527 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,529 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,529 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,531 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,532 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,534 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,534 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,535 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,536 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,538 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,538 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,540 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,540 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,542 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,542 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,544 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,544 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:30,546 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:30,546 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,050 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:31,050 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,053 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,053 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,054 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,055 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,056 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,057 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,058 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,058 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,060 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,060 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,062 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,062 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,064 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,064 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,066 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,066 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,067 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,067 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,069 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,070 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,072 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,072 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,074 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,074 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,076 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,076 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,077 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,077 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,079 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,079 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,081 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,081 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,083 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,083 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,084 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,085 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,087 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,087 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,591 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:31,591 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,593 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,593 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,595 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,596 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,597 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,597 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,599 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,599 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,601 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,601 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,603 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,603 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,605 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,605 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,607 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,607 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,608 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,608 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,610 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,610 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,611 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,611 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,613 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,613 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,615 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,615 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,616 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,616 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,619 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,619 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,623 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,623 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,625 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,625 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,626 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,627 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:31,628 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:31,628 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,132 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:32,132 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,135 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,135 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,138 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,138 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,141 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,142 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,143 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,143 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,146 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,146 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,149 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,149 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,151 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,151 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,153 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,153 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,156 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,156 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,158 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,159 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,162 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,162 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,165 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,165 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,167 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,168 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,169 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,170 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,173 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,173 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,176 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,176 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,179 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,179 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,181 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,181 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,182 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,182 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,686 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:32,687 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,689 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,689 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,691 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,691 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,692 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,693 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,694 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,694 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,696 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,696 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,698 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,698 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,700 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,700 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,701 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,701 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,703 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,703 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,704 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,705 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,706 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,706 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,707 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,707 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,708 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,708 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,710 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,710 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,711 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,711 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,713 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,713 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,714 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,715 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,721 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,721 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:32,723 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:32,723 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,277 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:33,277 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,279 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,279 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,281 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,281 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,282 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,283 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,284 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,284 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,286 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,286 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,287 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,288 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,290 [http-nio-8080-exec-11] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,290 [http-nio-8080-exec-11] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,292 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,292 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,294 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,294 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,296 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,296 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,298 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,298 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,300 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,300 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,301 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,302 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,303 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,303 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,305 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,305 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,307 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,308 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,309 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,309 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,313 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,313 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,315 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,315 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,819 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:09:33,819 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,821 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,821 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,823 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,823 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,826 [http-nio-8080-exec-11] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,826 [http-nio-8080-exec-11] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,828 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,828 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,830 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,830 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,832 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,832 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,834 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,835 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,838 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,838 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,839 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,840 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,841 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,841 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,843 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,843 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,845 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,845 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,846 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,846 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,848 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,848 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,849 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,850 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,851 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,852 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,854 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,854 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,857 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,857 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:09:33,859 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:09:33,859 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:10:39,094 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:10:39,098 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:10:39,109 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:10:42,575 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:10:42,576 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:10:42,577 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:10:42,577 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:10:42,629 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,B5D02A6D20DD3C9B677944296B369630}
+INFO    2017-04-20 02:10:42,630 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:10:42,630 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:10:48,983 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{user=admin}
+INFO    2017-04-20 02:10:48,985 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{pwd=login}
+INFO    2017-04-20 02:10:48,985 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:10:48,985 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:10:48,985 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginServlet
+INFO    2017-04-20 02:10:55,551 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{user=admin}
+INFO    2017-04-20 02:10:55,551 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{pwd=login}
+INFO    2017-04-20 02:10:55,552 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:10:55,552 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:10:55,552 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginServlet
+INFO    2017-04-20 02:11:35,265 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:11:35,267 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:11:35,267 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess
+INFO    2017-04-20 02:11:47,437 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:11:47,438 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:11:47,438 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess.jsp
+INFO    2017-04-20 02:11:50,016 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:11:50,017 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:11:50,017 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/CheckoutPage.jsp
+INFO    2017-04-20 02:11:51,703 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:11:51,703 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:11:51,704 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/LogoutServlet
+INFO    2017-04-20 02:11:51,704 [http-nio-8080-exec-6] Controllers.LogoutController  - JSESSIONID=83E9A8ED5562DC8568DCCB01FB271745
+INFO    2017-04-20 02:11:51,705 [http-nio-8080-exec-6] Controllers.LogoutController  - User=null
+INFO    2017-04-20 02:11:51,718 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,83E9A8ED5562DC8568DCCB01FB271745}
+INFO    2017-04-20 02:11:51,718 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:11:51,718 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:13:09,963 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,6725A4BFB8A3112116E67CADC2598172}
+INFO    2017-04-20 02:13:09,966 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:13:54,856 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:13:54,860 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:13:54,871 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:13:58,304 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,6725A4BFB8A3112116E67CADC2598172}
+INFO    2017-04-20 02:13:58,305 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:13:58,305 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 02:13:58,305 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 02:13:58,325 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,6725A4BFB8A3112116E67CADC2598172}
+INFO    2017-04-20 02:13:58,326 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:13:58,326 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 02:14:04,027 [http-nio-8080-exec-9] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,2401A86F5680851B738ED14CAB38AA20}
+INFO    2017-04-20 02:14:04,028 [http-nio-8080-exec-9] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:14:04,028 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess.jsp
+INFO    2017-04-20 02:14:13,876 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,2401A86F5680851B738ED14CAB38AA20}
+INFO    2017-04-20 02:14:13,877 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:14:13,877 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/CheckoutPage.jsp
+INFO    2017-04-20 02:14:15,906 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,2401A86F5680851B738ED14CAB38AA20}
+INFO    2017-04-20 02:14:15,907 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:14:15,907 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/LogoutServlet
+INFO    2017-04-20 02:14:15,908 [http-nio-8080-exec-3] Controllers.LogoutController  - JSESSIONID=2401A86F5680851B738ED14CAB38AA20
+INFO    2017-04-20 02:14:15,909 [http-nio-8080-exec-3] Controllers.LogoutController  - User=null
+INFO    2017-04-20 02:14:15,920 [http-nio-8080-exec-2] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,2401A86F5680851B738ED14CAB38AA20}
+INFO    2017-04-20 02:14:15,920 [http-nio-8080-exec-2] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 02:14:15,920 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 09:06:06,394 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 09:06:06,397 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 09:06:06,409 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 09:06:09,853 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,D66DAEC66B16D1862B316F53C1E18094}
+INFO    2017-04-20 09:06:09,855 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-20 09:06:09,855 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-20 09:06:09,925 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,D66DAEC66B16D1862B316F53C1E18094}
+INFO    2017-04-20 09:06:09,926 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 09:06:26,655 [http-nio-8080-exec-10] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{user=admin}
+INFO    2017-04-20 09:06:26,657 [http-nio-8080-exec-10] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Request Params::{pwd=password}
+INFO    2017-04-20 09:06:26,661 [http-nio-8080-exec-10] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:26,661 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginServlet
+INFO    2017-04-20 09:06:26,674 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:26,674 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:26,674 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess.jsp
+INFO    2017-04-20 09:06:36,281 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:36,282 [http-nio-8080-exec-3] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:36,282 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/CheckoutPage.jsp
+INFO    2017-04-20 09:06:42,562 [http-nio-8080-exec-2] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:42,562 [http-nio-8080-exec-2] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:42,563 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess.jsp
+INFO    2017-04-20 09:06:43,393 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:43,394 [http-nio-8080-exec-4] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:43,395 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess.jsp
+INFO    2017-04-20 09:06:44,245 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:44,245 [http-nio-8080-exec-5] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:44,245 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/LogoutServlet
+INFO    2017-04-20 09:06:44,246 [http-nio-8080-exec-5] Controllers.LogoutController  - JSESSIONID=5299B6C7CA966120CC6754F0E8D5691C
+INFO    2017-04-20 09:06:44,246 [http-nio-8080-exec-5] Controllers.LogoutController  - User=easmith
+INFO    2017-04-20 09:06:44,255 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,5299B6C7CA966120CC6754F0E8D5691C}
+INFO    2017-04-20 09:06:44,255 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:44,255 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-20 09:06:47,182 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,2B10BA40C970335500A049A53950B39F}
+INFO    2017-04-20 09:06:47,182 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:47,183 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/LoginSuccess.jsp
+INFO    2017-04-20 09:06:50,400 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,2B10BA40C970335500A049A53950B39F}
+INFO    2017-04-20 09:06:50,402 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{user,admin}
+INFO    2017-04-20 09:06:50,403 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/CheckoutPage.jsp
+INFO    2017-04-24 01:36:24,266 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-24 01:36:24,276 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 01:36:24,309 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-24 01:36:31,212 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-24 01:36:31,212 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 01:36:31,432 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-24 01:36:36,248 [http-nio-8080-exec-8] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,3FB2C29DFFCCC63B16C3500FDEA698D1}
+INFO    2017-04-24 01:36:36,249 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-24 01:36:39,231 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,3FB2C29DFFCCC63B16C3500FDEA698D1}
+INFO    2017-04-24 01:36:39,231 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-24 01:37:31,010 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-24 01:37:31,014 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 01:37:31,041 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-24 01:37:39,377 [http-nio-8080-exec-6] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,3FB2C29DFFCCC63B16C3500FDEA698D1}
+INFO    2017-04-24 01:37:39,393 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+INFO    2017-04-24 01:37:39,394 [http-nio-8080-exec-6] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 01:37:39,538 [http-nio-8080-exec-7] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,3FB2C29DFFCCC63B16C3500FDEA698D1}
+INFO    2017-04-24 01:37:39,539 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/login.jsp
+INFO    2017-04-24 01:37:55,630 [http-nio-8080-exec-1] Controllers.filters.RequestLoggingFilter  - 0:0:0:0:0:0:0:1::Cookie::{JSESSIONID,3DDE1D9B668CB995792334E7AA03628A}
+INFO    2017-04-24 01:37:55,631 [http-nio-8080-exec-1] Controllers.filters.UserFilter  - Requested Resource::/quiz/
+ERROR   2017-04-24 04:00:31,719 [http-nio-8080-exec-3] Models.dao.UserDao  - java.sql.SQLException: Column 'is_blocked' not found.
+DEBUG   2017-04-24 04:00:31,723 [http-nio-8080-exec-3] Services.UserService  - User: null
+DEBUG   2017-04-24 04:03:05,576 [http-nio-8080-exec-10] Services.UserService  - User: Models.pojo.User@7b3ad73a
+DEBUG   2017-04-24 04:03:34,047 [http-nio-8080-exec-3] Services.UserService  - User: Models.pojo.User@9cf2770
+DEBUG   2017-04-24 04:04:21,578 [http-nio-8080-exec-3] Services.UserService  - User: Models.pojo.User@519ccd8f
+DEBUG   2017-04-24 04:04:21,588 [http-nio-8080-exec-3] Services.UserService  - User: Models.pojo.User@2a03c9d5
+DEBUG   2017-04-24 04:05:32,919 [http-nio-8080-exec-11] Services.UserService  - User: Models.pojo.User@5ece1fe1
+DEBUG   2017-04-24 04:05:32,924 [http-nio-8080-exec-11] Services.UserService  - User: Models.pojo.User@7e3ab819
+INFO    2017-04-24 04:05:32,924 [http-nio-8080-exec-11] Controllers.RegisterController  - 
+DEBUG   2017-04-24 04:07:05,232 [http-nio-8080-exec-14] Services.UserService  - User: Models.pojo.User@1e4dfe8e
+DEBUG   2017-04-24 04:07:05,240 [http-nio-8080-exec-14] Services.UserService  - User: Models.pojo.User@7d9ca674
+INFO    2017-04-24 04:07:05,240 [http-nio-8080-exec-14] Controllers.RegisterController  - Eugene
+DEBUG   2017-04-24 04:07:07,596 [http-nio-8080-exec-1] Services.UserService  - User: Models.pojo.User@6d801871
+DEBUG   2017-04-24 04:07:07,605 [http-nio-8080-exec-1] Services.UserService  - User: Models.pojo.User@1a19e292
+INFO    2017-04-24 04:07:07,605 [http-nio-8080-exec-1] Controllers.RegisterController  - Eugene
+DEBUG   2017-04-24 09:03:16,130 [http-nio-8080-exec-26] Services.UserService  - User: Models.pojo.User@1c38adad
+DEBUG   2017-04-24 09:03:16,135 [http-nio-8080-exec-26] Services.UserService  - User: Models.pojo.User@56d859dd
+INFO    2017-04-24 09:03:16,135 [http-nio-8080-exec-26] Controllers.RegisterController  - Eugene
+ERROR   2017-04-24 14:52:45,746 [http-nio-8080-exec-3] Models.dao.UserDao  - java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+DEBUG   2017-04-24 14:54:45,839 [http-nio-8080-exec-9] Models.dao.UserDao  - users count: 0
+DEBUG   2017-04-24 14:54:51,967 [http-nio-8080-exec-1] Models.dao.UserDao  - users count: -1
+DEBUG   2017-04-24 14:55:33,342 [http-nio-8080-exec-12] Models.dao.UserDao  - admin users count: -1
+DEBUG   2017-04-24 14:57:05,492 [http-nio-8080-exec-5] Models.dao.UserDao  - user1
+ERROR   2017-04-24 15:06:57,041 [http-nio-8080-exec-18] Models.dao.UserDao  - com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'name' cannot be null
+INFO    2017-04-24 15:17:44,378 [http-nio-8080-exec-27] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/user
+INFO    2017-04-24 15:17:44,511 [http-nio-8080-exec-29] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/css/bootstrap.min.css
+INFO    2017-04-24 15:17:44,519 [http-nio-8080-exec-25] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/css/sticky-footer-navbar.css
+INFO    2017-04-24 15:17:44,522 [http-nio-8080-exec-26] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/js/bootstrap.min.js
+INFO    2017-04-24 15:17:44,768 [http-nio-8080-exec-31] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/js/bootstrap.min.js
+INFO    2017-04-24 15:17:44,874 [http-nio-8080-exec-34] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/favicon.ico
+INFO    2017-04-24 15:17:56,300 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/user/
+INFO    2017-04-24 15:17:59,336 [http-nio-8080-exec-32] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/user
+INFO    2017-04-24 15:17:59,365 [http-nio-8080-exec-35] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/css/bootstrap.min.css
+INFO    2017-04-24 15:17:59,367 [http-nio-8080-exec-36] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/css/sticky-footer-navbar.css
+INFO    2017-04-24 15:17:59,376 [http-nio-8080-exec-26] Controllers.filters.UserFilter  - Requested Resource::/quiz/home/js/bootstrap.min.js
+INFO    2017-04-24 15:18:47,022 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:18:47,025 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:18:56,267 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:18:59,173 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:19:04,614 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:20:34,944 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:20:34,949 [http-nio-8080-exec-7] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:20:40,181 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:20:40,303 [http-nio-8080-exec-5] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:20:45,059 [http-nio-8080-exec-11] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:22:12,124 [http-nio-8080-exec-8] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:22:14,066 [http-nio-8080-exec-15] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:23:02,823 [http-nio-8080-exec-17] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:25:49,577 [http-nio-8080-exec-24] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:25:57,328 [http-nio-8080-exec-14] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:25:57,330 [http-nio-8080-exec-14] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:25:57,732 [http-nio-8080-exec-27] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:25:57,733 [http-nio-8080-exec-27] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:26:01,753 [http-nio-8080-exec-25] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:26:01,753 [http-nio-8080-exec-25] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:26:02,139 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:26:02,141 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:26:07,349 [http-nio-8080-exec-35] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:26:07,350 [http-nio-8080-exec-35] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 15:26:07,746 [http-nio-8080-exec-25] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:26:07,746 [http-nio-8080-exec-25] Controllers.filters.UserFilter  - Unauthorized access request
+DEBUG   2017-04-24 15:26:52,547 [http-nio-8080-exec-30] Services.UserService  - User: null
+DEBUG   2017-04-24 15:28:41,657 [http-nio-8080-exec-31] Services.UserService  - User: null
+DEBUG   2017-04-24 15:29:24,174 [http-nio-8080-exec-36] Models.dao.UserDao  - executed
+DEBUG   2017-04-24 15:29:24,178 [http-nio-8080-exec-36] Services.UserService  - User: null
+DEBUG   2017-04-24 15:30:10,169 [http-nio-8080-exec-42] Models.dao.UserDao  - executed null
+DEBUG   2017-04-24 15:30:10,173 [http-nio-8080-exec-42] Services.UserService  - User: null
+DEBUG   2017-04-24 15:30:53,594 [http-nio-8080-exec-32] Models.dao.UserDao  - executed null
+DEBUG   2017-04-24 15:30:53,597 [http-nio-8080-exec-32] Services.UserService  - User: null
+DEBUG   2017-04-24 15:31:13,636 [http-nio-8080-exec-43] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:31:13,638 [http-nio-8080-exec-43] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:31:13,638 [http-nio-8080-exec-43] Models.dao.UserDao  - check password = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:31:13,826 [http-nio-8080-exec-43] Services.UserService  - User: null
+DEBUG   2017-04-24 15:31:17,841 [http-nio-8080-exec-20] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:31:17,841 [http-nio-8080-exec-20] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:31:17,841 [http-nio-8080-exec-20] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:31:18,002 [http-nio-8080-exec-20] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 15:31:18,004 [http-nio-8080-exec-20] Services.UserService  - User: Models.pojo.User@78baa112
+INFO    2017-04-24 15:31:34,425 [http-nio-8080-exec-47] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:31:34,426 [http-nio-8080-exec-47] Controllers.filters.UserFilter  - Auth filter: admin
+INFO    2017-04-24 15:34:52,778 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+DEBUG   2017-04-24 15:35:02,635 [http-nio-8080-exec-10] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:35:02,642 [http-nio-8080-exec-10] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:35:02,642 [http-nio-8080-exec-10] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:35:02,836 [http-nio-8080-exec-10] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 15:35:02,838 [http-nio-8080-exec-10] Services.UserService  - User: Models.pojo.User@1136580b
+INFO    2017-04-24 15:35:08,797 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:35:08,798 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Auth filter: admin
+INFO    2017-04-24 15:37:37,420 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:37:39,031 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:38:06,922 [http-nio-8080-exec-4] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+DEBUG   2017-04-24 15:40:35,263 [http-nio-8080-exec-1] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:40:35,268 [http-nio-8080-exec-1] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:40:35,268 [http-nio-8080-exec-1] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:40:35,452 [http-nio-8080-exec-1] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 15:40:35,454 [http-nio-8080-exec-1] Services.UserService  - User: Models.pojo.User@58deb579
+INFO    2017-04-24 15:40:35,465 [http-nio-8080-exec-14] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:40:35,467 [http-nio-8080-exec-14] Controllers.filters.UserFilter  - Auth filter: admin
+DEBUG   2017-04-24 15:49:04,583 [http-nio-8080-exec-25] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:49:04,587 [http-nio-8080-exec-25] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:49:04,588 [http-nio-8080-exec-25] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:49:04,788 [http-nio-8080-exec-25] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 15:49:04,790 [http-nio-8080-exec-25] Services.UserService  - User: Models.pojo.User@5a1d785e
+INFO    2017-04-24 15:49:04,803 [http-nio-8080-exec-27] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 15:49:04,804 [http-nio-8080-exec-27] Controllers.filters.UserFilter  - Auth filter: admin
+DEBUG   2017-04-24 15:49:51,148 [http-nio-8080-exec-33] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:49:51,152 [http-nio-8080-exec-33] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:49:51,152 [http-nio-8080-exec-33] Models.dao.UserDao  - check asdasd = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:49:51,316 [http-nio-8080-exec-33] Services.UserService  - User: null
+DEBUG   2017-04-24 15:57:43,138 [http-nio-8080-exec-42] Models.dao.UserDao  - executed asdasd
+DEBUG   2017-04-24 15:57:43,142 [http-nio-8080-exec-42] Services.UserService  - User: null
+DEBUG   2017-04-24 15:57:48,377 [http-nio-8080-exec-37] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 15:57:48,379 [http-nio-8080-exec-37] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 15:57:48,379 [http-nio-8080-exec-37] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 15:57:48,566 [http-nio-8080-exec-37] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 15:57:48,567 [http-nio-8080-exec-37] Services.UserService  - User: Models.pojo.User@2f00ab21
+INFO    2017-04-24 15:59:39,393 [http-nio-8080-exec-50] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+DEBUG   2017-04-24 16:00:50,143 [http-nio-8080-exec-10] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:00:50,148 [http-nio-8080-exec-10] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:00:50,148 [http-nio-8080-exec-10] Models.dao.UserDao  - check pass = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:00:50,354 [http-nio-8080-exec-10] Services.UserService  - User: null
+DEBUG   2017-04-24 16:00:54,704 [http-nio-8080-exec-1] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:00:54,706 [http-nio-8080-exec-1] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:00:54,707 [http-nio-8080-exec-1] Models.dao.UserDao  - check password = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:00:54,871 [http-nio-8080-exec-1] Services.UserService  - User: null
+DEBUG   2017-04-24 16:00:58,582 [http-nio-8080-exec-2] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:00:58,583 [http-nio-8080-exec-2] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:00:58,583 [http-nio-8080-exec-2] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:00:58,745 [http-nio-8080-exec-2] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:00:58,746 [http-nio-8080-exec-2] Services.UserService  - User: Models.pojo.User@48230832
+INFO    2017-04-24 16:00:58,760 [http-nio-8080-exec-3] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:00:58,760 [http-nio-8080-exec-3] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:01:06,565 [http-nio-8080-exec-7] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:01:06,566 [http-nio-8080-exec-7] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:01:09,244 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:01:09,245 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 16:01:09,694 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:01:09,695 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Unauthorized access request
+DEBUG   2017-04-24 16:08:16,255 [http-nio-8080-exec-6] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:08:16,258 [http-nio-8080-exec-6] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:08:16,259 [http-nio-8080-exec-6] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:08:16,447 [http-nio-8080-exec-6] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:08:16,449 [http-nio-8080-exec-6] Services.UserService  - User: Models.pojo.User@91e2e3c
+INFO    2017-04-24 16:08:16,458 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:08:16,459 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Auth filter: admin
+DEBUG   2017-04-24 16:10:22,956 [http-nio-8080-exec-12] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:10:22,960 [http-nio-8080-exec-12] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:10:22,960 [http-nio-8080-exec-12] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:10:23,146 [http-nio-8080-exec-12] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:10:23,148 [http-nio-8080-exec-12] Services.UserService  - User: Models.pojo.User@2d050d88
+INFO    2017-04-24 16:10:23,159 [http-nio-8080-exec-1] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:10:23,161 [http-nio-8080-exec-1] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:10:48,491 [http-nio-8080-exec-7] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:10:48,492 [http-nio-8080-exec-7] Controllers.filters.AdminFilter  - Auth filter: admin
+DEBUG   2017-04-24 16:11:14,263 [http-nio-8080-exec-11] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:11:14,267 [http-nio-8080-exec-11] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:11:14,267 [http-nio-8080-exec-11] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:11:14,455 [http-nio-8080-exec-11] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:11:14,457 [http-nio-8080-exec-11] Services.UserService  - User: Models.pojo.User@347229b0
+INFO    2017-04-24 16:11:14,466 [http-nio-8080-exec-18] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:11:14,467 [http-nio-8080-exec-18] Controllers.filters.AdminFilter  - Auth filter: admin
+DEBUG   2017-04-24 16:11:17,925 [http-nio-8080-exec-15] Models.dao.UserDao  - executed null
+DEBUG   2017-04-24 16:11:17,926 [http-nio-8080-exec-15] Services.UserService  - User: null
+DEBUG   2017-04-24 16:16:14,360 [http-nio-8080-exec-10] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:16:14,365 [http-nio-8080-exec-10] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:16:14,365 [http-nio-8080-exec-10] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:16:14,560 [http-nio-8080-exec-10] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:16:14,562 [http-nio-8080-exec-10] Services.UserService  - User: Models.pojo.User@58cdc7c6
+INFO    2017-04-24 16:16:14,577 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:16:14,578 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:16:16,850 [http-nio-8080-exec-1] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:16:16,852 [http-nio-8080-exec-1] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:16:19,024 [http-nio-8080-exec-3] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:16:19,024 [http-nio-8080-exec-3] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:19:57,928 [http-nio-8080-exec-2] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:20:02,888 [http-nio-8080-exec-8] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:20:20,547 [http-nio-8080-exec-3] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:21:51,913 [http-nio-8080-exec-1] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:21:58,114 [http-nio-8080-exec-10] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:21:58,119 [http-nio-8080-exec-10] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:21:58,119 [http-nio-8080-exec-10] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:21:58,308 [http-nio-8080-exec-10] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:21:58,310 [http-nio-8080-exec-10] Services.UserService  - User: Models.pojo.User@5871d0c1
+INFO    2017-04-24 16:21:58,325 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:21:58,325 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Auth filter: admin
+DEBUG   2017-04-24 16:22:01,121 [http-nio-8080-exec-7] Models.dao.UserDao  - executed null
+DEBUG   2017-04-24 16:22:01,122 [http-nio-8080-exec-7] Services.UserService  - User: null
+INFO    2017-04-24 16:22:03,665 [http-nio-8080-exec-5] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:22:03,666 [http-nio-8080-exec-5] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:22:09,940 [http-nio-8080-exec-3] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:22:51,443 [http-nio-8080-exec-11] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:23:08,806 [http-nio-8080-exec-13] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:23:13,343 [http-nio-8080-exec-18] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:23:13,345 [http-nio-8080-exec-18] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:23:13,345 [http-nio-8080-exec-18] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:23:13,535 [http-nio-8080-exec-18] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:23:13,537 [http-nio-8080-exec-18] Services.UserService  - User: Models.pojo.User@563a4766
+INFO    2017-04-24 16:23:13,549 [http-nio-8080-exec-16] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:23:13,549 [http-nio-8080-exec-16] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:23:16,041 [http-nio-8080-exec-2] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:23:16,051 [http-nio-8080-exec-14] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:23:16,052 [http-nio-8080-exec-14] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:23:17,679 [http-nio-8080-exec-17] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:23:17,680 [http-nio-8080-exec-17] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:23:19,128 [http-nio-8080-exec-11] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:23:19,129 [http-nio-8080-exec-11] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:23:20,256 [http-nio-8080-exec-5] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:23:20,256 [http-nio-8080-exec-5] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:23:26,495 [http-nio-8080-exec-21] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:23:26,496 [http-nio-8080-exec-21] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:23:27,235 [http-nio-8080-exec-22] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:23:31,176 [http-nio-8080-exec-11] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:23:47,096 [http-nio-8080-exec-24] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:24:33,816 [http-nio-8080-exec-25] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:24:33,817 [http-nio-8080-exec-25] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:24:33,826 [http-nio-8080-exec-20] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:27:13,639 [http-nio-8080-exec-25] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:27:18,687 [http-nio-8080-exec-20] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:27:18,691 [http-nio-8080-exec-20] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:27:18,691 [http-nio-8080-exec-20] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:27:18,875 [http-nio-8080-exec-20] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:27:18,877 [http-nio-8080-exec-20] Services.UserService  - User: Models.pojo.User@3c68eb38
+INFO    2017-04-24 16:27:18,887 [http-nio-8080-exec-28] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:27:18,887 [http-nio-8080-exec-28] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:27:21,287 [http-nio-8080-exec-26] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:27:21,287 [http-nio-8080-exec-26] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:27:22,976 [http-nio-8080-exec-24] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:27:28,503 [http-nio-8080-exec-19] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:27:28,503 [http-nio-8080-exec-19] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:27:28,529 [http-nio-8080-exec-22] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:27:34,038 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:27:34,039 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 16:27:34,064 [http-nio-8080-exec-28] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:27:38,791 [http-nio-8080-exec-21] Models.dao.UserDao  - executed admin
+DEBUG   2017-04-24 16:27:38,792 [http-nio-8080-exec-21] Models.dao.UserDao  - found 1
+DEBUG   2017-04-24 16:27:38,792 [http-nio-8080-exec-21] Models.dao.UserDao  - check admin = $2a$10$atZTk8Mn2Aa58ZIyxbcVi.ZMSQlah1jP6Vh2bfZQDehoJ09k9jc9y
+DEBUG   2017-04-24 16:27:38,953 [http-nio-8080-exec-21] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:27:38,954 [http-nio-8080-exec-21] Services.UserService  - User: Models.pojo.User@7c226495
+INFO    2017-04-24 16:27:38,962 [http-nio-8080-exec-29] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:27:38,963 [http-nio-8080-exec-29] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:27:40,944 [http-nio-8080-exec-33] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:27:40,945 [http-nio-8080-exec-33] Controllers.filters.AdminFilter  - Auth filter: admin
+INFO    2017-04-24 16:27:43,323 [http-nio-8080-exec-22] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:27:43,324 [http-nio-8080-exec-22] Controllers.filters.UserFilter  - Auth filter: admin
+INFO    2017-04-24 16:27:52,122 [http-nio-8080-exec-34] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:27:53,888 [http-nio-8080-exec-35] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:27:56,802 [http-nio-8080-exec-36] Models.dao.UserDao  - executed asdasd
+DEBUG   2017-04-24 16:27:56,803 [http-nio-8080-exec-36] Models.dao.UserDao  - found 2
+DEBUG   2017-04-24 16:27:56,803 [http-nio-8080-exec-36] Models.dao.UserDao  - check asdasd = $2a$10$rY1WvB1nv7Me1qXcDIGBD.Xe/a8SGlEgezZMnRVe37GNWKFJkNyfy
+DEBUG   2017-04-24 16:27:56,966 [http-nio-8080-exec-36] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:27:56,967 [http-nio-8080-exec-36] Services.UserService  - User: Models.pojo.User@4110ec30
+INFO    2017-04-24 16:27:56,975 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:27:56,975 [http-nio-8080-exec-30] Controllers.filters.UserFilter  - Auth filter: asdasd
+INFO    2017-04-24 16:28:00,324 [http-nio-8080-exec-34] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:28:00,325 [http-nio-8080-exec-34] Controllers.filters.AdminFilter  - Auth filter: asdasd
+INFO    2017-04-24 16:29:46,798 [http-nio-8080-exec-30] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:29:50,290 [http-nio-8080-exec-31] Models.dao.UserDao  - executed asdasd
+DEBUG   2017-04-24 16:29:50,292 [http-nio-8080-exec-31] Models.dao.UserDao  - found 2
+DEBUG   2017-04-24 16:29:50,292 [http-nio-8080-exec-31] Models.dao.UserDao  - check asdasd = $2a$10$rY1WvB1nv7Me1qXcDIGBD.Xe/a8SGlEgezZMnRVe37GNWKFJkNyfy
+DEBUG   2017-04-24 16:29:50,477 [http-nio-8080-exec-31] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:29:50,478 [http-nio-8080-exec-31] Services.UserService  - User: Models.pojo.User@218dc32a
+INFO    2017-04-24 16:29:50,487 [http-nio-8080-exec-32] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:29:50,487 [http-nio-8080-exec-32] Controllers.filters.UserFilter  - Auth filter: asdasd
+INFO    2017-04-24 16:29:53,030 [http-nio-8080-exec-34] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:31:11,129 [http-nio-8080-exec-39] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:31:12,402 [http-nio-8080-exec-38] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:31:17,414 [http-nio-8080-exec-44] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:31:19,306 [http-nio-8080-exec-41] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:31:19,307 [http-nio-8080-exec-41] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:31:20,164 [http-nio-8080-exec-35] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:31:20,164 [http-nio-8080-exec-35] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:31:20,531 [http-nio-8080-exec-37] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:31:20,532 [http-nio-8080-exec-37] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:31:20,540 [http-nio-8080-exec-45] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:31:23,124 [http-nio-8080-exec-43] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:31:28,344 [http-nio-8080-exec-48] Models.dao.UserDao  - executed asdasd
+DEBUG   2017-04-24 16:31:28,345 [http-nio-8080-exec-48] Models.dao.UserDao  - found 2
+DEBUG   2017-04-24 16:31:28,346 [http-nio-8080-exec-48] Models.dao.UserDao  - check asdasd = $2a$10$rY1WvB1nv7Me1qXcDIGBD.Xe/a8SGlEgezZMnRVe37GNWKFJkNyfy
+DEBUG   2017-04-24 16:31:28,528 [http-nio-8080-exec-48] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:31:28,529 [http-nio-8080-exec-48] Services.UserService  - User: Models.pojo.User@5d7c4af7
+INFO    2017-04-24 16:31:28,538 [http-nio-8080-exec-49] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:31:28,539 [http-nio-8080-exec-49] Controllers.filters.UserFilter  - Auth filter: asdasd
+INFO    2017-04-24 16:31:29,954 [http-nio-8080-exec-35] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:32:11,902 [http-nio-8080-exec-45] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:32:11,908 [http-nio-8080-exec-45] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:32:11,920 [http-nio-8080-exec-33] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:32:18,063 [http-nio-8080-exec-47] Models.dao.UserDao  - executed asdasd
+DEBUG   2017-04-24 16:32:18,064 [http-nio-8080-exec-47] Models.dao.UserDao  - found 2
+DEBUG   2017-04-24 16:32:18,064 [http-nio-8080-exec-47] Models.dao.UserDao  - check asdasd = $2a$10$rY1WvB1nv7Me1qXcDIGBD.Xe/a8SGlEgezZMnRVe37GNWKFJkNyfy
+DEBUG   2017-04-24 16:32:18,248 [http-nio-8080-exec-47] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:32:18,249 [http-nio-8080-exec-47] Services.UserService  - User: Models.pojo.User@3b6bb64f
+INFO    2017-04-24 16:32:18,260 [http-nio-8080-exec-49] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:32:18,260 [http-nio-8080-exec-49] Controllers.filters.UserFilter  - Auth filter: asdasd
+INFO    2017-04-24 16:32:21,469 [http-nio-8080-exec-43] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:32:21,470 [http-nio-8080-exec-43] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:32:21,500 [http-nio-8080-exec-51] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:32:21,968 [http-nio-8080-exec-50] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:32:21,968 [http-nio-8080-exec-50] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:32:21,994 [http-nio-8080-exec-53] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:32:22,209 [http-nio-8080-exec-33] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 16:32:22,209 [http-nio-8080-exec-33] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 16:32:22,218 [http-nio-8080-exec-54] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:32:22,226 [http-nio-8080-exec-49] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:32:22,227 [http-nio-8080-exec-49] Controllers.filters.UserFilter  - Auth filter: asdasd
+INFO    2017-04-24 16:53:37,636 [http-nio-8080-exec-8] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:53:41,402 [http-nio-8080-exec-1] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:53:46,473 [http-nio-8080-exec-3] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 16:54:20,959 [http-nio-8080-exec-8] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 16:54:25,517 [http-nio-8080-exec-9] Models.dao.UserDao  - executed qweqwe
+DEBUG   2017-04-24 16:54:25,519 [http-nio-8080-exec-9] Models.dao.UserDao  - found 4
+DEBUG   2017-04-24 16:54:25,519 [http-nio-8080-exec-9] Models.dao.UserDao  - check qweqwe = $2a$10$OK70C2cCHbJdz4CNr1X8bO9Bq48EVHJx81lOFVS.EZMPmypAFgvfG
+DEBUG   2017-04-24 16:54:25,681 [http-nio-8080-exec-9] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 16:54:25,682 [http-nio-8080-exec-9] Services.UserService  - User: Models.pojo.User@2a182349
+INFO    2017-04-24 16:54:25,698 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:54:25,699 [http-nio-8080-exec-10] Controllers.filters.UserFilter  - Auth filter: qweqwe
+INFO    2017-04-24 16:54:34,569 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 16:54:34,570 [http-nio-8080-exec-2] Controllers.filters.UserFilter  - Auth filter: qweqwe
+INFO    2017-04-24 18:17:28,947 [http-nio-8080-exec-3] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 18:19:17,111 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Requested Resource::/quiz/admin
+INFO    2017-04-24 18:19:17,111 [http-nio-8080-exec-4] Controllers.filters.AdminFilter  - Unauthorized access request
+INFO    2017-04-24 18:19:17,137 [http-nio-8080-exec-5] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 18:19:20,861 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 18:19:20,862 [http-nio-8080-exec-9] Controllers.filters.UserFilter  - Unauthorized access request
+INFO    2017-04-24 18:19:20,890 [http-nio-8080-exec-10] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 18:19:23,490 [http-nio-8080-exec-1] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 18:19:25,766 [http-nio-8080-exec-3] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 18:27:37,029 [http-nio-8080-exec-5] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 20:54:26,251 [http-nio-8080-exec-11] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 20:54:41,605 [http-nio-8080-exec-17] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 20:54:45,665 [http-nio-8080-exec-18] Models.dao.UserDao  - executed 
+DEBUG   2017-04-24 20:54:45,666 [http-nio-8080-exec-18] Models.dao.UserDao  - found 3
+DEBUG   2017-04-24 20:54:45,666 [http-nio-8080-exec-18] Models.dao.UserDao  - check  = $2a$10$7AFBZuf4az5Tr5/hVN3lMuvEV6PRg.qJCzCmvjs2J7zTDwZyXfkne
+DEBUG   2017-04-24 20:54:45,852 [http-nio-8080-exec-18] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 20:54:45,854 [http-nio-8080-exec-18] Services.UserService  - User: Models.pojo.User@6124258a
+INFO    2017-04-24 20:54:45,869 [http-nio-8080-exec-14] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 20:54:45,870 [http-nio-8080-exec-14] Controllers.filters.UserFilter  - Auth filter: 
+INFO    2017-04-24 20:55:01,955 [http-nio-8080-exec-11] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 20:55:13,441 [http-nio-8080-exec-15] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 20:55:14,722 [http-nio-8080-exec-16] Models.dao.UserDao  - executed 
+DEBUG   2017-04-24 20:55:14,723 [http-nio-8080-exec-16] Models.dao.UserDao  - found 3
+DEBUG   2017-04-24 20:55:14,723 [http-nio-8080-exec-16] Models.dao.UserDao  - check  = $2a$10$7AFBZuf4az5Tr5/hVN3lMuvEV6PRg.qJCzCmvjs2J7zTDwZyXfkne
+DEBUG   2017-04-24 20:55:14,886 [http-nio-8080-exec-16] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 20:55:14,886 [http-nio-8080-exec-16] Services.UserService  - User: Models.pojo.User@3c19373e
+INFO    2017-04-24 20:55:14,896 [http-nio-8080-exec-17] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 20:55:14,896 [http-nio-8080-exec-17] Controllers.filters.UserFilter  - Auth filter: 
+INFO    2017-04-24 20:55:48,913 [http-nio-8080-exec-18] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 20:55:48,913 [http-nio-8080-exec-18] Controllers.filters.UserFilter  - Auth filter: 
+INFO    2017-04-24 20:55:50,885 [http-nio-8080-exec-19] Controllers.LoginController  - Requested Resource::/quiz/login
+DEBUG   2017-04-24 20:55:53,273 [http-nio-8080-exec-20] Models.dao.UserDao  - executed 
+DEBUG   2017-04-24 20:55:53,274 [http-nio-8080-exec-20] Services.UserService  - User: null
+DEBUG   2017-04-24 20:55:54,779 [http-nio-8080-exec-11] Models.dao.UserDao  - executed 
+DEBUG   2017-04-24 20:55:54,780 [http-nio-8080-exec-11] Services.UserService  - User: null
+DEBUG   2017-04-24 20:55:55,507 [http-nio-8080-exec-12] Models.dao.UserDao  - executed 
+DEBUG   2017-04-24 20:55:55,509 [http-nio-8080-exec-12] Services.UserService  - User: null
+DEBUG   2017-04-24 20:55:59,807 [http-nio-8080-exec-14] Models.dao.UserDao  - executed test
+DEBUG   2017-04-24 20:55:59,808 [http-nio-8080-exec-14] Models.dao.UserDao  - found 3
+DEBUG   2017-04-24 20:55:59,808 [http-nio-8080-exec-14] Models.dao.UserDao  - check  = $2a$10$7AFBZuf4az5Tr5/hVN3lMuvEV6PRg.qJCzCmvjs2J7zTDwZyXfkne
+DEBUG   2017-04-24 20:55:59,970 [http-nio-8080-exec-14] Models.dao.UserDao  - password ok
+DEBUG   2017-04-24 20:55:59,971 [http-nio-8080-exec-14] Services.UserService  - User: Models.pojo.User@78f3ec01
+INFO    2017-04-24 20:55:59,980 [http-nio-8080-exec-19] Controllers.filters.UserFilter  - Requested Resource::/quiz/user
+INFO    2017-04-24 20:55:59,980 [http-nio-8080-exec-19] Controllers.filters.UserFilter  - Auth filter: test
+INFO    2017-04-24 20:56:01,787 [http-nio-8080-exec-11] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 22:53:23,997 [http-nio-8080-exec-8] Controllers.LoginController  - Requested Resource::/quiz/login
+ERROR   2017-04-24 22:53:28,002 [http-nio-8080-exec-9] Models.dao.UserDao  - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'mydba'
+ERROR   2017-04-24 22:57:22,592 [http-nio-8080-exec-4] Models.dao.UserDao  - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'mydba'
+ERROR   2017-04-24 22:57:38,596 [http-nio-8080-exec-11] Models.dao.UserDao  - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'mydba'
+INFO    2017-04-24 23:10:50,443 [http-nio-8080-exec-13] Controllers.LoginController  - Requested Resource::/quiz/login
+INFO    2017-04-24 23:10:52,789 [http-nio-8080-exec-16] Controllers.LoginController  - Requested Resource::/quiz/login
+ERROR   2017-04-24 23:10:55,788 [http-nio-8080-exec-17] Models.dao.UserDao  - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'mydba'
+ERROR   2017-04-24 23:11:09,256 [http-nio-8080-exec-13] Models.dao.UserDao  - com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'mydba'
+INFO    2017-04-24 23:11:21,274 [http-nio-8080-exec-12] Controllers.LoginController  - Requested Resource::/quiz/login

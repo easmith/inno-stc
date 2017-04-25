@@ -3,6 +3,7 @@ package Services;
 import Models.dao.UserDao;
 import Models.dao.UserDaoInterface;
 import Models.pojo.User;
+import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 
 /**
@@ -15,17 +16,18 @@ public class UserService implements UserServiceInterface {
     private static final Logger LOGGER = Logger.getLogger(UserService.class);
 
     @Override
-    public User auth(String login, String password) {
+    public User auth(String login, String password) throws QuizInternalException {
         User user = userDao.findUserByLoginAndPassword(login, password);
-        LOGGER.debug("User: " + user);
         return user;
     }
 
-    public boolean existUser(String login) {
+    @Override
+    public boolean existUser(String login) throws QuizInternalException {
         return userDao.existUser(login);
     }
 
-    public void addUser(User user) {
+    @Override
+    public void addUser(User user) throws QuizInternalException {
         userDao.addUser(user);
     }
 }

@@ -12,7 +12,7 @@ public class DbConnectionFactory {
     static {
         PoolProperties p = new PoolProperties();
 //        p.setUrl("jdbc:postgresql://localhost:5432/students");
-        p.setUrl("jdbc:mysql://localhost/mydb?useSSL=false");
+        p.setUrl("jdbc:mysql://localhost/mydba?useSSL=false");
         p.setDriverClassName("com.mysql.jdbc.Driver");
         p.setUsername("root");
         p.setPassword("pass");

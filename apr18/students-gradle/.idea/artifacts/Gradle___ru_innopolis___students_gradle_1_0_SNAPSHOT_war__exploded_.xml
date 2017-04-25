@@ -23,9 +23,9 @@
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.41" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:9.0.0.M19" />
           <element id="library" level="project" name="Gradle: javax.mail:javax.mail-api:1.5.6" />
+          <element id="library" level="project" name="Gradle: com.sun.mail:javax.mail:1.5.6" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/javax.mail/1.5.6/ab5daef2f881c42c8e280cbe918ec4d7fdfd7efe/javax.mail-1.5.6.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.activation/activation/1.1/e6cb541461c2834bdea3eb920f1884d1eb508b50/activation-1.1.jar" />
+          <element id="library" level="project" name="Gradle: javax.activation:activation:1.1" />
         </element>
       </element>
     </root>

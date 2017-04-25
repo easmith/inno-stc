@@ -4,6 +4,7 @@ import Models.dao.UserDao;
 import Models.pojo.User;
 import Services.UserService;
 import Services.UserServiceInterface;
+import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -42,19 +43,23 @@ public class RegisterController extends HttpServlet {
         String login = req.getParameter("login");
         String password1 = req.getParameter("password1");
         String password2 = req.getParameter("password2");
-        if (name == null || login == null) {
+        if ("".equals(name) || "".equals(login)) {
             req.setAttribute("error", "Имя и логин не могут быть пустыми");
-        } else if (password2 == null && password2.length() < 5) {
+        } else if (password2 != null && password2.length() < 5) {
             req.setAttribute("error", "Пароль слишком короткий");
         } else if (password2 == null | !password2.equals(password1)) {
             req.setAttribute("error", "Пароли не совпадают");
         } else if (password2 != null && password2.equals(password1)) {
-            if(userService.existUser(login)) {
-                req.setAttribute("error", "Пользователь с таким логином уже существует");
-            } else {
-                User user = new User(0, name, login, password1, "admin".equals(login));
-                userService.addUser(user);
-                req.setAttribute("error", "User id: " + user.getId());
+            try {
+                if(userService.existUser(login)) {
+                    req.setAttribute("error", "Пользователь с таким логином уже существует");
+                } else {
+                    User user = new User(0, name, login, password1, "admin".equals(login));
+                    userService.addUser(user);
+                    req.setAttribute("error", "User id: " + user.getId());
+                }
+            } catch (QuizInternalException e) {
+                req.setAttribute("error", QuizInternalException.commonMessage);
             }
         } else {
             req.setAttribute("error", "Непредвиденная ошибка");

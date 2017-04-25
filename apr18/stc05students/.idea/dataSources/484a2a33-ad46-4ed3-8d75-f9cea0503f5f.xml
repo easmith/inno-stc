@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="students@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="students">
+      <ObjectId>20903</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-04-19.00:39:48.858</IntrospectionTimestamp>
+      <IntrospectionStateNumber>113265</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="journal_id_seq">
+      <ObjectId>20942</ObjectId>
+      <StateNumber>113265</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="10" parent="3" name="lesson_id_seq">
+      <ObjectId>20926</ObjectId>
+      <StateNumber>113264</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="student_id_seq">
+      <ObjectId>20912</ObjectId>
+      <StateNumber>113263</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="12" parent="3" name="study_group_id_seq">
+      <ObjectId>20904</ObjectId>
+      <StateNumber>113262</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="13" parent="3" name="journal">
+      <ObjectId>20944</ObjectId>
+      <StateNumber>113265</StateNumber>
+    </table>
+    <table id="14" parent="3" name="lesson">
+      <ObjectId>20928</ObjectId>
+      <StateNumber>113265</StateNumber>
+    </table>
+    <table id="15" parent="3" name="student">
+      <ObjectId>20914</ObjectId>
+      <StateNumber>113265</StateNumber>
+    </table>
+    <table id="16" parent="3" name="study_group">
+      <ObjectId>20906</ObjectId>
+      <StateNumber>113264</StateNumber>
+    </table>
+    <column id="17" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113265</StateNumber>
+      <DefaultExpression>nextval(&apos;journal_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="18" parent="13" name="lesson_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113265</StateNumber>
+    </column>
+    <column id="19" parent="13" name="student_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113265</StateNumber>
+    </column>
+    <index id="20" parent="13" name="pk_journal_id">
+      <ObjectId>20948</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="21" parent="13" name="pk_journal_id">
+      <ObjectId>20949</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_journal_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="22" parent="13" name="fk_journal_lesson">
+      <ObjectId>20950</ObjectId>
+      <ColNames>lesson_id</ColNames>
+      <RefTableName>lesson</RefTableName>
+      <RefKeyName>fk_lesson</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="23" parent="13" name="fk_journal_student">
+      <ObjectId>20955</ObjectId>
+      <ColNames>student_id</ColNames>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>pk_student_id</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="24" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113264</StateNumber>
+      <DefaultExpression>nextval(&apos;lesson_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="25" parent="14" name="study_group_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113264</StateNumber>
+    </column>
+    <column id="26" parent="14" name="lesson_date">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113264</StateNumber>
+    </column>
+    <column id="27" parent="14" name="room">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113264</StateNumber>
+    </column>
+    <column id="28" parent="14" name="description">
+      <Position>5</Position>
+      <DataType>varchar(2000)|0</DataType>
+      <StateNumber>113264</StateNumber>
+    </column>
+    <index id="29" parent="14" name="fk_lesson">
+      <ObjectId>20935</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="14" name="fk_lesson">
+      <ObjectId>20936</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>fk_lesson</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="31" parent="14" name="fk_lesson_study_group">
+      <ObjectId>20937</ObjectId>
+      <ColNames>study_group_id</ColNames>
+      <RefTableName>study_group</RefTableName>
+      <RefKeyName>pk_study_group_id</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="32" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113263</StateNumber>
+      <DefaultExpression>nextval(&apos;student_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="33" parent="15" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>113263</StateNumber>
+    </column>
+    <column id="34" parent="15" name="age">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>113263</StateNumber>
+    </column>
+    <column id="35" parent="15" name="group_id">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>113263</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="36" parent="15" name="pk_student_id">
+      <ObjectId>20919</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="15" name="pk_student_id">
+      <ObjectId>20920</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_student_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="15" name="fk_student__study_group">
+      <ObjectId>20921</ObjectId>
+      <ColNames>group_id</ColNames>
+      <RefTableName>study_group</RefTableName>
+      <RefKeyName>pk_study_group_id</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="39" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>113262</StateNumber>
+      <DefaultExpression>nextval(&apos;study_group_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="40" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>113262</StateNumber>
+    </column>
+    <index id="41" parent="16" name="pk_study_group_id">
+      <ObjectId>20910</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="16" name="pk_study_group_id">
+      <ObjectId>20911</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_study_group_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

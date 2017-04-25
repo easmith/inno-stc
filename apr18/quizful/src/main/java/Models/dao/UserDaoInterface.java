@@ -1,12 +1,13 @@
 package Models.dao;
 
 import Models.pojo.User;
+import exceptions.QuizInternalException;
 
 /**
  * Created by eku on 24.04.17.
  */
 public interface UserDaoInterface {
-    User findUserByLoginAndPassword(String login, String password);
-    void addUser(User user);
-    boolean existUser(String login);
+    User findUserByLoginAndPassword(String login, String password) throws QuizInternalException;
+    void addUser(User user) throws QuizInternalException;
+    boolean existUser(String login) throws QuizInternalException;
 }

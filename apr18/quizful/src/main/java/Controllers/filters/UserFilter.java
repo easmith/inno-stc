@@ -33,11 +33,15 @@ public class UserFilter implements Filter {
         HttpSession session = req.getSession(false);
         LOGGER.info("Requested Resource::" + uri);
 
-        if ((session == null | session.getAttribute("userLogin") == null) && !uri.endsWith("login")) {
-            LOGGER.info("Unauthorized access request");
-            res.sendRedirect("login");
+        if (!uri.endsWith("login")) {
+            if (session == null | session.getAttribute("userLogin") == null) {
+                LOGGER.info("Unauthorized access request");
+                res.sendRedirect("login");
+            } else {
+                LOGGER.info("Auth filter: " + session.getAttribute("userLogin"));
+                chain.doFilter(request, response);
+            }
         } else {
-            LOGGER.info("Auth filter: " + session.getAttribute("userLogin"));
             chain.doFilter(request, response);
         }
 

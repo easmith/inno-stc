@@ -1,0 +1,112 @@
+ERROR   2017-04-19 19:00:57,781 [http-nio-8081-exec-7] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:05,037 [http-nio-8081-exec-8] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:07,194 [http-nio-8081-exec-9] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:08,105 [http-nio-8081-exec-10] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:08,883 [http-nio-8081-exec-1] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:12,827 [http-nio-8081-exec-3] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:13,543 [http-nio-8081-exec-4] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:14,285 [http-nio-8081-exec-5] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:14,981 [http-nio-8081-exec-6] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:01:15,654 [http-nio-8081-exec-8] models.DAO.GroupDaoImpl  - Table 'mydb.groups' doesn't exist
+ERROR   2017-04-19 19:03:29,377 [http-nio-8081-exec-7] models.DAO.GroupDaoImpl  - PooledConnection has already been closed.
+ERROR   2017-04-19 19:03:48,825 [http-nio-8081-exec-8] models.DAO.GroupDaoImpl  - PooledConnection has already been closed.
+ERROR   2017-04-19 19:03:49,785 [http-nio-8081-exec-9] models.DAO.GroupDaoImpl  - PooledConnection has already been closed.
+DEBUG   2017-04-20 10:03:58,748 [http-nio-8081-exec-7] controllers.LoginController  - User null
+DEBUG   2017-04-20 10:03:58,754 [http-nio-8081-exec-7] controllers.LoginController  - User: null
+DEBUG   2017-04-20 10:03:58,754 [http-nio-8081-exec-7] controllers.LoginController  - User not blocked
+DEBUG   2017-04-20 10:05:37,905 [http-nio-8081-exec-6] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 10:05:37,909 [http-nio-8081-exec-6] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:05:37,909 [http-nio-8081-exec-6] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:05:49,540 [http-nio-8081-exec-10] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 10:05:49,542 [http-nio-8081-exec-10] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:05:49,543 [http-nio-8081-exec-10] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:06:13,033 [http-nio-8081-exec-3] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 10:06:13,034 [http-nio-8081-exec-3] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:06:13,035 [http-nio-8081-exec-3] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:08:05,938 [http-nio-8081-exec-7] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 10:08:05,939 [http-nio-8081-exec-7] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:08:05,939 [http-nio-8081-exec-7] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:08:57,612 [http-nio-8081-exec-6] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 10:08:57,613 [http-nio-8081-exec-6] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:08:57,613 [http-nio-8081-exec-6] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:09:00,393 [http-nio-8081-exec-8] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 10:09:00,394 [http-nio-8081-exec-8] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:09:00,394 [http-nio-8081-exec-8] services.UserServiceImpl  - User not blocked
+ERROR   2017-04-20 10:09:05,843 [http-nio-8081-exec-10] models.DAO.UserDaoImpl  - java.sql.SQLException: Column 'passw' not found.
+DEBUG   2017-04-20 10:09:05,843 [http-nio-8081-exec-10] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:09:05,843 [http-nio-8081-exec-10] services.UserServiceImpl  - User not blocked
+ERROR   2017-04-20 10:09:38,676 [http-nio-8081-exec-8] models.DAO.UserDaoImpl  - java.sql.SQLException: Column 'passw' not found.
+DEBUG   2017-04-20 10:09:38,680 [http-nio-8081-exec-8] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 10:09:38,680 [http-nio-8081-exec-8] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:11:57,743 [http-nio-8081-exec-8] services.UserServiceImpl  - User: models.POJO.User@6208b802
+DEBUG   2017-04-20 10:14:37,210 [http-nio-8081-exec-7] services.UserServiceImpl  - User: models.POJO.User@2577c42
+DEBUG   2017-04-20 10:14:37,214 [http-nio-8081-exec-7] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:14:37,215 [http-nio-8081-exec-7] controllers.LoginController  - user:user
+DEBUG   2017-04-20 10:16:17,628 [http-nio-8081-exec-7] services.UserServiceImpl  - User: models.POJO.User@5534fc6b
+DEBUG   2017-04-20 10:16:17,632 [http-nio-8081-exec-7] services.UserServiceImpl  - User not blocked
+DEBUG   2017-04-20 10:16:17,633 [http-nio-8081-exec-7] controllers.LoginController  - user:user
+DEBUG   2017-04-20 10:39:06,223 [http-nio-8081-exec-7] controllers.LoginController  - stud name:Vasya2
+DEBUG   2017-04-20 10:40:00,059 [http-nio-8081-exec-7] controllers.LoginController  - stud name:Petya
+DEBUG   2017-04-20 10:40:57,306 [http-nio-8081-exec-6] controllers.LoginController  - stud name:Petya1
+DEBUG   2017-04-20 10:41:05,341 [http-nio-8081-exec-1] controllers.LoginController  - stud name:vasya
+DEBUG   2017-04-20 10:45:07,165 [http-nio-8081-exec-10] controllers.LoginController  - stud name:asdasd
+DEBUG   2017-04-20 10:45:52,766 [http-nio-8081-exec-1] controllers.LoginController  - stud name:asdasd
+DEBUG   2017-04-20 10:49:39,409 [http-nio-8081-exec-9] controllers.LoginController  - stud name:qweqwe
+DEBUG   2017-04-20 10:51:01,985 [http-nio-8081-exec-9] controllers.LoginController  - stud name:asdasd
+DEBUG   2017-04-20 10:51:08,307 [http-nio-8081-exec-1] controllers.LoginController  - stud name:asdasd123123
+DEBUG   2017-04-20 10:58:59,016 [http-nio-8081-exec-9] controllers.LoginController  - stud name:qweqwe
+DEBUG   2017-04-20 11:03:55,808 [http-nio-8081-exec-9] controllers.LoginController  - stud name:222
+DEBUG   2017-04-20 11:05:29,713 [http-nio-8081-exec-9] controllers.LoginController  - stud name:qweqwe
+DEBUG   2017-04-20 11:08:00,591 [http-nio-8081-exec-7] controllers.LoginController  - stud name:test1
+DEBUG   2017-04-20 11:18:53,903 [http-nio-8081-exec-9] controllers.LoginController  - stud name:test11
+DEBUG   2017-04-20 11:19:09,582 [http-nio-8081-exec-4] controllers.LoginController  - stud name:Petya1
+DEBUG   2017-04-20 12:06:31,473 [http-nio-8081-exec-1] controllers.LoginController  - Session id = org.apache.catalina.session.StandardSessionFacade@2ef4b6c9
+DEBUG   2017-04-20 12:06:35,104 [http-nio-8081-exec-3] controllers.LoginController  - Session id = org.apache.catalina.session.StandardSessionFacade@308c2dec
+DEBUG   2017-04-20 12:08:05,349 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = org.apache.catalina.session.StandardSessionFacade@2987de01
+DEBUG   2017-04-20 12:08:05,429 [http-nio-8081-exec-2] controllers.listeners.MySessionListener  - Session id = org.apache.catalina.session.StandardSessionFacade@60d92d8f
+DEBUG   2017-04-20 12:08:05,445 [http-nio-8081-exec-3] controllers.listeners.MySessionListener  - Session id = org.apache.catalina.session.StandardSessionFacade@31deb94e
+DEBUG   2017-04-20 12:08:10,518 [http-nio-8081-exec-5] models.DAO.UserDaoImpl  - User null
+DEBUG   2017-04-20 12:08:10,519 [http-nio-8081-exec-5] services.UserServiceImpl  - User: null
+DEBUG   2017-04-20 12:08:10,519 [http-nio-8081-exec-5] services.UserServiceImpl  - User not blocked
+INFO    2017-04-20 12:41:56,133 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send email
+INFO    2017-04-20 12:47:51,947 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send email
+INFO    2017-04-20 12:50:31,684 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send email
+INFO    2017-04-20 12:52:29,144 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: null
+INFO    2017-04-20 12:52:29,618 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null
+DEBUG   2017-04-20 12:52:31,660 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = 8E86609C545E5839DC807615827B8BB3
+INFO    2017-04-20 12:52:37,118 [http-nio-8081-exec-4] controllers.LoginController  - Send emailTo: null
+DEBUG   2017-04-20 12:52:37,123 [http-nio-8081-exec-4] controllers.listeners.MySessionListener  - Session id = E38D15A8BFD5E2BBE987A533C2E18C1A
+INFO    2017-04-20 12:53:34,303 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com
+INFO    2017-04-20 12:53:35,979 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null
+DEBUG   2017-04-20 12:53:37,772 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = 2B948F72F4042D64DFAE49EE80DDCD15
+INFO    2017-04-20 12:53:42,502 [http-nio-8081-exec-3] controllers.LoginController  - Send emailTo: null
+DEBUG   2017-04-20 12:53:42,506 [http-nio-8081-exec-3] controllers.listeners.MySessionListener  - Session id = 55F501FA8806D27EC776608C69D33870
+INFO    2017-04-20 12:54:44,631 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com
+INFO    2017-04-20 12:54:45,269 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null
+DEBUG   2017-04-20 12:54:47,205 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = BFBFB08557A36C1412170917F1D80295
+INFO    2017-04-20 12:54:50,269 [http-nio-8081-exec-3] controllers.LoginController  - Send emailTo: null
+DEBUG   2017-04-20 12:54:50,271 [http-nio-8081-exec-3] controllers.listeners.MySessionListener  - Session id = 2FFBC645C605B5388527DB1C8C84FE0A
+INFO    2017-04-20 12:55:56,386 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-04-20 12:55:57,090 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:56:00,509 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = EBCF2E51E0EA5EF786E4455F1DCB2482
+INFO    2017-04-20 12:56:24,571 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-04-20 12:56:25,273 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:56:27,338 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = B6A0A43D3D49D73AFB137489829F234F
+INFO    2017-04-20 12:56:32,352 [http-nio-8081-exec-3] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:56:32,358 [http-nio-8081-exec-3] controllers.listeners.MySessionListener  - Session id = 8C3C6B14FCAB54CFE54D6452CB3E4D64
+INFO    2017-04-20 12:58:37,823 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-04-20 12:58:38,536 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:58:40,701 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = 6F1C8C2E79D61336719B57606C4745A8
+INFO    2017-04-20 12:58:45,383 [http-nio-8081-exec-3] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:58:45,405 [http-nio-8081-exec-3] controllers.listeners.MySessionListener  - Session id = B7CE61B72AC5E0FA7376B8E465672446
+INFO    2017-04-20 12:59:15,763 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-04-20 12:59:17,014 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:59:23,038 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = 1DB13BA79539816B2145397FC21C22DE
+INFO    2017-04-20 12:59:33,459 [http-nio-8081-exec-5] controllers.LoginController  - Send emailTo: null Text: add student null
+DEBUG   2017-04-20 12:59:33,464 [http-nio-8081-exec-5] controllers.listeners.MySessionListener  - Session id = 66F53940B0AB1A85A490C361C612754D
+INFO    2017-04-20 13:01:41,156 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-04-20 13:01:42,234 [http-nio-8081-exec-1] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: add student null
+DEBUG   2017-04-20 13:01:45,385 [http-nio-8081-exec-1] controllers.listeners.MySessionListener  - Session id = 68BE53FCD9F622AE8DD448CF58B1FB48
+INFO    2017-04-20 13:01:48,019 [http-nio-8081-exec-3] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: add student null
+DEBUG   2017-04-20 13:01:48,023 [http-nio-8081-exec-3] controllers.listeners.MySessionListener  - Session id = C266D9612FE67FD6AEC756F0577A3FD1
+INFO    2017-04-20 13:01:50,768 [http-nio-8081-exec-4] controllers.LoginController  - Send emailTo: easmithrus@gmail.com Text: add student null

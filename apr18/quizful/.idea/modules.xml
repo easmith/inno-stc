@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/quizful.iml" filepath="$PROJECT_DIR$/.idea/modules/quizful.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/quizful_main.iml" filepath="$PROJECT_DIR$/.idea/modules/quizful_main.iml" group="quizful" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/quizful_test.iml" filepath="$PROJECT_DIR$/.idea/modules/quizful_test.iml" group="quizful" />
+    </modules>
+  </component>
+</project>

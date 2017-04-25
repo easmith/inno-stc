@@ -3,6 +3,7 @@ package Controllers;
 import Models.pojo.User;
 import Services.UserService;
 import Services.UserServiceInterface;
+import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -60,7 +61,15 @@ public class LoginController extends HttpServlet {
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        User user = userService.auth(login, password);
+        User user = null;
+        try {
+            user = userService.auth(login, password);
+        } catch (QuizInternalException e) {
+            req.setAttribute("error", QuizInternalException.commonMessage);
+            req.getRequestDispatcher(mainPage).forward(req, resp);
+            return;
+        }
+
         if(user != null){
             HttpSession session = req.getSession();
             session.setAttribute("userLogin", user.getLogin());
