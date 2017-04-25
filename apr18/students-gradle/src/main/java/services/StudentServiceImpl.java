@@ -1,16 +1,24 @@
 package services;
 
 import models.DAO.StudentDao;
-import models.DAO.StudentDaoImpl;
 import models.POJO.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by eku on 19.04.17.
  */
+@Service
 public class StudentServiceImpl implements StudentService {
-    public static StudentDao studentDao = new StudentDaoImpl();
+
+    private StudentDao studentDao;// = new StudentDaoImpl();
+
+    @Autowired
+    public void setStudentDao(StudentDao studentDao) {
+        this.studentDao = studentDao;
+    }
 
     public List<Student> getAllStudents() {
         return studentDao.getAllStudents();

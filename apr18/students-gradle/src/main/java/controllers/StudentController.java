@@ -1,5 +1,7 @@
 package controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import utils.Converter;
 import models.POJO.Student;
 import org.apache.log4j.Logger;
@@ -7,6 +9,7 @@ import services.StudentService;
 import services.StudentServiceImpl;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +21,18 @@ import java.io.IOException;
  */
 public class StudentController extends HttpServlet {
 
-    private static StudentService studentService = new StudentServiceImpl();
+    @Autowired
+    private StudentService studentService;//= new StudentServiceImpl();
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.
+                processInjectionBasedOnServletContext(this,
+                        config.getServletContext());
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

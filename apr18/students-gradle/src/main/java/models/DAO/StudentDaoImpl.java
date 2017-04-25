@@ -2,6 +2,7 @@ package models.DAO;
 
 import models.POJO.Student;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 import utils.DataSourceFactory;
 
 import java.sql.*;
@@ -11,6 +12,7 @@ import java.util.List;
 /**
  * Created by eku on 18.04.17.
  */
+@Repository
 public class StudentDaoImpl implements StudentDao {
     private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
 

@@ -1,5 +1,7 @@
 package controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 import utils.Converter;
 import models.POJO.Group;
 import org.apache.log4j.Logger;
@@ -7,6 +9,7 @@ import services.GroupService;
 import services.GroupServiceImpl;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,9 +20,17 @@ import java.io.IOException;
  * Created by eku on 18.04.17.
  */
 public class GroupController extends HttpServlet {
-    private static GroupService groupService = new GroupServiceImpl();
+
+    @Autowired
+    private GroupService groupService;// = new GroupServiceImpl();
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

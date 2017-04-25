@@ -2,18 +2,23 @@ package services;
 
 import models.DAO.GroupDao;
 import models.DAO.GroupDaoImpl;
-import models.DAO.StudentDao;
-import models.DAO.StudentDaoImpl;
 import models.POJO.Group;
-import models.POJO.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by eku on 19.04.17.
  */
+@Service
 public class GroupServiceImpl implements GroupService {
-    public static GroupDao groupDao = new GroupDaoImpl();
+    public GroupDao groupDao;// = new GroupDaoImpl();
+
+    @Autowired
+    public void setGroupDao(GroupDao groupDao) {
+        this.groupDao = groupDao;
+    }
 
     public List<Group> getAllGroups() {
         return groupDao.getAllGroups();

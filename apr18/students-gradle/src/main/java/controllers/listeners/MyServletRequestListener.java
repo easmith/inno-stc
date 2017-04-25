@@ -20,10 +20,10 @@ public class MyServletRequestListener implements ServletRequestListener {
     }
 
     public void requestInitialized(ServletRequestEvent servletRequestEvent) {
-        ServletContext context = servletRequestEvent.getServletContext();
-        String adminEmail = context.getInitParameter("admin-email");
-        String studentName = (String)context.getAttribute("name");
-        EmailSender.send(adminEmail, "add student " + studentName);
+//        ServletContext context = servletRequestEvent.getServletContext();
+//        String adminEmail = context.getInitParameter("admin-email");
+//        String studentName = (String)context.getAttribute("name");
+//        EmailSender.send(adminEmail, "add student " + studentName);
     }
 
 }
