@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by eku on 20.04.17.
  */
-@WebServlet("/LogoutController")
+//@WebServlet("/LogoutController")
 public class LogoutController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = Logger.getLogger(LogoutController.class);

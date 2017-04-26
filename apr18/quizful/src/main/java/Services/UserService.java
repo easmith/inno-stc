@@ -1,19 +1,25 @@
 package Services;
 
-import Models.dao.UserDao;
 import Models.dao.UserDaoInterface;
 import Models.pojo.User;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by eku on 24.04.17.
  */
+@Service
 public class UserService implements UserServiceInterface {
 
-    private static UserDaoInterface userDao = new UserDao();
-
     private static final Logger LOGGER = Logger.getLogger(UserService.class);
+    private static UserDaoInterface userDao;// = new UserDao();
+
+    @Autowired
+    public void setUserDao(UserDaoInterface userDao) {
+        UserService.userDao = userDao;
+    }
 
     @Override
     public User auth(String login, String password) throws QuizInternalException {

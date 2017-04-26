@@ -3,15 +3,16 @@ package Models.dao;
 import Models.pojo.User;
 import Utils.DbConnectionFactory;
 import Utils.PasswordManager;
-import com.mysql.jdbc.JDBC4ResultSet;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 
 /**
  * Created by eku on 24.04.17.
  */
+@Repository
 public class UserDao implements UserDaoInterface {
 
     private static final Logger LOGGER = Logger.getLogger(UserDao.class);

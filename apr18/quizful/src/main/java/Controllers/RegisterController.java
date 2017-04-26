@@ -1,13 +1,13 @@
 package Controllers;
 
-import Models.dao.UserDao;
 import Models.pojo.User;
-import Services.UserService;
 import Services.UserServiceInterface;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +23,15 @@ public class RegisterController extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(RegisterController.class);
 
-    private static UserServiceInterface userService = new UserService();
-
     private final String mainPage = "/register.jsp";
+    @Autowired
+    private UserServiceInterface userService;// = new UserService();
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -51,7 +57,7 @@ public class RegisterController extends HttpServlet {
             req.setAttribute("error", "Пароли не совпадают");
         } else if (password2 != null && password2.equals(password1)) {
             try {
-                if(userService.existUser(login)) {
+                if (userService.existUser(login)) {
                     req.setAttribute("error", "Пользователь с таким логином уже существует");
                 } else {
                     User user = new User(0, name, login, password1, "admin".equals(login));

@@ -4,6 +4,7 @@ import models.DAO.StudentDao;
 import models.POJO.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.profiling.ProfilingAnnotation;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by eku on 19.04.17.
  */
 @Service
+@ProfilingAnnotation
 public class StudentServiceImpl implements StudentService {
 
     private StudentDao studentDao;// = new StudentDaoImpl();

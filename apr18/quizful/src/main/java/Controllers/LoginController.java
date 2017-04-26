@@ -1,22 +1,16 @@
 package Controllers;
 
 import Models.pojo.User;
-import Services.UserService;
 import Services.UserServiceInterface;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.io.IOException;
 
 /**
  * Created by eku on 20.04.17.
@@ -27,7 +21,14 @@ public class LoginController extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
-    private static UserServiceInterface userService = new UserService();
+    @Autowired
+    private UserServiceInterface userService;// = new UserService();
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
 
     private final String mainPage = "/login.jsp";
 
@@ -70,21 +71,21 @@ public class LoginController extends HttpServlet {
             return;
         }
 
-        if(user != null){
+        if (user != null) {
             HttpSession session = req.getSession();
             session.setAttribute("userLogin", user.getLogin());
             session.setAttribute("userName", user.getName());
             session.setAttribute("userIsAdmin", user.getAdmin());
-            session.setMaxInactiveInterval(30*60);
+            session.setMaxInactiveInterval(30 * 60);
             Cookie cookie = new Cookie("user", login);
-            cookie.setMaxAge(30*60);
+            cookie.setMaxAge(30 * 60);
             resp.addCookie(cookie);
             if (user.getAdmin()) {
                 resp.sendRedirect("admin");
             } else {
                 resp.sendRedirect("user");
             }
-        }else{
+        } else {
             req.setAttribute("menuItem", "login");
             req.setAttribute("error", "Неправильный логин или пароль");
             req.getRequestDispatcher(mainPage).forward(req, resp);

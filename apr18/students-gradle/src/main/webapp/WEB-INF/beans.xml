@@ -12,8 +12,14 @@
         <!--<beans:constructor-arg name="userDao" ref="userDao"/>-->
     </beans:bean>
 
+    <beans:bean class="utils.profiling.ProfilingCollector"/>
+    <beans:bean class="utils.profiling.ProfilingBeanPostProcessor"/>
+
     <beans:bean id="studentService" class="services.StudentServiceImpl">
         <beans:property name="studentDao" ref="studentDao"></beans:property>
+        <!--<beans:property name="studentDao">-->
+            <!--<beans:bean id="studentDao" class="models.DAO.StudentDaoImpl"></beans:bean>-->
+        <!--</beans:property>-->
     </beans:bean>
 
     <beans:bean id="userDao" class="models.DAO.UserDaoImpl"></beans:bean>

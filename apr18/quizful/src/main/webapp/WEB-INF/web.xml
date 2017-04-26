@@ -5,12 +5,20 @@
 
 
     <listener>
-        <listener-class>ContextListener</listener-class>
+        <listener-class>Utils.ContextListener</listener-class>
     </listener>
-
     <context-param>
         <param-name>log4j-config-location</param-name>
         <param-value>WEB-INF/log4j.properties</param-value>
+    </context-param>
+
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>WEB-INF/beans.xml</param-value>
     </context-param>
 
 
@@ -81,8 +89,8 @@
 
 
     <!--<filter>-->
-        <!--<filter-name>RequestLoggingFilter</filter-name>-->
-        <!--<filter-clControllfiltersters.RequestLoggingFilterlter</filter-class>-->
+    <!--<filter-name>RequestLoggingFilter</filter-name>-->
+    <!--<filter-clControllfiltersters.RequestLoggingFilterlter</filter-class>-->
     <!--</filter>-->
     <filter>
         <filter-name>UserFileter</filter-name>
@@ -95,9 +103,9 @@
     </filter>
 
     <!--<filter-mapping>-->
-        <!--<filter-name>RequestLoggingFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
-        <!--<dispatcher>REQUEST</dispatcher>-->
+    <!--<filter-name>RequestLoggingFilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+    <!--<dispatcher>REQUEST</dispatcher>-->
     <!--</filter-mapping>-->
     <filter-mapping>
         <filter-name>UserFileter</filter-name>
@@ -108,5 +116,6 @@
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/admin</url-pattern>
     </filter-mapping>
+
 
 </web-app>

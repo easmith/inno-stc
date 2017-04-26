@@ -13,7 +13,6 @@ public class DataSourceFactory {
     private static DataSource datasource = new DataSource();
     static {
         PoolProperties p = new PoolProperties();
-//        p.setUrl("jdbc:postgresql://localhost:5432/students");
         p.setUrl("jdbc:mysql://localhost/students?useSSL=false");
         p.setDriverClassName("com.mysql.jdbc.Driver");
         p.setUsername("root");

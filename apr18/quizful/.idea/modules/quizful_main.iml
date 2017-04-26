@@ -11,6 +11,13 @@
         </webroots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/../../src/main/webapp/WEB-INF/beans.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
     <facet type="web" name="Web Gradle : quizful-1.0-SNAPSHOT.war">
       <configuration>
         <descriptors>
@@ -37,6 +44,14 @@
     <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:5.1.41" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-jdbc:9.0.0.M19" level="project" />
     <orderEntry type="library" name="Gradle: org.mindrot:jbcrypt:0.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-web:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-webmvc:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.3.8.RELEASE" level="project" />
   </component>
 </module>

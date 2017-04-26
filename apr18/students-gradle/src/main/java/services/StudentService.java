@@ -8,7 +8,7 @@ import java.util.List;
  * Created by eku on 19.04.17.
  */
 public interface StudentService {
-    public List<Student> getAllStudents();  
+    public List<Student> getAllStudents();
 
     void deleteStudent(Integer studentId);
 

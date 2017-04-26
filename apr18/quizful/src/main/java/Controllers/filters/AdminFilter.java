@@ -32,7 +32,8 @@ public class AdminFilter implements Filter {
         HttpSession session = req.getSession(false);
         LOGGER.info("Requested Resource::" + uri);
 
-        if ( session != null && (Boolean) session.getAttribute("userIsAdmin")){
+        if (session == null && session.getAttribute("userIsAdmin") != null
+                && (boolean) session.getAttribute("userIsAdmin")) {
             chain.doFilter(request, response);
         } else {
             LOGGER.info("Unauthorized access request");

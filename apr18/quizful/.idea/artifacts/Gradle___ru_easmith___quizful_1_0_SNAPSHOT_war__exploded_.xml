@@ -23,7 +23,15 @@
           <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.41" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:9.0.0.M19" />
           <element id="library" level="project" name="Gradle: org.mindrot:jbcrypt:0.4" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.8.RELEASE" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.8.RELEASE/ec1b675c2e234b0c776d36ed56c691520030026f/spring-web-4.3.8.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.8.RELEASE/7a00452c350de0fb80ecbcecfb8ce0145c46141e/spring-webmvc-4.3.8.RELEASE.jar" />
         </element>
       </element>
     </root>

@@ -5,6 +5,7 @@ import models.DAO.GroupDaoImpl;
 import models.POJO.Group;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import utils.profiling.ProfilingAnnotation;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class GroupServiceImpl implements GroupService {
         this.groupDao = groupDao;
     }
 
+    @Override
     public List<Group> getAllGroups() {
         return groupDao.getAllGroups();
     }

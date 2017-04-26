@@ -9,10 +9,11 @@ public class DbConnectionFactory {
 
 
     private static DataSource datasource = new DataSource();
+
     static {
         PoolProperties p = new PoolProperties();
 //        p.setUrl("jdbc:postgresql://localhost:5432/students");
-        p.setUrl("jdbc:mysql://localhost/mydba?useSSL=false");
+        p.setUrl("jdbc:mysql://localhost/mydb?useSSL=false");
         p.setDriverClassName("com.mysql.jdbc.Driver");
         p.setUsername("root");
         p.setPassword("pass");
@@ -31,14 +32,15 @@ public class DbConnectionFactory {
         p.setMinIdle(10);
         p.setLogAbandoned(true);
         p.setRemoveAbandoned(true);
-        p.setJdbcInterceptors("org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;"+
-                        "org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
+        p.setJdbcInterceptors("org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;" +
+                "org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
 
         datasource.setPoolProperties(p);
     }
 
     /**
      * Get an object DataSource for connection to DB
+     *
      * @return dataSource
      */
     public static DataSource getDataSource() {
