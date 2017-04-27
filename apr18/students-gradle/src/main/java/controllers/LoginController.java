@@ -1,53 +1,49 @@
 package controllers;
 
+import models.POJO.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.context.support.SpringBeanAutowiringSupport;
-import services.UserServiceImpl;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import services.UserServiceInterface;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
 /**
- * Created by eku on 19.04.17.
+ * Created by eku on 27.04.17.
  */
-public class LoginController extends HttpServlet {
+@Controller
+@SessionAttributes(types = User.class)
+public class LoginController {
+
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
 
     @Autowired
     private UserServiceInterface userService;// = new UserServiceImpl();
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String sayHello() {
+        return "login";
     }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/login.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = req.getParameter("login");
-        String pass = req.getParameter("pass");
-
-        if (userService.auth(login, pass) != null) {
-            req.getSession().setAttribute("userLogin", login);
-            LOGGER.debug("user:" + login);
-            resp.sendRedirect(req.getContextPath() + "/listStudents");
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login(@RequestParam(value = "login", required = true) String login,
+                              @RequestParam(value = "password", required = true) String password) {
+        ModelAndView mav = new ModelAndView();
+        User user = null;
+        if ((user = userService.auth(login, password)) != null) {
+            //req.getSession().setAttribute("login", login);
+            LOGGER.debug("login: " + login);
+//            resp.sendRedirect(req.getContextPath() + "/home");
+            mav.addObject("user", user);
+            mav.setViewName("redirect:/home");
         } else {
-//            resp.sendRedirect(req.getContextPath() + "/error");
+            mav.setViewName("login");
         }
-
-//        req.getRequestDispatcher()
-
+        return mav;
     }
+
+
 }

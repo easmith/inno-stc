@@ -6,7 +6,6 @@ import utils.Converter;
 import models.POJO.Group;
 import org.apache.log4j.Logger;
 import services.GroupService;
-import services.GroupServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -24,7 +23,7 @@ public class GroupController extends HttpServlet {
     @Autowired
     private GroupService groupService;// = new GroupServiceImpl();
 
-    private static final Logger LOGGER = Logger.getLogger(LoginController.class);
+    private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 
     @Override
     public void init(ServletConfig config) throws ServletException {

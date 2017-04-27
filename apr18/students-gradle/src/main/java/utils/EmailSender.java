@@ -1,23 +1,14 @@
 package utils;
 
-import controllers.LoginController;
+import controllers.LoginServlet;
 import org.apache.log4j.Logger;
-
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import java.util.Properties;
 
 /**
  * Created by eku on 20.04.17.
  */
 public class EmailSender {
 
-    private static final Logger LOGGER = Logger.getLogger(LoginController.class);
+    private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 
     public static void send(String toEmail, String text) {
         LOGGER.info("Send emailTo: " + toEmail + " Text: " + text);

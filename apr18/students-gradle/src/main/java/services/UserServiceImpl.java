@@ -4,6 +4,7 @@ import models.DAO.UserDao;
 import models.DAO.UserDaoImpl;
 import models.POJO.User;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class UserServiceImpl implements UserServiceInterface {
 
     private static final Logger LOGGER = Logger.getLogger(UserServiceImpl.class);
-    private static UserDao userDao = new UserDaoImpl();
+    private UserDao userDao;// = new UserDaoImpl();
 //    private UserDaoImpl userDao;
 
 
@@ -28,11 +29,8 @@ public class UserServiceImpl implements UserServiceInterface {
         return user;
     }
 
+    @Autowired
     public void setUserDao(UserDaoImpl userDao) {
         this.userDao = userDao;
-    }
-
-    public UserDao getUserDao() {
-        return userDao;
     }
 }

@@ -10,10 +10,9 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-  <title>Insert title here</title>
+  <title>Студенты</title>
 </head>
 <body>
-<a href="student">Студенты</a><br/>
-<a href="group">Группы</a><br/>
+<a href="login">login</a><br/>
 </body>
 </html>
