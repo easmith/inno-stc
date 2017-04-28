@@ -2,6 +2,18 @@ header {
     margin-bottom: 30px;
 }
 
+.quiz-logo {
+    text-shadow: rgb(48, 117, 165) 0px 0px 0px, rgb(50, 123, 173) 1px 1px 0px, rgb(53, 129, 182) 2px 2px 0px, rgb(55, 136, 191) 3px 3px 0px, rgb(58, 142, 200) 4px 4px 0px, rgb(60, 148, 209) 5px 5px 0px, rgb(63, 154, 217) 6px 6px 0px, rgb(65, 161, 226) 7px 7px 0px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    height: 29px;
+    width: 48px;
+    line-height: 29px;
+    border-radius: 30%;
+    text-align: center;
+    background-color: rgb(68, 167, 235);
+}
+
 .page-footer {
     position: absolute;
     bottom: 0;

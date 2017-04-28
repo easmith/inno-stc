@@ -12,31 +12,35 @@ import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
+import java.util.Scanner;
 
 
 public class Main {
     static String s;
 
     public static void main(String[] args) {
-        Formatter formatter = new Formatter(Locale.ROOT);
-        formatter.format("%.2E\n", 100.0/3.0);      //1
-        formatter.format("%.2f", 100.0/3.0);        //2
-        System.out.println(formatter);
+        int resourcesCount = 100;
+        String[] resources = new String[resourcesCount];
+        for (int i = 0; i < resourcesCount; i++) {
+            resources[i] = "texts/file" + i + ".txt";
+//            fileGenerator(resources[i], 10000);
+        }
 
-//        int resourcesCount = 100;
-//        String[] resources = new String[resourcesCount];
-//        for (int i = 0; i < resourcesCount; i++) {
-//            resources[i] = "texts/file" + i + ".txt";
-////            fileGenerator(resources[i], 10000);
-//        }
-//
-//        // время для контроля производительности
-//        long startDate = System.currentTimeMillis();
-//
-//        FileCheckerPool filecheckerPool = new FileCheckerPool(resources);
-//        filecheckerPool.startCheck();
-//
-//        System.out.println("Потребовалось времени: " + (System.currentTimeMillis() - startDate) + " мс");
+        System.out.println("Waiting for start...");
+        Scanner scanner = new Scanner(System.in);
+        scanner.next();
+        System.out.println("Start!");
+
+        // время для контроля производительности
+        long startDate = System.currentTimeMillis();
+
+        FileCheckerPool filecheckerPool = new FileCheckerPool(resources);
+        filecheckerPool.startCheck();
+
+        System.out.println("Потребовалось времени: " + (System.currentTimeMillis() - startDate) + " мс");
+
+        System.out.println("All thread are started");
+        scanner.next();
     }
 
     public  void print(Object o) {

@@ -36,7 +36,10 @@
     <nav class="navbar navbar-toggleable-md scrolling-navbar navbar-dark bg-primary">
         <div class="container">
             <div class="collapse navbar-collapse" id="navbarNav1">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/"><strong>Project Quiz</strong></a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/">
+                    <i id="icon" class="fa fa-mortar-board quiz-logo"></i>
+                    <strong>Project Quiz</strong>
+                </a>
                 <ul class="navbar-nav navbar-toggler-right">
                     <li class="nav-item ${ "index".equals(menuItem) ? "active" : ""}">
                         <a class="nav-link" href="${pageContext.request.contextPath}/">Главная</a>

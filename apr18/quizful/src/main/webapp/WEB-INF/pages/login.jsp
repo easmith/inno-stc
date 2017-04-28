@@ -7,9 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp" %>
-
+<main>
 <div class="container">
-    <div class="row">
+    <div class="row wow fadeIn" data-wow-delay="0.2s">
         <div class="offset-md-3 col-md-6">
 
             <c:choose>
@@ -53,5 +53,5 @@
     </div>
 
 </div>
-
+</main>
 <%@include file="footer.jsp" %>
