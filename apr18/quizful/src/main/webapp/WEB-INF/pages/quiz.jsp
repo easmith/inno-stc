@@ -15,6 +15,7 @@
     </div>
 
     <!-- Nav tabs -->
+    <form action="" method="post" role="form">
     <div class="row">
         <div class="col-sm-3">
             <ul class="nav nav-tabs md-pills pills-primary flex-column" role="tablist">
@@ -40,17 +41,23 @@
                         <pre>${resultTask.task.text}</pre>
                         <ul>
                             <c:forEach items="${resultTask.task.answers}" var="answer">
-                                <li>${answer.text}</li>
+                                <li>
+                                    <fieldset class="form-group">
+                                        <input name="answers[${resultTask.id}]" type="radio" value="${answer.id}" id="radio${answer.id}">
+                                        <label for="radio${answer.id}">${answer.text}</label>
+                                    </fieldset>
+                                </li>
                             </c:forEach>
                         </ul>
                     </div>
                 </c:forEach>
                 <div class="tab-pane fade in show" id="panelFinish" role="tabpanel">
-                    <button class="btn btn-success">Завершить тест</button>
+                    <button class="btn btn-success" type="submit">Завершить тест</button>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </div>
 
 <%@include file="footer.jsp" %>

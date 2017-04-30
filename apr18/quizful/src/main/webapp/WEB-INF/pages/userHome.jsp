@@ -21,15 +21,36 @@
             <table border=1>
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th colspan=2>Action</th>
+                    <th>category id</th>
+                    <th>category name</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${categories}" var="category">
                     <tr>
-                        <td><c:out value="${category.id}" /></td>
-                        <td><c:out value="${category.name}" /></td>
+                        <td>${category.id}</td>
+                        <td><a href="${pageContext.request.contextPath}/user/start/${category.id}">${category.name}</a></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
+            <table border=1>
+                <thead>
+                <tr>
+                    <th>result id</th>
+                    <th>category_id</th>
+                    <th>start_at</th>
+                    <th>stop_at</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${results}" var="result">
+                    <tr>
+                        <td>${result.id}</td>
+                        <td>${result.categoryId}</td>
+                        <td><a href="${pageContext.request.contextPath}/user/quiz/${result.id}">${result.startAt}</a></td>
+                        <td>${result.stopAt}</td>
                     </tr>
                 </c:forEach>
                 </tbody>

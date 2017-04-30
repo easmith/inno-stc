@@ -9,6 +9,13 @@ public class ResultTask {
 
     private int taskId;
     private Task task;
+
+    public ResultTask(int id, int taskId, int resultId) {
+        this.id = id;
+        this.taskId = taskId;
+        this.resultId = resultId;
+    }
+
     private int resultId;
     private Result result;
 

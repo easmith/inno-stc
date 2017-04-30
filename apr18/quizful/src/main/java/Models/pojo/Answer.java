@@ -5,6 +5,11 @@ package Models.pojo;
  */
 
 public class Answer {
+    public Answer(int id, String text, Boolean isCorrect) {
+        this.id = id;
+        this.text = text;
+        this.isCorrect = isCorrect;
+    }
 
     private int id;
 
@@ -26,5 +31,13 @@ public class Answer {
 
     public void setCorrect(Boolean correct) {
         isCorrect = correct;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

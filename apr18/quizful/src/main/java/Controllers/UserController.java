@@ -1,20 +1,22 @@
 package Controllers;
 
 import Models.UserSession;
+import Models.pojo.Category;
+import Models.pojo.Result;
+import Models.pojo.ResultTask;
 import Services.CategoryServiceInterface;
+import Services.ResultService;
 import Services.ResultTaskService;
-import Services.UserServiceInterface;
 import exceptions.QuizInternalException;
-import org.apache.log4j.Category;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 /**
  * Created by eku on 29.04.17.
@@ -32,10 +34,14 @@ public class UserController {
     @Autowired
     public ResultTaskService resultTaskService;
 
+    @Autowired
+    public ResultService resultService;
+
     @GetMapping
     public String defaultMethod(Model model){
         try {
             model.addAttribute("categories", categoryService.getCategories());
+            model.addAttribute("results", resultService.getResultsByUserId(2));
         } catch (QuizInternalException e) {
             model.addAttribute("fatalError", QuizInternalException.commonMessage);
         }
@@ -45,17 +51,24 @@ public class UserController {
     @GetMapping(value="/start/{id}")
     public String startTest(@PathVariable("id") int id, RedirectAttributes redirectAttributes){
         LOGGER.info(id);
+        Category category = null;
+        Result result = null;
         try {
-            categoryService.getCategoryById(id);
+            category = categoryService.getCategoryById(id);
+            if (category == null) {
+                redirectAttributes.addFlashAttribute("fatalError", "Категории не существует");
+                return "redirect:/user";
+            }
+
+            result = resultService.createResult(2, category.getId());
+            resultTaskService.createResultTasksByResult(result);
         } catch (QuizInternalException e) {
             LOGGER.error(e);
             redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
             return "redirect:/user";
         }
-        // todo: create result
-        // todo: create resultTasks
 
-        return "redirect:/user/quiz/3";
+        return "redirect:/user/quiz/" + result.getId();
     }
 
     @GetMapping(value="/quiz/{id}")
@@ -64,7 +77,12 @@ public class UserController {
 //        model.addAttribute("result", );
 
         try {
-            model.addAttribute("resultTasks", resultTaskService.getResultTasksByResultId(1));
+            List<ResultTask> resultTasks = resultTaskService.getResultTasksByResultId(id);
+            if (resultTasks.size() == 0) {
+                redirectAttributes.addFlashAttribute("fatalError", "Вопросы не найдены");
+                return "redirect:/user";
+            }
+            model.addAttribute("resultTasks", resultTasks);
         } catch (QuizInternalException e) {
             LOGGER.error(e);
             redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
@@ -72,6 +90,27 @@ public class UserController {
         }
 
         return "quiz";
+    }
+
+    @PostMapping(value="/quiz/{id}")
+    public ModelAndView quizSave(
+            @PathVariable("id") int id, QuizForm quizForm, RedirectAttributes redirectAttributes) {
+
+        try {
+            Result result = resultService.getResultsById(id);
+            if (result == null) {
+                redirectAttributes.addFlashAttribute("fatalError", "Тест не найден");
+                return new ModelAndView("redirect:/user");
+            }
+            resultService.updateResult(result);
+            resultTaskService.saveAnswers(quizForm.getAnswers());
+        } catch (QuizInternalException e) {
+            LOGGER.error(e);
+            redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
+            return new ModelAndView("redirect:/user");
+        }
+
+        return new ModelAndView("quiz");
     }
 
 }

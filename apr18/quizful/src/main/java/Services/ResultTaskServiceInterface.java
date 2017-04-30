@@ -1,10 +1,10 @@
 package Services;
 
-import Models.dao.ResultTaskDaoInterface;
+import Models.pojo.Result;
 import Models.pojo.ResultTask;
 import exceptions.QuizInternalException;
-import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,4 +12,8 @@ import java.util.List;
  */
 public interface ResultTaskServiceInterface {
     List<ResultTask> getResultTasksByResultId(int resultId) throws QuizInternalException;
+
+    void saveAnswers(HashMap<Integer, String> answers) throws QuizInternalException;
+
+    void createResultTasksByResult(Result result) throws QuizInternalException;
 }

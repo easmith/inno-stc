@@ -1,9 +1,10 @@
 package Models.dao;
 
+import Models.pojo.Result;
 import Models.pojo.ResultTask;
-import Models.pojo.Task;
 import exceptions.QuizInternalException;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -11,4 +12,10 @@ import java.util.List;
  */
 public interface ResultTaskDaoInterface {
     List<ResultTask> getResultTasksByResultId(int resultId) throws QuizInternalException;
+
+    ResultTask createResultTasks(int taskId, int resultId) throws QuizInternalException;
+
+    List<ResultTask> createResultTasksByResult(Result result) throws QuizInternalException;
+
+    void saveAnswers(HashMap<Integer, String> answers) throws QuizInternalException;
 }
