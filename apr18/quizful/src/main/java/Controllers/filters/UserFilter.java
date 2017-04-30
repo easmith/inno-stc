@@ -13,15 +13,13 @@ import java.io.IOException;
 /**
  * Created by eku on 20.04.17.
  */
-@WebFilter("/UserFilter")
+//@WebFilter("/UserFilter")
 public class UserFilter implements Filter {
 
     private static final Logger LOGGER = Logger.getLogger(UserFilter.class);
-    private ServletContext context;
 
     public void init(FilterConfig fConfig) throws ServletException {
-        this.context = fConfig.getServletContext();
-        this.context.log("UserFilter initialized");
+        LOGGER.info("UserFilter initialized");
     }
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -31,14 +29,14 @@ public class UserFilter implements Filter {
 
         String uri = req.getRequestURI();
         HttpSession session = req.getSession(false);
-        LOGGER.info("Requested Resource::" + uri);
+        LOGGER.info("Requested uri: " + uri);
 
         if (!uri.endsWith("login")) {
-            if (session == null | session.getAttribute("userLogin") == null) {
+            if (session == null || session.getAttribute("userSession") == null) {
                 LOGGER.info("Unauthorized access request");
-                res.sendRedirect("login");
+                res.sendRedirect(req.getContextPath() + "/login");
             } else {
-                LOGGER.info("Auth filter: " + session.getAttribute("userLogin"));
+                LOGGER.info("Auth filter: " + session.getAttribute("userSession"));
                 chain.doFilter(request, response);
             }
         } else {

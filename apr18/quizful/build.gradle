@@ -22,4 +22,6 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-context', version: '4.3.8.RELEASE'
     compile group: 'org.springframework', name: 'spring-web', version: '4.3.8.RELEASE'
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.8.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.4.1.Final'
+
 }

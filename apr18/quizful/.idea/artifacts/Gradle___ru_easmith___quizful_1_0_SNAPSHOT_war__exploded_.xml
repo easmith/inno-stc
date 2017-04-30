@@ -25,13 +25,17 @@
           <element id="library" level="project" name="Gradle: org.mindrot:jbcrypt:0.4" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.8.RELEASE" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/4.3.8.RELEASE/ec1b675c2e234b0c776d36ed56c691520030026f/spring-web-4.3.8.RELEASE.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/4.3.8.RELEASE/7a00452c350de0fb80ecbcecfb8ce0145c46141e/spring-webmvc-4.3.8.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-validator/5.4.1.Final/fc71e53520e1030d278f682b796c88265b94c699/hibernate-validator-5.4.1.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.1.0.Final/8613ae82954779d518631e05daa73a6a954817d5/validation-api-1.1.0.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jboss.logging/jboss-logging/3.3.0.Final/3616bb87707910296e2c195dc016287080bba5af/jboss-logging-3.3.0.Final.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml/classmate/1.3.1/2ad2fd09dcf5607ca96f8ef432096a96986c40a/classmate-1.3.1.jar" />
         </element>
       </element>
     </root>

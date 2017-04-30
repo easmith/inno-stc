@@ -1,6 +1,7 @@
 package Controllers.filters;
 
 
+import Models.UserSession;
 import org.apache.log4j.Logger;
 
 import javax.servlet.*;
@@ -30,11 +31,15 @@ public class AdminFilter implements Filter {
 
         String uri = req.getRequestURI();
         HttpSession session = req.getSession(false);
-        LOGGER.info("Requested Resource::" + uri);
+        LOGGER.info("Requested uri: " + uri);
 
-        if (session == null && session.getAttribute("userIsAdmin") != null
-                && (boolean) session.getAttribute("userIsAdmin")) {
-            chain.doFilter(request, response);
+        if (session != null && session.getAttribute("userSession") != null) {
+            if (session.getAttribute("userSession") instanceof UserSession
+                && ((UserSession) session.getAttribute("userSession")).getAdmin()) {
+                chain.doFilter(request, response);
+            } else {
+                res.sendRedirect(req.getContextPath() + "/user");
+            }
         } else {
             LOGGER.info("Unauthorized access request");
             res.sendRedirect(req.getContextPath() + "/login");

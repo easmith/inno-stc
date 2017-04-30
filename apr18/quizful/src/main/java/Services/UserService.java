@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserServiceInterface {
 
     private static final Logger LOGGER = Logger.getLogger(UserService.class);
-    private static UserDaoInterface userDao;// = new UserDao();
+    private static UserDaoInterface userDao;
 
     @Autowired
     public void setUserDao(UserDaoInterface userDao) {

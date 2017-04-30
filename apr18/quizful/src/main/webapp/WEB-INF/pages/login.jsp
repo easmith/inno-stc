@@ -7,27 +7,23 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp" %>
-<main>
+
 <div class="container">
     <div class="row wow fadeIn" data-wow-delay="0.2s">
         <div class="offset-md-3 col-md-6">
 
-            <c:choose>
-                <c:when test="${error != null}">
-                    <p class="text-danger">${error}</p>
-                </c:when>
-                <c:otherwise>
-                </c:otherwise>
-            </c:choose>
-
             <!--Form with header-->
-            <div class="card single-card">
+            <div class="card sticky-top">
                 <div class="card-block">
                 <form action="" method="post">
                     <!--Header-->
-                    <div class="form-header  purple darken-4">
+                    <div class="form-header purple darken-4">
                         <h3><i class="fa fa-lock"></i> Вход:</h3>
                     </div>
+
+                    <c:if test="${error != null}">
+                        <div class="error text-danger">${error}</div>
+                    </c:if>
 
                     <!--Body-->
                     <div class="md-form">
@@ -53,5 +49,4 @@
     </div>
 
 </div>
-</main>
 <%@include file="footer.jsp" %>

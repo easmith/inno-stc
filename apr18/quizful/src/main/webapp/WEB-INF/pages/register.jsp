@@ -10,50 +10,75 @@
 
 <div class="container">
 
-    <div class="col-md-offset-3 col-md-6">
-        <h3>Регистрация</h3>
+    <div class="offset-3 col-md-6">
 
-        <c:choose>
-            <c:when test="${error != null}">
-                <p class="text-danger">${error}</p>
-            </c:when>
-            <c:otherwise>
-            </c:otherwise>
-        </c:choose>
+        <!--Form with header-->
+        <div class="card">
+            <div class="card-block">
 
-        <form class="form-horizontal" action="${pageContext.request.contextPath}/register" method="POST">
-            <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Имя</label>
-                <div class="col-sm-4">
-                    <input type="text" name="name" class="form-control" id="inputName" placeholder="Имя">
+                <!--Header-->
+                <div class="form-header blue-gradient">
+                    <h3><i class="fa fa-user"></i> Register:</h3>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="inputLogin" class="col-sm-2 control-label">Логин</label>
-                <div class="col-sm-4">
-                    <input type="text" name="login" class="form-control" id="inputLogin" placeholder="Логин">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputPassword1" class="col-sm-2 control-label">Пароль</label>
-                <div class="col-sm-4">
-                    <input type="password" name="password1" class="form-control" size="12" min="6" id="inputPassword1" placeholder="Пароль">
-                </div>
-            </div>
+                <form action="${pageContext.request.contextPath}/register" method="post" id="formRegister">
 
-            <div class="form-group">
-                <label for="inputPassword2" class="col-sm-2 control-label">Повторите пароль</label>
-                <div class="col-sm-4">
-                    <input type="password" name="password2" class="form-control" size="12" min="6" id="inputPassword2" placeholder="Повторите пароль">
+                <c:if test="${error != null}">
+                    <div class="alert alert-danger" role="alert">
+                        ${error}
+                    </div>
+                </c:if>
+                <!--Body-->
+                <div class="md-form ${error_name != null ? "has-danger" : ""}">
+                    <i class="fa fa-user prefix"></i>
+                    <input name="name" type="text" id="inputName" class="form-control" value="${registerForm.getName()}">
+                    <label for="inputName">Ваше имя</label>
+                    <c:if test="${error_name != null}">
+                        <small class="form-control-feedback">${error_name}</small>
+                    </c:if>
                 </div>
-            </div>
+                <div class="md-form ${error_login != null ? "has-danger" : ""}">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input name="login" type="text" id="inputLogin" class="form-control" value="${registerForm.getLogin()}">
+                    <label for="inputLogin">Ваш логин</label>
+                    <c:if test="${error_login != null}">
+                        <small class="form-control-feedback">${error_login}</small>
+                    </c:if>
+                </div>
 
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-4">
-                    <button type="submit" class="btn btn-default">Войти</button>
+                <div class="md-form ${error_password1 != null ? "has-danger" : ""}">
+                    <i class="fa fa-lock prefix"></i>
+                    <input name="password1" type="password" id="inputPassword1" class="form-control">
+                    <label for="inputPassword1">Ваш пароль</label>
+                    <c:if test="${error_password1 != null}">
+                        <small class="form-control-feedback">${error_password1}</small>
+                    </c:if>
                 </div>
+
+                <div class="md-form ${error_password2 != null ? "has-danger" : ""}">
+                    <i class="fa fa-lock prefix"></i>
+                    <input name="password2" type="password" id="inputPassword2" class="form-control">
+                    <label for="inputPassword2">Повтор пароля</label>
+                    <c:if test="${error_password2 != null}">
+                        <small class="form-control-feedback">${error_password2}</small>
+                    </c:if>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-indigo">Зарегистрировать</button>
+                </div>
+                </form>
             </div>
-        </form>
+        </div>
+        <script>
+            $().ready(function() {
+                $("#formRegister input").keyup(function(){
+                    $(this).parent().removeClass("has-danger");
+                    $(this).parent().find(".form-control-feedback").remove();
+                })
+            });
+        </script>
+        <!--/Form with header-->
+
     </div>
 
 

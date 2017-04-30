@@ -9,12 +9,33 @@ import java.util.ArrayList;
 public class Task {
 
     private int id;
-
     private String text;
+    private int categoryId;
+    private ArrayList<Answer> answers;
 
-    private int category_id;
+    public int getId() {
+        return id;
+    }
 
-    private ArrayList answerList;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public ArrayList<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
+    }
 
     public String getText() {
         return text;
@@ -23,6 +44,4 @@ public class Task {
     public void setText(String text) {
         this.text = text;
     }
-
-
 }

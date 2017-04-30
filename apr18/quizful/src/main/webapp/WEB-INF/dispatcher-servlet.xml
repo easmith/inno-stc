@@ -12,6 +12,8 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="Controllers Models Services"/>
 
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
     <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -45,4 +45,13 @@ public class UserSession {
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
     }
+
+    @Override
+    public String toString() {
+        return "UserSession{" +
+                "login='" + login + '\'' +
+                ", name='" + name + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }

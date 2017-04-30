@@ -25,12 +25,8 @@ public class UserDao implements UserDaoInterface {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
             statement.setString(1, login);
             ResultSet result = statement.executeQuery();
-            LOGGER.debug("executed " + login);
             while (result.next()) {
-                LOGGER.debug("found " + result.getInt("id"));
-                LOGGER.debug("check " + password + " = " + result.getString("password"));
                 if (PasswordManager.checkHash(password, result.getString("password"))) {
-                    LOGGER.debug("password ok");
                     return new User(result.getInt("id"),
                             result.getString("name"),
                             result.getString("login"),

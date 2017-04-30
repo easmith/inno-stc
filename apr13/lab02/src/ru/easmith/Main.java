@@ -32,8 +32,8 @@ public class Main {
         DatabaseManager.getInstance().clearDB();
         createXml();
         xmlToDB();
-        dbToXml();
-        dbToXmlMultiThread();
+//        dbToXml();
+//        dbToXmlMultiThread();
 //        xmlToDbMultiThread();
 //        xmlToDbMultiThreadCare();
 //        xmlToDbMultiThreadCare2();
@@ -123,9 +123,9 @@ public class Main {
 
 //        DatabaseManager.getInstance().clearDB();
         DatabaseManager.getInstance().storeObject(categoryList);
-        DatabaseManager.getInstance().storeObject(userList);
-        DatabaseManager.getInstance().storeObject(resultList);
-        DatabaseManager.getInstance().storeObject(resultTaskList);
+//        DatabaseManager.getInstance().storeObject(userList);
+//        DatabaseManager.getInstance().storeObject(resultList);
+//        DatabaseManager.getInstance().storeObject(resultTaskList);
 
         LOGGER.info("Файлы загружены за " + (System.currentTimeMillis() - startTime) + " мс");
     }
