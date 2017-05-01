@@ -2,6 +2,7 @@ package models.DAO;
 
 import models.POJO.User;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Repository;
 import utils.DataSourceFactory;
 
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 /**
  * Created by eku on 20.04.17.
  */
+@Repository
 public class UserDaoImpl implements UserDao{
 
     private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);

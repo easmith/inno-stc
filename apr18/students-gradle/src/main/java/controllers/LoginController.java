@@ -25,7 +25,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String sayHello() {
-        return "login";
+        return "WEB-INF/pages/login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class LoginController {
             mav.addObject("user", user);
             mav.setViewName("redirect:/home");
         } else {
-            mav.setViewName("login");
+            mav.setViewName("WEB-INF/pages/login");
         }
         return mav;
     }
