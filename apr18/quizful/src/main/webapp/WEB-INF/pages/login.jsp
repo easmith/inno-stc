@@ -9,8 +9,14 @@
 <%@include file="header.jsp" %>
 
 <div class="container">
-    <div class="row wow fadeIn" data-wow-delay="0.2s">
+    <div class="row wow fadeIn">
         <div class="offset-md-3 col-md-6">
+
+            <c:if test="${registerMessage != null}">
+                <div class="alert alert-info" role="alert">
+                        ${registerMessage}
+                </div>
+            </c:if>
 
             <!--Form with header-->
             <div class="card sticky-top">

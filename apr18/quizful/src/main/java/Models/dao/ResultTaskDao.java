@@ -145,6 +145,7 @@ public class ResultTaskDao implements ResultTaskDaoInterface {
 
     @Override
     public void saveAnswers(HashMap<Integer, String> answersMap) throws QuizInternalException {
+        if (answersMap == null) return;
         for (Map.Entry<Integer, String> entry :
                 answersMap.entrySet()) {
             this.setAnswerToResultTask(entry.getKey(), entry.getValue());

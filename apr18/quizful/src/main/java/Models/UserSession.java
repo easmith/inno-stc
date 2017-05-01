@@ -9,14 +9,17 @@ public class UserSession {
     public String login;
     public String name;
     public Boolean isAdmin;
+    private int id;
 
-    public UserSession(String login, String name, Boolean admin) {
+    public UserSession(int id, String login, String name, Boolean admin) {
+        this.id = id;
         this.login = login;
         this.name = name;
         this.isAdmin = admin;
     }
 
     public UserSession(User user) {
+        this.id = user.getId();
         this.name = user.getName();
         this.login = user.getLogin();
         this.isAdmin = user.getAdmin();
@@ -53,5 +56,13 @@ public class UserSession {
                 ", name='" + name + '\'' +
                 ", isAdmin=" + isAdmin +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

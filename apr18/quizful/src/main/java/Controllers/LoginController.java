@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.forms.RegisterForm;
 import Models.UserSession;
 import Models.pojo.User;
 import Services.UserServiceInterface;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 /**
@@ -70,60 +70,6 @@ public class LoginController {
         }
 
         return mav;
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register(Model model) {
-        model.addAttribute("menuItem", "register");
-        return "register";
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@Valid RegisterForm registerForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-
-        redirectAttributes.addFlashAttribute("registerForm", registerForm);
-
-        String page = "redirect:/register";
-
-        if (bindingResult.hasErrors()) {
-            for (ObjectError objectError : bindingResult.getAllErrors()) {
-                FieldError fieldError = (FieldError) objectError;
-                LOGGER.info("error_" + fieldError.getField() + " = " + fieldError.getDefaultMessage());
-                redirectAttributes.addFlashAttribute("error_" + fieldError.getField(), fieldError.getDefaultMessage());
-            }
-        } else {
-            try {
-                if (!registerForm.getPassword1().equals(registerForm.getPassword2())) {
-                    redirectAttributes.addFlashAttribute("error_password2", "Пароли не совпали");
-                } else if (userService.existUser(registerForm.getLogin())) {
-//                    redirectAttributes.addFlashAttribute("error_login", "Пользователь с таким логином уже существует");
-                    User user = userService.auth("asdasd", "asdasd");
-                    redirectAttributes.addAttribute("userSession", new UserSession(user));
-//                    mav.addObject("userSession", new UserSession(user));
-                    page = "redirect:/register";
-                } else {
-                    User user = new User(0, registerForm.getName(), registerForm.getLogin(), registerForm.getPassword1(),
-                            "admin".equals(registerForm.getLogin()));
-                    userService.addUser(user);
-//                    mav.addObject("userSession", new UserSession(user));
-//                    mav.setViewName("redirect:/" + (user.getAdmin() ? "admin" : "user"));
-                }
-            } catch (QuizInternalException e) {
-                redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
-            }
-        }
-
-//        User user = null;
-//        try {
-//            user = userService.auth("asdasd", "");
-//        } catch (QuizInternalException e) {
-//            e.printStackTrace();
-//        }
-//        mav.addObject("userSession", new UserSession(user));
-//        mav.setViewName("redirect:/" + (user.getAdmin() ? "admin" : "user"));
-
-        LOGGER.info(page);
-        return page;
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)

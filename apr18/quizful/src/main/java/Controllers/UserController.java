@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.forms.QuizForm;
 import Models.UserSession;
 import Models.pojo.Category;
 import Models.pojo.Result;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -38,10 +40,12 @@ public class UserController {
     public ResultService resultService;
 
     @GetMapping
-    public String defaultMethod(Model model){
+    public String defaultMethod(Model model, HttpSession session){
+        UserSession userSession = (UserSession) session.getAttribute("userSession");
+
         try {
             model.addAttribute("categories", categoryService.getCategories());
-            model.addAttribute("results", resultService.getResultsByUserId(2));
+            model.addAttribute("results", resultService.getResultsByUserId(userSession.getId()));
         } catch (QuizInternalException e) {
             model.addAttribute("fatalError", QuizInternalException.commonMessage);
         }
@@ -110,7 +114,7 @@ public class UserController {
             return new ModelAndView("redirect:/user");
         }
 
-        return new ModelAndView("quiz");
+        return new ModelAndView("redirect:/user");
     }
 
 }

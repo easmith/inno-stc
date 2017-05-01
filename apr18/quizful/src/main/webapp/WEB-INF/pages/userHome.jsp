@@ -16,38 +16,39 @@
     </div>
     <div class="row">
         <div class="offset-2 col-6">
-            <a href="${pageContext.request.contextPath}/user/start/1">start 1</a>
-
-            <table border=1>
-                <thead>
-                <tr>
-                    <th>category id</th>
-                    <th>category name</th>
-                </tr>
-                </thead>
-                <tbody>
                 <c:forEach items="${categories}" var="category">
-                    <tr>
-                        <td>${category.id}</td>
-                        <td><a href="${pageContext.request.contextPath}/user/start/${category.id}">${category.name}</a></td>
-                    </tr>
+                    <!--Card-->
+                    <div class="card" style="width:200px; display:inline-block;">
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h4 class="card-title">${category.name}</h4>
+                            <!--Text-->
+                            <p class="card-text">Тест уровня ${category.name}</p>
+                            <a href="${pageContext.request.contextPath}/user/start/${category.id}" class="btn btn-primary">Начать</a>
+                        </div>
+                        <!--/.Card content-->
+                    </div>
+                    <!--/.Card-->
                 </c:forEach>
-                </tbody>
-            </table>
-
-            <table border=1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-2 col-6">
+            <h5>Начатые и завершенные тесты</h5>
+            <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>result id</th>
-                    <th>category_id</th>
-                    <th>start_at</th>
-                    <th>stop_at</th>
+                    <th>#</th>
+                    <th>id Категории</th>
+                    <th>Начат</th>
+                    <th>Завершен</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${results}" var="result">
                     <tr>
-                        <td>${result.id}</td>
+                        <th scope="row">${result.id}</th>
                         <td>${result.categoryId}</td>
                         <td><a href="${pageContext.request.contextPath}/user/quiz/${result.id}">${result.startAt}</a></td>
                         <td>${result.stopAt}</td>

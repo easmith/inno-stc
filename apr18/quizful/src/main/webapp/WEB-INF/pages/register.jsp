@@ -22,9 +22,9 @@
                 </div>
                 <form action="${pageContext.request.contextPath}/register" method="post" id="formRegister">
 
-                <c:if test="${error != null}">
+                <c:if test="${registerError != null}">
                     <div class="alert alert-danger" role="alert">
-                        ${error}
+                        ${registerError}
                     </div>
                 </c:if>
                 <!--Body-->
