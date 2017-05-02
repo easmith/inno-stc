@@ -15,5 +15,8 @@
 <body>
 <a href="student">¬³¬ä¬å¬Õ¬Ö¬ß¬ä¬í</a><br/>
 <a href="group">¬¤¬â¬å¬á¬á¬í</a><br/>
+<br/>
+<hr/>
+<a href="logout">¬£¬í¬ç¬à¬Õ</a><br/>
 </body>
 </html>

@@ -17,7 +17,7 @@ public class HelloController {
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Security Hello World");
         model.addObject("message", "This is welcome page!");
-        model.setViewName("hello");
+        model.setViewName("index");
         return model;
 
     }

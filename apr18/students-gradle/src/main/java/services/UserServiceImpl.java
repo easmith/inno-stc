@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserServiceInterface {
     }
 
     @Override
-    @Secured("hasRole('ROLE_USER')")
+    @Secured("ROLE_USER")
     public void test() {
 
     }
