@@ -167,7 +167,13 @@
       <DataType>int(11)|0</DataType>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
-    <key id="49" parent="18" name="PRIMARY">
+    <column id="49" parent="18" name="role">
+      <Position>5</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;ROLE_USER&apos;</DefaultExpression>
+    </column>
+    <key id="50" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

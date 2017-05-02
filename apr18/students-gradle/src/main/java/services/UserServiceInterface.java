@@ -7,4 +7,6 @@ import models.POJO.User;
  */
 public interface UserServiceInterface {
     User auth(String login, String password);
+
+    void test();
 }

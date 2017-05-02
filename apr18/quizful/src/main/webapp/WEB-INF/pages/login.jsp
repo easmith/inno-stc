@@ -9,7 +9,7 @@
 <%@include file="header.jsp" %>
 
 <div class="container">
-    <div class="row wow fadeIn">
+    <div class="row fadeIn">
         <div class="offset-md-3 col-md-6">
 
             <c:if test="${registerMessage != null}">

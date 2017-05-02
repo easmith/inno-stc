@@ -14,6 +14,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -22,6 +24,7 @@ import javax.validation.Valid;
  * Created by eku on 01.05.17.
  */
 @Controller
+@SessionAttributes(types = UserSession.class, value = "userSession")
 public class RegisterController {
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
@@ -36,11 +39,12 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@Valid RegisterForm registerForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public ModelAndView register(@Valid RegisterForm registerForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         redirectAttributes.addFlashAttribute("registerForm", registerForm);
 
         String page = "redirect:/register";
+        ModelAndView mav = new ModelAndView(page);
 
         if (bindingResult.hasErrors()) {
             for (ObjectError objectError : bindingResult.getAllErrors()) {
@@ -58,8 +62,11 @@ public class RegisterController {
                     User user = new User(0, registerForm.getName(), registerForm.getLogin(), registerForm.getPassword1(),
                             "admin".equals(registerForm.getLogin()));
                     userService.addUser(user);
+                    mav.addObject("userSession", new UserSession(user));
+                    redirectAttributes.getFlashAttributes().remove("userSession");
                     redirectAttributes.addFlashAttribute("registerMessage", "Вы успешно зарегистрированы");
-                    page = "redirect:/login";
+//                    page = "redirect:/login";
+                    return mav;
                 }
             } catch (QuizInternalException e) {
                 redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
@@ -67,7 +74,7 @@ public class RegisterController {
         }
 
         LOGGER.info(page);
-        return page;
+        return mav;
     }
 
 }

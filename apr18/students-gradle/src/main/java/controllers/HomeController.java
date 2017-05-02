@@ -3,6 +3,8 @@ package controllers;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +19,10 @@ public class HomeController {
     @Autowired
     private UserServiceInterface userService;// = new UserServiceImpl();
 
+
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String homeIndex() {
+        userService.test();
         return "home";
     }
 }

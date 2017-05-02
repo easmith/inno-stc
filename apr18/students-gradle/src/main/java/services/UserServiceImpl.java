@@ -5,6 +5,7 @@ import models.DAO.UserDaoImpl;
 import models.POJO.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Component;
 
 /**
@@ -27,6 +28,12 @@ public class UserServiceImpl implements UserServiceInterface {
         }
         LOGGER.debug("User not blocked");
         return user;
+    }
+
+    @Override
+    @Secured("hasRole('ROLE_USER')")
+    public void test() {
+
     }
 
     @Autowired
