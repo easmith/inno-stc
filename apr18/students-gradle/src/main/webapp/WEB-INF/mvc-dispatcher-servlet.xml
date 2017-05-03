@@ -38,7 +38,7 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/home" />
+            <mvc:mapping path="/home"/>
             <bean class="controllers.interceptors.LoggerInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

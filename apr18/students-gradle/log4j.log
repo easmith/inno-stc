@@ -529,3 +529,19 @@ INFO    2017-05-02 12:52:51,453 [RMI TCP Connection(6)-127.0.0.1] org.springfram
 INFO    2017-05-02 12:52:51,731 [RMI TCP Connection(6)-127.0.0.1] org.springframework.web.servlet.DispatcherServlet  - FrameworkServlet 'mvc-dispatcher': initialization completed in 855 ms
 INFO    2017-05-02 12:53:25,270 [http-nio-8081-exec-8] controllers.interceptors.LoggerInterceptor  - Before handling the request
 INFO    2017-05-02 12:53:25,281 [http-nio-8081-exec-8] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-02 12:55:11,696 [http-nio-8081-exec-6] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-02 12:55:11,713 [http-nio-8081-exec-6] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-02 12:56:59,549 [http-nio-8081-exec-7] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-02 12:56:59,554 [http-nio-8081-exec-7] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-02 12:57:42,768 [http-nio-8081-exec-8] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-02 12:57:42,770 [http-nio-8081-exec-8] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-02 12:57:57,220 [http-nio-8081-exec-6] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-02 12:57:57,221 [http-nio-8081-exec-6] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-02 12:57:57,948 [http-nio-8081-exec-13] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-02 12:57:57,949 [http-nio-8081-exec-13] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-02 12:58:11,561 [http-nio-8081-exec-15] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-02 12:58:11,563 [http-nio-8081-exec-15] controllers.interceptors.LoggerInterceptor  - After handling the request
+INFO    2017-05-02 12:58:11,693 [http-nio-8081-exec-15] controllers.interceptors.LoggerInterceptor  - After rendering the view
+WARN    2017-05-02 12:58:16,413 [http-nio-8081-exec-9] org.springframework.web.servlet.PageNotFound  - No mapping found for HTTP request with URI [/students/student] in DispatcherServlet with name 'mvc-dispatcher'
+INFO    2017-05-02 13:00:45,116 [localhost-startStop-2] org.springframework.web.context.support.XmlWebApplicationContext  - Closing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Tue May 02 12:52:50 MSK 2017]; parent: Root WebApplicationContext
+INFO    2017-05-02 13:00:45,131 [localhost-startStop-2] org.springframework.web.context.support.XmlWebApplicationContext  - Closing Root WebApplicationContext: startup date [Tue May 02 12:52:46 MSK 2017]; root of context hierarchy
