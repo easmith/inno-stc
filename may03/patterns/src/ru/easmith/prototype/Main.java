@@ -20,6 +20,5 @@ public class Main {
         for (int solderCount = 0; solderCount < 10; solderCount++) {
             podrasdelenie.add(ArmyFactory.getPrototype("solder"));
         }
-
     }
 }
