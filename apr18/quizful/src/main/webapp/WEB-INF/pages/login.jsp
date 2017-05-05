@@ -21,7 +21,7 @@
             <!--Form with header-->
             <div class="card sticky-top">
                 <div class="card-block">
-                <form action="" method="post">
+                <form action="${pageContext.request.contextPath}/j_spring_security_check" method="post">
                     <!--Header-->
                     <div class="form-header purple darken-4">
                         <h3><i class="fa fa-lock"></i> Вход:</h3>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <http access-denied-page="/WEB-INF/pages/error403.jsp">
+        <!--<intercept-url pattern="/" access="ROLE_USER,ROLE_ANONYMOUS"/>-->
+        <intercept-url pattern="/user*" access="ROLE_USER"/>
+        <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
+        <form-login login-page="/login" default-target-url="/user"
+                    authentication-failure-url="/login"
+                    username-parameter="login"
+                    password-parameter="password"/>
+        <logout logout-url="/logout" logout-success-url="/"/>
+        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
+        <remember-me/>
+    </http>
+
+
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="12" />
+    </beans:bean>
+
+
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"
+                               users-by-username-query="SELECT login, password, 1 FROM users where login = ?"
+                               authorities-by-username-query="SELECT login, 'ROLE_USER' FROM users where login = ?" />
+            <password-encoder ref="encoder" />
+        </authentication-provider>
+        <!--<authentication-provider ref="authProvider" />-->
+    </authentication-manager>
+
+</beans:beans>

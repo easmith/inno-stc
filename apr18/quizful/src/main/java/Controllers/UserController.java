@@ -11,6 +11,7 @@ import Services.ResultTaskService;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,10 +44,12 @@ public class UserController {
     public String defaultMethod(Model model, HttpSession session){
         UserSession userSession = (UserSession) session.getAttribute("userSession");
 
+        Object o = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         try {
             model.addAttribute("categories", categoryService.getCategories());
             model.addAttribute("results", resultService.getResultsByUserId(userSession.getId()));
-        } catch (QuizInternalException e) {
+        } catch (Exception e) {
+            LOGGER.error(e);
             model.addAttribute("fatalError", QuizInternalException.commonMessage);
         }
         return "userHome";
