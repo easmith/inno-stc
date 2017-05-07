@@ -8,6 +8,6 @@ import exceptions.QuizInternalException;
  */
 public interface UserServiceInterface {
     User auth(String login, String password) throws QuizInternalException;
-    boolean existUser(String login) throws QuizInternalException;
+    User findUserByLogin(String login) throws QuizInternalException;
     void addUser(User user) throws QuizInternalException;
 }

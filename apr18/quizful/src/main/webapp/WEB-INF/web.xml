@@ -11,6 +11,16 @@
         <param-value>WEB-INF/log4j.properties</param-value>
     </context-param>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/pages/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>405</error-code>
+        <location>/WEB-INF/pages/error405.jsp</location>
+    </error-page>
+
     <servlet>
         <servlet-name>Dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

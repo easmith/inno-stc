@@ -22,7 +22,7 @@ public class UserSession {
         this.id = user.getId();
         this.name = user.getName();
         this.login = user.getLogin();
-        this.isAdmin = user.getAdmin();
+        this.isAdmin = user.getRole() == "ROLE_ADMIN";
     }
 
     public String getLogin() {

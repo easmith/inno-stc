@@ -1,23 +1,22 @@
 package Controllers;
 
-import Models.forms.RegisterForm;
 import Models.UserSession;
 import Models.pojo.User;
 import Services.UserServiceInterface;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by eku on 27.04.17.
@@ -38,8 +37,30 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage(Model model) {
-        model.addAttribute("menuItem", "login");
+    public String loginPage(HttpSession session) {
+        UserSession userSession = null;
+        try {
+            if (session == null || (userSession = (UserSession) session.getAttribute("userSession")) == null) {
+                Object principalObject = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                if (principalObject instanceof org.springframework.security.core.userdetails.User) {
+                    org.springframework.security.core.userdetails.User principal =
+                            (org.springframework.security.core.userdetails.User) principalObject;
+                    Models.pojo.User user = userService.findUserByLogin(principal.getUsername());
+                    if (user == null) {
+                        throw new QuizInternalException();
+                    }
+                    userSession = new UserSession(user);
+                    session.setAttribute("userSession", userSession);
+                }
+            }
+            if (userSession != null) {
+                return "redirect:/" + (userSession.getAdmin() ? "admin" : "user");
+            }
+        } catch (Exception e) {
+            LOGGER.error(e);
+            session.setAttribute("fatalError", QuizInternalException.commonMessage);
+        }
+        session.setAttribute("menuItem", "login");
         return "login";
     }
 
@@ -60,7 +81,7 @@ public class LoginController {
 
         if (user != null) {
             mav.addObject("userSession", new UserSession(user));
-            if (user.getAdmin()) {
+            if (user.getRole() == "ROLE_ADMIN") {
                 mav.setViewName("redirect:/admin");
             } else {
                 mav.setViewName("redirect:/user");

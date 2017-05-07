@@ -5,17 +5,17 @@ package Models.pojo;
  */
 
 public class Answer {
-    public Answer(int id, String text, Boolean isCorrect) {
+    private int id;
+    private int question_id;
+    private String text;
+    private Boolean isCorrect;
+
+    public Answer(int id, int question_id, String text, Boolean isCorrect) {
         this.id = id;
+        this.question_id = question_id;
         this.text = text;
         this.isCorrect = isCorrect;
     }
-
-    private int id;
-
-    private String text;
-
-    private Boolean isCorrect;
 
     public String getText() {
         return text;
@@ -39,5 +39,13 @@ public class Answer {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
     }
 }

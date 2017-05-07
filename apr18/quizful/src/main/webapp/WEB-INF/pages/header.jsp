@@ -26,7 +26,7 @@
     <link href="${pageContext.request.contextPath}/resources/css/mdb.min.css" rel="stylesheet">
 
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
-    <link href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled.min.css?ver=4.3.2" rel="stylesheet">
+    <%--<link href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled.min.css?ver=4.3.2" rel="stylesheet">--%>
 
 </head>
 <body>

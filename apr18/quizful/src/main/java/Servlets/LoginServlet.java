@@ -75,12 +75,12 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("userLogin", user.getLogin());
             session.setAttribute("userName", user.getName());
-            session.setAttribute("userIsAdmin", user.getAdmin());
+            session.setAttribute("userIsAdmin", user.getRole() == "ROLE_ADMIN");
             session.setMaxInactiveInterval(30 * 60);
             Cookie cookie = new Cookie("user", login);
             cookie.setMaxAge(30 * 60);
             resp.addCookie(cookie);
-            if (user.getAdmin()) {
+            if (user.getRole() == "ROLE_ADMIN") {
                 resp.sendRedirect("isAdmin");
             } else {
                 resp.sendRedirect("user");

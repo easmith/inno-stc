@@ -57,10 +57,13 @@ public class RegisterServlet extends HttpServlet {
             req.setAttribute("error", "Пароли не совпадают");
         } else if (password2 != null && password2.equals(password1)) {
             try {
-                if (userService.existUser(login)) {
+                if (userService.findUserByLogin(login) != null) {
                     req.setAttribute("error", "Пользователь с таким логином уже существует");
                 } else {
-                    User user = new User(0, name, login, password1, "isAdmin".equals(login));
+                    User user = new User(0, login, password1, name,
+                            "admin".equals(login) ? "ROLE_ADMIN" : "ROLE_USER",
+                            true
+                        );
                     userService.addUser(user);
                     req.setAttribute("error", "User id: " + user.getId());
                 }

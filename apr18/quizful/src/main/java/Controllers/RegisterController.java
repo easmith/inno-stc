@@ -39,12 +39,11 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ModelAndView register(@Valid RegisterForm registerForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String register(@Valid RegisterForm registerForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         redirectAttributes.addFlashAttribute("registerForm", registerForm);
 
         String page = "redirect:/register";
-        ModelAndView mav = new ModelAndView(page);
 
         if (bindingResult.hasErrors()) {
             for (ObjectError objectError : bindingResult.getAllErrors()) {
@@ -56,17 +55,16 @@ public class RegisterController {
             try {
                 if (!registerForm.getPassword1().equals(registerForm.getPassword2())) {
                     redirectAttributes.addFlashAttribute("error_password2", "Пароли не совпали");
-                } else if (userService.existUser(registerForm.getLogin())) {
+                } else if (userService.findUserByLogin(registerForm.getLogin()) != null) {
                     redirectAttributes.addFlashAttribute("registerError", "Пользователь с таким логином уже существует");
                 } else {
-                    User user = new User(0, registerForm.getName(), registerForm.getLogin(), registerForm.getPassword1(),
-                            "admin".equals(registerForm.getLogin()));
+                    User user = new User(0,registerForm.getLogin(), registerForm.getPassword1(),
+                            registerForm.getName(),
+                            "admin".equals(registerForm.getLogin()) ? "ROLE_ADMIN" : "ROLE_USER",
+                            true);
                     userService.addUser(user);
-                    mav.addObject("userSession", new UserSession(user));
-                    redirectAttributes.getFlashAttributes().remove("userSession");
                     redirectAttributes.addFlashAttribute("registerMessage", "Вы успешно зарегистрированы");
-//                    page = "redirect:/login";
-                    return mav;
+                    page = "redirect:/login";
                 }
             } catch (QuizInternalException e) {
                 redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
@@ -74,7 +72,7 @@ public class RegisterController {
         }
 
         LOGGER.info(page);
-        return mav;
+        return page;
     }
 
 }

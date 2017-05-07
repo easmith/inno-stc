@@ -24,14 +24,10 @@ public class UserDao implements UserDaoInterface {
         try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
             statement.setString(1, login);
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                if (PasswordManager.checkHash(password, result.getString("password"))) {
-                    return new User(result.getInt("id"),
-                            result.getString("name"),
-                            result.getString("login"),
-                            password,
-                            result.getBoolean("is_admin"));
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                if (PasswordManager.checkHash(password, resultSet.getString("password"))) {
+                    return createUserFromResultSet(resultSet);
                 }
             }
         } catch (SQLException e) {
@@ -42,15 +38,25 @@ public class UserDao implements UserDaoInterface {
         return user;
     }
 
+    protected User createUserFromResultSet(ResultSet resultSet) throws SQLException {
+        return new User(resultSet.getInt("id"),
+                resultSet.getString("login"),
+                "",
+                resultSet.getString("name"),
+                resultSet.getString("role"),
+                resultSet.getBoolean("enabled"));
+    }
+
     @Override
     public void addUser(User user) throws QuizInternalException {
         try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO users (name, login, password, is_admin) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+                    "INSERT INTO users (name, login, password, enabled, role) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
             statement.setString(2, user.getLogin());
             statement.setString(3, PasswordManager.createHash(user.getPassword()));
-            statement.setBoolean(4, user.getAdmin());
+            statement.setBoolean(4, true);
+            statement.setString(5, user.getRole());
             int affectedRows = statement.executeUpdate();
 
             if (affectedRows == 0) {
@@ -72,21 +78,21 @@ public class UserDao implements UserDaoInterface {
     }
 
     @Override
-    public boolean existUser(String login) throws QuizInternalException {
-        boolean result = false;
+    public User findUserByLogin(String login) throws QuizInternalException {
+        User user = null;
         try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                result = true;
+                return createUserFromResultSet(resultSet);
             }
             statement.close();
         } catch (SQLException e) {
             LOGGER.error(e);
             throw new QuizInternalException();
         }
-        return result;
+        return user;
     }
 
 

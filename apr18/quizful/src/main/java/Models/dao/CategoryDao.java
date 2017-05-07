@@ -29,7 +29,7 @@ public class CategoryDao implements CategoryDaoInterface {
         List<Category> categories = new ArrayList<>();
 
         try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT c.id, c.name, count(t.id) FROM categories AS c LEFT JOIN tasks AS t ON c.id = t.category_id GROUP BY c.id");
+            PreparedStatement statement = connection.prepareStatement("SELECT c.id, c.name, count(q.id) FROM categories AS c LEFT JOIN questions AS q ON c.id = q.category_id GROUP BY c.id");
             ResultSet result = statement.executeQuery();
             while (result.next()) {
                 categories.add(new Category(result.getInt("id"), result.getString("name")));

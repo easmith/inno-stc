@@ -9,5 +9,5 @@ import exceptions.QuizInternalException;
 public interface UserDaoInterface {
     User findUserByLoginAndPassword(String login, String password) throws QuizInternalException;
     void addUser(User user) throws QuizInternalException;
-    boolean existUser(String login) throws QuizInternalException;
+    User findUserByLogin(String login) throws QuizInternalException;
 }

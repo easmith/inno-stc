@@ -28,8 +28,8 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public boolean existUser(String login) throws QuizInternalException {
-        return userDao.existUser(login);
+    public User findUserByLogin(String login) throws QuizInternalException {
+        return userDao.findUserByLogin(login);
     }
 
     @Override
