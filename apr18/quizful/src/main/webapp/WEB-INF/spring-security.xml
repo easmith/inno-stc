@@ -17,6 +17,7 @@
         <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
         <form-login login-page="/login" default-target-url="/login"
                     authentication-failure-url="/login"
+                    authentication-success-handler-ref="roleBasedAuthenticationSuccessHandler"
                     username-parameter="login"
                     password-parameter="password"/>
         <logout logout-url="/logout" logout-success-url="/"/>
@@ -28,6 +29,9 @@
     <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
         <beans:constructor-arg name="strength" value="12" />
     </beans:bean>
+
+    <beans:bean id="roleBasedAuthenticationSuccessHandler"
+    class="Controllers.Handlers.RoleBasedUrlAuthenticationSuccessHandler"/>
 
 
     <authentication-manager>
