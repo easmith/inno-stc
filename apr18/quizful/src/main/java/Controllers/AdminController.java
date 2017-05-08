@@ -10,9 +10,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 /**
@@ -37,8 +42,18 @@ public class AdminController {
     }
 
     @PostMapping("/question")
-    public String addQuestion(AddQuestionForm addQuestionForm, Model model) {
+    public String addQuestion(@Valid AddQuestionForm addQuestionForm, BindingResult bindingResult, Model model) {
         LOGGER.info(addQuestionForm);
+
+        if (bindingResult.hasErrors()) {
+            for (ObjectError objectError : bindingResult.getAllErrors()) {
+                FieldError fieldError = (FieldError) objectError;
+                LOGGER.info("error_" + fieldError.getField() + " = " + fieldError.getDefaultMessage());
+                model.addAttribute("error_" + fieldError.getField(), fieldError.getDefaultMessage());
+            }
+            model.addAttribute("error", "Возникли проблемы при валидации");
+            return "adminHome";
+        }
 
         Question question = new Question(0,
                 addQuestionForm.getQuestionType(),
@@ -61,7 +76,7 @@ public class AdminController {
             model.addAttribute("fatalError", QuizInternalException.commonMessage);
         }
 
-        model.addAttribute("fatalError", "Вопрос добавлен");
+        model.addAttribute("successMessage", "Вопрос успешно добавлен");
 
         return "adminHome";
     }
