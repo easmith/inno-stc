@@ -1,9 +1,10 @@
 package Models.dao;
 
 import Models.pojo.Category;
-import Utils.DbConnectionFactory;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -21,11 +22,18 @@ public class CategoryDao implements CategoryDaoInterface {
 
     private static final Logger LOGGER = Logger.getLogger(CategoryDao.class);
 
+    private DriverManagerDataSource driverManagerDataSource;
+
+    @Autowired
+    public void setDriverManagerDataSource(DriverManagerDataSource driverManagerDataSource) {
+        this.driverManagerDataSource = driverManagerDataSource;
+    }
+
     @Override
     public List<Category> getCategories() throws QuizInternalException {
         List<Category> categories = new ArrayList<>();
 
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT c.id, c.name, count(q.id) FROM categories AS c LEFT JOIN questions AS q ON c.id = q.category_id GROUP BY c.id");
             ResultSet result = statement.executeQuery();
             while (result.next()) {
@@ -42,7 +50,7 @@ public class CategoryDao implements CategoryDaoInterface {
     @Override
     public Category getCategoryById(int categoryId) throws QuizInternalException {
         Category category = null;
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT c.id, c.name, count(q.id) FROM categories AS c LEFT JOIN questions AS q ON c.id = q.category_id WHERE c.id = ? GROUP BY c.id LIMIT 1");
             statement.setInt(1, categoryId);
             ResultSet result = statement.executeQuery();
