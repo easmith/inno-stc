@@ -18,4 +18,6 @@ public interface QuestionDaoInterface {
      * @throws QuizInternalException
      */
     Question getByCategoryId(int categoryId) throws QuizInternalException;
+
+    void addQuestion(Question question) throws QuizInternalException;
 }

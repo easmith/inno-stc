@@ -9,7 +9,11 @@
 
     <http access-denied-page="/WEB-INF/pages/error403.jsp">
         <!--<intercept-url pattern="/" access="ROLE_USER,ROLE_ANONYMOUS"/>-->
-        <intercept-url pattern="/user*" access="ROLE_USER"/>
+        <intercept-url pattern="/user*" access="ROLE_USER,ROLE_ADMIN"/>
+        <intercept-url pattern="/user/**" access="ROLE_USER,ROLE_ADMIN"/>
+        <intercept-url pattern="/admin*" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/admin/**" access="ROLE_ADMIN"/>
+
         <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
         <form-login login-page="/login" default-target-url="/login"
                     authentication-failure-url="/login"

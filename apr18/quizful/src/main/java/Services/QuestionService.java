@@ -1,7 +1,6 @@
 package Services;
 
 import Models.dao.QuestionDaoInterface;
-import Models.dao.QuestionResultDaoInterface;
 import Models.pojo.Question;
 import exceptions.QuizInternalException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +14,17 @@ public class QuestionService implements QuestionServiceInterface {
     private static QuestionDaoInterface questionDao;
 
     @Autowired
-    public static void setQuestionDao(QuestionDaoInterface questionDao) {
+    public void setQuestionDao(QuestionDaoInterface questionDao) {
         QuestionService.questionDao = questionDao;
     }
 
     @Override
     public Question getQuestionByCategoryId(int categoryId) throws QuizInternalException {
-        return null;
+        return questionDao.getByCategoryId(categoryId);
+    }
+
+    @Override
+    public void addQuestion(Question question) throws QuizInternalException {
+        questionDao.addQuestion(question);
     }
 }

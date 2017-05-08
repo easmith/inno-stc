@@ -6,13 +6,13 @@ package Models.pojo;
 
 public class Answer {
     private int id;
-    private int question_id;
+    private int questionId;
     private String text;
     private Boolean isCorrect;
 
-    public Answer(int id, int question_id, String text, Boolean isCorrect) {
+    public Answer(int id, int questionId, String text, Boolean isCorrect) {
         this.id = id;
-        this.question_id = question_id;
+        this.questionId = questionId;
         this.text = text;
         this.isCorrect = isCorrect;
     }
@@ -41,11 +41,11 @@ public class Answer {
         this.id = id;
     }
 
-    public int getQuestion_id() {
-        return question_id;
+    public int getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestion_id(int question_id) {
-        this.question_id = question_id;
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 }

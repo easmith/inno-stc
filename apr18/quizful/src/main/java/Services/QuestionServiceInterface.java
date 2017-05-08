@@ -8,4 +8,5 @@ import exceptions.QuizInternalException;
  */
 public interface QuestionServiceInterface {
     Question getQuestionByCategoryId(int categoryId) throws QuizInternalException;
+    void addQuestion(Question question) throws QuizInternalException;
 }

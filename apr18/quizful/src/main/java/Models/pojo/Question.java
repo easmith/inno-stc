@@ -9,12 +9,14 @@ import java.util.List;
 public class Question {
 
     private int id;
+    private String type;
     private String text;
     private int categoryId;
     private List<Answer> answers;
 
-    public Question(int id, String text, int categoryId) {
+    public Question(int id, String type, String text, int categoryId) {
         this.id = id;
+        this.type = type;
         this.text = text;
         this.categoryId = categoryId;
     }
@@ -49,5 +51,13 @@ public class Question {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

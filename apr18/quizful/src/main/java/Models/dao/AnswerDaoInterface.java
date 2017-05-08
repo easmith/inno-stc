@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface AnswerDaoInterface {
     List<Answer> getAnswersByQuestionId(int taskId) throws QuizInternalException;
+    void addAnswer(Answer answer) throws QuizInternalException;
 }

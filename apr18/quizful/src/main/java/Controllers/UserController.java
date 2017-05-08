@@ -2,11 +2,9 @@ package Controllers;
 
 import Models.UserSession;
 import Models.forms.QuizForm;
+import Models.pojo.Category;
 import Models.pojo.Question;
-import Services.CategoryServiceInterface;
-import Services.QuestionResultServiceInterface;
-import Services.QuestionServiceInterface;
-import Services.UserService;
+import Services.*;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +37,8 @@ public class UserController {
     @Autowired
     public QuestionServiceInterface questionService;
 
-
     @Autowired
-    public UserService userService;
+    public UserServiceInterface userService;
 
     @GetMapping
     public String defaultMethod(Model model, HttpSession session) {
@@ -66,14 +63,15 @@ public class UserController {
 
     @GetMapping(value = "/quiz/{categoryId}")
     public String quiz(@PathVariable("categoryId") int categoryId, Model model, RedirectAttributes redirectAttributes) {
-        LOGGER.info(categoryId);
-
         try {
-            Question question = questionService.getQuestionByCategoryId(categoryId);
+            Category category = categoryService.getCategoryById(categoryId);
+            Question question = questionService.getQuestionByCategoryId(category.getId());
+            LOGGER.info("Question for category " + categoryId);
             if (question == null) {
                 redirectAttributes.addFlashAttribute("fatalError", "Вопросы не найдены");
                 return "redirect:/user";
             }
+            model.addAttribute("category", category);
             model.addAttribute("question", question);
         } catch (QuizInternalException e) {
             LOGGER.error(e);

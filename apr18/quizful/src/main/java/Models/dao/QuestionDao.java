@@ -2,40 +2,40 @@ package Models.dao;
 
 import Models.pojo.Question;
 import Utils.DbConnectionFactory;
+import Utils.PasswordManager;
 import exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Created by eku on 01.05.17.
  */
 @Repository
 public class QuestionDao implements QuestionDaoInterface {
+
     private static final Logger LOGGER = Logger.getLogger(QuestionDao.class);
+
     private static AnswerDaoInterface answerDao;
 
     @Autowired
-    public void setTaskDao(AnswerDaoInterface answerDao) {
+    public void setAnswerDao(AnswerDaoInterface answerDao) {
         QuestionDao.answerDao = answerDao;
     }
 
     protected Question createFromResultSet(ResultSet resultSet) throws SQLException, QuizInternalException {
-        resultSet.next();
-        Question task = new Question(
+        Question question = new Question(
                 resultSet.getInt("id"),
+                resultSet.getString("type"),
                 resultSet.getString("text"),
                 resultSet.getInt("category_id")
         );
 
-        task.setAnswers(answerDao.getAnswersByQuestionId(task.getId()));
+        question.setAnswers(answerDao.getAnswersByQuestionId(question.getId()));
 
-        return task;
+        return question;
     }
 
     @Override
@@ -55,5 +55,32 @@ public class QuestionDao implements QuestionDaoInterface {
         }
 
         return question;
+    }
+
+    @Override
+    public void addQuestion(Question question) throws QuizInternalException {
+        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO questions (category_id, text, type) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, question.getCategoryId());
+            statement.setString(2, question.getText());
+            statement.setString(3, question.getType());
+            int affectedRows = statement.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new SQLException("Creating user failed, no rows affected.");
+            }
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                question.setId(generatedKeys.getInt(1));
+            } else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+            statement.close();
+        } catch (SQLException e) {
+            LOGGER.error(e);
+            throw new QuizInternalException();
+        }
     }
 }

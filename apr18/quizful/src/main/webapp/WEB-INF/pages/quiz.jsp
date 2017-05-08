@@ -10,26 +10,33 @@
 
 <!-- Begin page content -->
 <div class="container">
-    <div class="page-header">
-        <h1>Тест начался!</h1>
-    </div>
-
-    <!-- Nav tabs -->
     <form action="" method="post" role="form">
-    <div class="row">
-        <div class="col-sm-3">
-            id: ${question.id} <br/>
-            categoryId: ${question.categoryId} <br/>
-            text: ${question.text} <br/>
-            <ul>
-            <c:forEach items="${question.answers}" var="answer" varStatus="loop">
-                <li class="nav-item">
-                    <i class="fa fa-circle-o"></i> ${answer.id} ${answer.text} ${answer.correct}
-                </li>
-            </c:forEach>
-            </ul>
+        <div class="row">
+            <div class="offset-md-2 coll-8">
+                <!--Jumbotron-->
+                <div class="jumbotron">
+                    <h1 class="h1-responsive">${category.name}</h1>
+                    <p class="lead">${question.text}</p>
+                    <hr class="my-2">
+                    <p>
+                    <ul>
+                        <c:forEach items="${question.answers}" var="answer" varStatus="loop">
+                            <li class="nav-item">
+                                <input type="radio" value="${answer.id}" id="answer${answer.id}">
+                                <label for="answer${answer.id}">${answer.text}</label>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-success btn-lg" role="button">Проверить</a>
+                        <a href="${pageContext.request.contextPath}/user/quiz/${category.id}"
+                           class="btn btn-primary btn-lg" role="button">Пропустить</a>
+                    </p>
+                </div>
+                <!--/.Jumbotron-->
+            </div>
         </div>
-    </div>
     </form>
 </div>
 
