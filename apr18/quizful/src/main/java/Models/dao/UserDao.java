@@ -2,7 +2,7 @@ package Models.dao;
 
 import Models.pojo.User;
 import Utils.PasswordManager;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;

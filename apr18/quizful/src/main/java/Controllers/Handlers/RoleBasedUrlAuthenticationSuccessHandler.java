@@ -6,7 +6,7 @@ package Controllers.Handlers;
 
 import Models.UserSession;
 import Services.UserService;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

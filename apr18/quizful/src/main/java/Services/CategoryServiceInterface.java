@@ -1,7 +1,7 @@
 package Services;
 
 import Models.pojo.Category;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 
 import java.util.List;
 

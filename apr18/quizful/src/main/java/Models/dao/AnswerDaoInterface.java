@@ -1,7 +1,7 @@
 package Models.dao;
 
 import Models.pojo.Answer;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 
 import java.util.List;
 

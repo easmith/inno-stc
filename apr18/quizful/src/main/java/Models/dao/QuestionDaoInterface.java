@@ -1,10 +1,7 @@
 package Models.dao;
 
 import Models.pojo.Question;
-import exceptions.QuizInternalException;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import Exceptions.QuizInternalException;
 
 /**
  * Created by eku on 01.05.17.

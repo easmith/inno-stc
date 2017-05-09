@@ -14,7 +14,7 @@ public class AddQuestionForm {
     @NotNull
     public Integer categoryId;
     @NotNull
-    @Pattern(regexp = "^(SINGLE|MULTI)$", message = "SINGLE || MULTI")
+    @Pattern(regexp = "^(SINGLE|MULTI)$", message = "SINGLE or MULTI")
     public String questionType;
     @NotNull
     @Size(min = 1, max = 4096, message = "От одного до 4096 символов")

@@ -1,7 +1,7 @@
 package Services;
 
 import Models.pojo.Question;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 
 /**
  * Created by eku on 07.05.17.
