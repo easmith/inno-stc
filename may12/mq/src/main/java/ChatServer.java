@@ -40,7 +40,7 @@ public class ChatServer {
                 Connection connection = createConnection();
                 connection.start();
                 Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-                Destination destination = session.createQueue(chatChannel);
+                Destination destination = session.createTopic(chatChannel);
 
                 MessageConsumer messageConsumer = session.createConsumer(destination);
 
@@ -66,7 +66,7 @@ public class ChatServer {
             Connection connection = createConnection();
             connection.start();
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Destination destination = session.createQueue(chatChannel);
+            Destination destination = session.createTopic(chatChannel);
             MessageProducer messageProducer = session.createProducer(destination);
             messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
