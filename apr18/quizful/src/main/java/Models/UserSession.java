@@ -1,11 +1,12 @@
 package Models;
 
+
 import Models.pojo.User;
 
 /**
  * Created by eku on 28.04.17.
  */
-public class UserSession {
+public class UserSession{
     public String login;
     public String name;
     public Boolean isAdmin;

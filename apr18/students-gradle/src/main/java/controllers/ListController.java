@@ -20,6 +20,6 @@ public class ListController {
     @RequestMapping(method = RequestMethod.GET)
     public String showList(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
-        return "WEB-INF/pages/studentList";
+        return "studentList";
     }
 }

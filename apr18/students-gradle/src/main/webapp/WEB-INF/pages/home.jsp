@@ -13,7 +13,7 @@
   <title>Insert title here</title>
 </head>
 <body>
-<a href="student">¬³¬ä¬å¬Õ¬Ö¬ß¬ä¬í</a><br/>
+<a href="students">¬³¬ä¬å¬Õ¬Ö¬ß¬ä¬í</a><br/>
 <a href="group">¬¤¬â¬å¬á¬á¬í</a><br/>
 <br/>
 <hr/>

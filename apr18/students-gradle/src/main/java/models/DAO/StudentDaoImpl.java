@@ -1,11 +1,20 @@
 package models.DAO;
 
 import models.POJO.Student;
+import models.hbn.StudentsEntity;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.stereotype.Repository;
 import utils.DataSourceFactory;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +24,13 @@ import java.util.List;
 @Repository
 public class StudentDaoImpl implements StudentDao {
     private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
+
+    private static SessionFactory factory;
+
+    static {
+        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+        factory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+    }
 
     @Override
     public void addStudent(Student student) {
@@ -27,6 +43,18 @@ public class StudentDaoImpl implements StudentDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void insertHiber(Student student) {
+        Session session = factory.openSession();
+        session.beginTransaction();
+        models.hbn.StudentsEntity studentsEntity = new StudentsEntity();
+        studentsEntity.setAge(student.getAge());
+        studentsEntity.setName(student.getName());
+
+        session.save(studentsEntity);
+        session.getTransaction().commit();
+        session.close();
     }
 
     public void deleteStudent(int studentId) {
