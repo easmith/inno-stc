@@ -11,8 +11,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="easmithmq_main" />
     <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-core:5.7.0" level="project" />
+    <orderEntry type="library" name="Gradle: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
-    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.6.6" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.activemq:kahadb:5.7.0" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.activemq.protobuf:activemq-protobuf:1.1" level="project" />

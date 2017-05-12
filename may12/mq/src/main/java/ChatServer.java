@@ -1,12 +1,23 @@
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import javax.jms.*;
 import java.util.Scanner;
+
 
 /**
  * Created by eku on 12.05.17.
  */
 public class ChatServer {
+
+    private static final Logger LOGGER = Logger.getLogger(ChatServer.class);
+
+    static {
+        PropertyConfigurator.configure("/home/eku/proj/stc/may12/mq/src/main/java/log4j.properties");
+    }
+
     public static Connection createConnection() throws JMSException {
         ActiveMQConnectionFactory activeMQConnectionFactory =
                 new ActiveMQConnectionFactory("tcp://localhost:61616");
@@ -33,16 +44,19 @@ public class ChatServer {
 
                 MessageConsumer messageConsumer = session.createConsumer(destination);
 
-                Message chatMessage = messageConsumer.receive(1000);
+                String chatMessage = null;
                 while (!("stop".equals(chatMessage))) {
-                    if (chatMessage != null) {
-                        String mes = ((TextMessage) chatMessage).getText();
-                        if (!mes.split(": ")[0].equals(name)) {
-                            System.out.println(mes);
+                    Message mqMessage = messageConsumer.receive(1000);
+                    if (mqMessage != null) {
+                        chatMessage = ((TextMessage) mqMessage).getText();
+                        if (!name.equals(chatMessage.split(": ")[0])) {
+                            System.out.println(chatMessage);
+                        } else {
+                            LOGGER.info("Получил сообщение от себя");
                         }
                     }
-                    chatMessage = messageConsumer.receive(1000);
                 }
+                System.out.println("Good bye");
             } catch (JMSException e) {
                 e.printStackTrace();
             }
@@ -57,7 +71,7 @@ public class ChatServer {
             messageProducer.setDeliveryMode(DeliveryMode.PERSISTENT);
 
             while (!(message = scanner.nextLine()).equals("stop")) {
-                TextMessage textMessage = session.createTextMessage(name + ":" + message);
+                TextMessage textMessage = session.createTextMessage(name + ": " + message);
                 messageProducer.send(textMessage);
             }
 
