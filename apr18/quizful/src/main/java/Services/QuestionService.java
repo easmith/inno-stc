@@ -2,7 +2,7 @@ package Services;
 
 import Models.dao.QuestionDaoInterface;
 import Models.pojo.Question;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -5,11 +5,9 @@ import Models.forms.QuizForm;
 import Models.pojo.Category;
 import Models.pojo.Question;
 import Services.*;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,16 +41,12 @@ public class UserController {
     @GetMapping
     public String defaultMethod(Model model, HttpSession session) {
         UserSession userSession = null;
+
+        if (session != null) {
+            LOGGER.info(session.getAttribute("wow"));
+        }
+
         try {
-            if (session == null || (userSession = (UserSession) session.getAttribute("userSession")) == null) {
-                User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                Models.pojo.User user = userService.findUserByLogin(principal.getUsername());
-                if (user == null) {
-                    throw new QuizInternalException();
-                }
-                userSession = new UserSession(user);
-                model.addAttribute("userSession", userSession);
-            }
             model.addAttribute("categories", categoryService.getCategories());
         } catch (Exception e) {
             LOGGER.error(e);

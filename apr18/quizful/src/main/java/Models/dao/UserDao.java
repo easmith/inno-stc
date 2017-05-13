@@ -1,10 +1,11 @@
 package Models.dao;
 
 import Models.pojo.User;
-import Utils.DbConnectionFactory;
 import Utils.PasswordManager;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -17,11 +18,18 @@ public class UserDao implements UserDaoInterface {
 
     private static final Logger LOGGER = Logger.getLogger(UserDao.class);
 
+    private DriverManagerDataSource driverManagerDataSource;
+
+    @Autowired
+    public void setDriverManagerDataSource(DriverManagerDataSource driverManagerDataSource) {
+        this.driverManagerDataSource = driverManagerDataSource;
+    }
+
     @Override
     public User findUserByLoginAndPassword(String login, String password) throws QuizInternalException {
         User user = null;
 
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
@@ -49,7 +57,7 @@ public class UserDao implements UserDaoInterface {
 
     @Override
     public void addUser(User user) throws QuizInternalException {
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO users (name, login, password, enabled, role) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getName());
@@ -80,7 +88,7 @@ public class UserDao implements UserDaoInterface {
     @Override
     public User findUserByLogin(String login) throws QuizInternalException {
         User user = null;
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE login = ? LIMIT 1");
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
@@ -94,6 +102,4 @@ public class UserDao implements UserDaoInterface {
         }
         return user;
     }
-
-
 }

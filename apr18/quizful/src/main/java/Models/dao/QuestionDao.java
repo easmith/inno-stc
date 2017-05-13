@@ -1,11 +1,10 @@
 package Models.dao;
 
 import Models.pojo.Question;
-import Utils.DbConnectionFactory;
-import Utils.PasswordManager;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -19,10 +18,16 @@ public class QuestionDao implements QuestionDaoInterface {
     private static final Logger LOGGER = Logger.getLogger(QuestionDao.class);
 
     private static AnswerDaoInterface answerDao;
+    private DriverManagerDataSource driverManagerDataSource;
 
     @Autowired
     public void setAnswerDao(AnswerDaoInterface answerDao) {
         QuestionDao.answerDao = answerDao;
+    }
+
+    @Autowired
+    public void setDriverManagerDataSource(DriverManagerDataSource driverManagerDataSource) {
+        this.driverManagerDataSource = driverManagerDataSource;
     }
 
     protected Question createFromResultSet(ResultSet resultSet) throws SQLException, QuizInternalException {
@@ -42,7 +47,7 @@ public class QuestionDao implements QuestionDaoInterface {
     public Question getByCategoryId(int categoryId) throws QuizInternalException {
         Question question = null;
 
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM questions WHERE category_id = ? ORDER BY RAND() LIMIT 1");
             statement.setInt(1, categoryId);
             ResultSet resultSet = statement.executeQuery();
@@ -59,7 +64,7 @@ public class QuestionDao implements QuestionDaoInterface {
 
     @Override
     public void addQuestion(Question question) throws QuizInternalException {
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO questions (category_id, text, type) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, question.getCategoryId());

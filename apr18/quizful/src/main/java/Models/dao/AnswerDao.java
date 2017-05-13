@@ -1,10 +1,10 @@
 package Models.dao;
 
 import Models.pojo.Answer;
-import Models.pojo.Question;
-import Utils.DbConnectionFactory;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -19,10 +19,17 @@ public class AnswerDao implements AnswerDaoInterface {
 
     private static final Logger LOGGER = Logger.getLogger(AnswerDao.class);
 
+    private DriverManagerDataSource driverManagerDataSource;
+
+    @Autowired
+    public void setDriverManagerDataSource(DriverManagerDataSource driverManagerDataSource) {
+        this.driverManagerDataSource = driverManagerDataSource;
+    }
+
     @Override
     public List<Answer> getAnswersByQuestionId(int questionId) throws QuizInternalException {
         List<Answer> answers = new ArrayList();
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM answers WHERE question_id = ?");
             statement.setInt(1, questionId);
             ResultSet resultSet = statement.executeQuery();
@@ -45,7 +52,7 @@ public class AnswerDao implements AnswerDaoInterface {
 
     @Override
     public void addAnswer(Answer answer) throws QuizInternalException {
-        try (Connection connection = DbConnectionFactory.getDataSource().getConnection()) {
+        try (Connection connection = driverManagerDataSource.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO answers (question_id, text, is_correct) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, answer.getQuestionId());

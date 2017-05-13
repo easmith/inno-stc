@@ -2,7 +2,7 @@ package Models.dao;
 
 import Models.pojo.Question;
 import Models.pojo.QuestionResult;
-import exceptions.QuizInternalException;
+import Exceptions.QuizInternalException;
 
 /**
  * Created by eku on 30.04.17.
