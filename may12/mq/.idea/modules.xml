@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easmithmq.iml" filepath="$PROJECT_DIR$/.idea/modules/easmithmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easmithmq_main.iml" filepath="$PROJECT_DIR$/.idea/modules/easmithmq_main.iml" group="easmithmq" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easmithmq_test.iml" filepath="$PROJECT_DIR$/.idea/modules/easmithmq_test.iml" group="easmithmq" />
+    </modules>
+  </component>
+</project>
