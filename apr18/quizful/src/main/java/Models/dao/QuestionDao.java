@@ -1,13 +1,18 @@
 package Models.dao;
 
+import Models.pojo.Answer;
 import Models.pojo.Question;
 import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.List;
 
 /**
  * Created by eku on 01.05.17.
@@ -19,6 +24,12 @@ public class QuestionDao implements QuestionDaoInterface {
 
     private static AnswerDaoInterface answerDao;
     private DriverManagerDataSource driverManagerDataSource;
+    private SessionFactory sessionFactory;
+
+    @Autowired
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Autowired
     public void setAnswerDao(AnswerDaoInterface answerDao) {
@@ -45,47 +56,29 @@ public class QuestionDao implements QuestionDaoInterface {
 
     @Override
     public Question getByCategoryId(int categoryId) throws QuizInternalException {
-        Question question = null;
+        Session session = this.sessionFactory.openSession();
+        Question question = (Question) session.createQuery("from Question where categoryId = :categoryId ORDER BY RAND()")
+                .setParameter("categoryId", categoryId)
+                .setMaxResults(1)
+                .uniqueResult();
+        session.close();
+        return question;
+    }
 
-        try (Connection connection = driverManagerDataSource.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM questions WHERE category_id = ? ORDER BY RAND() LIMIT 1");
-            statement.setInt(1, categoryId);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                return createFromResultSet(resultSet);
-            }
-        } catch (SQLException e) {
-            LOGGER.error(e);
-            throw new QuizInternalException();
-        }
-
+    @Override
+    public Question getById(int id) throws QuizInternalException {
+        Session session = this.sessionFactory.openSession();
+        Question question = session.find(Question.class, id);
+        session.close();
         return question;
     }
 
     @Override
     public void addQuestion(Question question) throws QuizInternalException {
-        try (Connection connection = driverManagerDataSource.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO questions (category_id, text, type) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, question.getCategoryId());
-            statement.setString(2, question.getText());
-            statement.setString(3, question.getType());
-            int affectedRows = statement.executeUpdate();
-
-            if (affectedRows == 0) {
-                throw new SQLException("Creating user failed, no rows affected.");
-            }
-
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                question.setId(generatedKeys.getInt(1));
-            } else {
-                throw new SQLException("Creating user failed, no ID obtained.");
-            }
-            statement.close();
-        } catch (SQLException e) {
-            LOGGER.error(e);
-            throw new QuizInternalException();
-        }
+        Session session = this.sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.save(question);
+        tx.commit();
+        session.close();
     }
 }

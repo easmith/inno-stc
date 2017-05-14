@@ -1,14 +1,35 @@
 package Models.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+
 /**
  * Created by eku on 13.04.17.
  */
 
+@Entity
+@Table(name = "answers")
 public class Answer {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "question_id", insertable = false, updatable = false)
     private int questionId;
     private String text;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "question_id", referencedColumnName="id", nullable = false)
+    @JsonIgnore
+    private Question question;
+
+    @Column(name = "is_correct")
     private Boolean isCorrect;
+
+    public Answer() {
+    }
 
     public Answer(int id, int questionId, String text, Boolean isCorrect) {
         this.id = id;
@@ -47,5 +68,13 @@ public class Answer {
 
     public void setQuestionId(int questionId) {
         this.questionId = questionId;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 }

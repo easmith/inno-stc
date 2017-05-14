@@ -1,14 +1,23 @@
 package Models.pojo;
 
+import javax.persistence.*;
+
 /**
  * Created by eku on 13.04.17.
  */
 
-
+@Entity
+@Table(name = "categories")
 public class Category {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    public Category() {
+    }
 
     public Category(int id, String name) {
         this.id = id;

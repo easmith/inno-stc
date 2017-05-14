@@ -1,12 +1,10 @@
 package Controllers;
 
-import Models.UserSession;
-import Models.pojo.User;
-import Services.UserServiceInterface;
 import Exceptions.QuizInternalException;
+import Models.UserSession;
+import Services.QuestionServiceInterface;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +21,6 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     private static final Logger LOGGER = Logger.getLogger(LoginController.class);
-
-    @Autowired
-    public UserServiceInterface userService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String landingPage(Model model) {
@@ -46,35 +41,6 @@ public class LoginController {
         }
         session.setAttribute("menuItem", "login");
         return "login";
-    }
-
-    @PostMapping(value = "/login")
-    public ModelAndView login(@RequestParam("login") String login,
-                              @RequestParam("password") String password) {
-
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("login");
-
-        User user = null;
-        try {
-            user = userService.auth(login, password);
-        } catch (QuizInternalException e) {
-            mav.addObject("fatalError", QuizInternalException.commonMessage);
-            return mav;
-        }
-
-        if (user != null) {
-            mav.addObject("userSession", new UserSession(user));
-            if (user.getRole() == "ROLE_ADMIN") {
-                mav.setViewName("redirect:/admin");
-            } else {
-                mav.setViewName("redirect:/user");
-            }
-        } else {
-            mav.addObject("error", "Неправильный логин или пароль");
-        }
-
-        return mav;
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)

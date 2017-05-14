@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         User user = null;
         try {
-            user = userService.auth(login, password);
+//            user = userService.auth(login, password);
         } catch (QuizInternalException e) {
             req.setAttribute("error", QuizInternalException.commonMessage);
             req.getRequestDispatcher(mainPage).forward(req, resp);

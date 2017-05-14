@@ -1,8 +1,11 @@
 package Models.dao;
 
+import Models.pojo.Answer;
 import Models.pojo.Category;
 import Exceptions.QuizInternalException;
 import org.apache.log4j.Logger;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
@@ -22,46 +25,28 @@ public class CategoryDao implements CategoryDaoInterface {
 
     private static final Logger LOGGER = Logger.getLogger(CategoryDao.class);
 
-    private DriverManagerDataSource driverManagerDataSource;
+    private SessionFactory sessionFactory;
 
     @Autowired
-    public void setDriverManagerDataSource(DriverManagerDataSource driverManagerDataSource) {
-        this.driverManagerDataSource = driverManagerDataSource;
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 
     @Override
     public List<Category> getCategories() throws QuizInternalException {
-        List<Category> categories = new ArrayList<>();
-
-        try (Connection connection = driverManagerDataSource.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT c.id, c.name, count(q.id) FROM categories AS c LEFT JOIN questions AS q ON c.id = q.category_id GROUP BY c.id");
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                categories.add(new Category(result.getInt("id"), result.getString("name")));
-            }
-        } catch (SQLException e) {
-            LOGGER.error(e);
-            throw new QuizInternalException();
-        }
-
-        return categories;
+        Session session = this.sessionFactory.openSession();
+        List<Category> answers = session.createQuery("from Category").list();
+        session.close();
+        return answers;
     }
 
     @Override
     public Category getCategoryById(int categoryId) throws QuizInternalException {
-        Category category = null;
-        try (Connection connection = driverManagerDataSource.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("SELECT c.id, c.name, count(q.id) FROM categories AS c LEFT JOIN questions AS q ON c.id = q.category_id WHERE c.id = ? GROUP BY c.id LIMIT 1");
-            statement.setInt(1, categoryId);
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                category = new Category(result.getInt("id"), result.getString("name"));
-            }
-        } catch (SQLException e) {
-            LOGGER.error(e);
-            throw new QuizInternalException();
-        }
-
+        Session session = this.sessionFactory.openSession();
+        Category category = (Category) session.createQuery("from Category where id = :categoryId")
+                .setParameter("categoryId", categoryId)
+                .uniqueResult();
+        session.close();
         return category;
     }
 }

@@ -1,8 +1,10 @@
 package Models.forms;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Map;
 
 /**
  * Created by eku on 29.04.17.
@@ -21,6 +23,11 @@ public class RegisterForm {
     @NotNull
     @Size(min = 3, max = 16, message = "От 3 до 16 символов")
     public String password2;
+
+    @AssertTrue(message = "Пароли должны совпадать")
+    public boolean hasNotEqualPass() {
+        return password1.equals(password2);
+    }
 
     public String getName() {
         return name;

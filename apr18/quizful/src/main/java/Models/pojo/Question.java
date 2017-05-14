@@ -1,18 +1,30 @@
 package Models.pojo;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by eku on 13.04.17.
  */
 
+@Entity
+@Table(name = "questions")
 public class Question {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String type;
     private String text;
+    @Column(name = "category_id")
     private int categoryId;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "questionId", cascade = CascadeType.ALL)
     private List<Answer> answers;
+
+    public Question() {
+    }
 
     public Question(int id, String type, String text, int categoryId) {
         this.id = id;

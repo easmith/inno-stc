@@ -1,17 +1,26 @@
 package Models.pojo;
 
+import javax.persistence.*;
+
 /**
  * Created by eku on 13.04.17.
  */
 
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String login;
     private String password;
     private String name;
     private String role;
     private Boolean enabled;
+
+    public User() {}
 
     public User(int id, String login, String password, String name, String role, boolean enabled) {
         this.id = id;

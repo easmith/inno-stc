@@ -5,8 +5,11 @@ import Models.forms.RegisterForm;
 import Models.pojo.User;
 import Services.UserServiceInterface;
 import Exceptions.QuizInternalException;
+import Utils.PasswordManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,6 +34,10 @@ public class RegisterController {
     @Autowired
     public UserServiceInterface userService;
 
+    @Autowired
+    @Qualifier("passwordEncoder")
+    public PasswordEncoder passwordEncoder;
+
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(Model model) {
         model.addAttribute("menuItem", "register");
@@ -52,12 +59,11 @@ public class RegisterController {
             }
         } else {
             try {
-                if (!registerForm.getPassword1().equals(registerForm.getPassword2())) {
-                    redirectAttributes.addFlashAttribute("error_password2", "Пароли не совпали");
-                } else if (userService.findUserByLogin(registerForm.getLogin()) != null) {
+                if (userService.findUserByLogin(registerForm.getLogin()) != null) {
                     redirectAttributes.addFlashAttribute("registerError", "Пользователь с таким логином уже существует");
                 } else {
-                    User user = new User(0,registerForm.getLogin(), registerForm.getPassword1(),
+                    User user = new User(0,registerForm.getLogin(),
+                            passwordEncoder.encode(registerForm.getPassword1()),
                             registerForm.getName(),
                             "admin".equals(registerForm.getLogin()) ? "ROLE_ADMIN" : "ROLE_USER",
                             true);

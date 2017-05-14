@@ -22,12 +22,6 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
-    public User auth(String login, String password) throws QuizInternalException {
-        User user = userDao.findUserByLoginAndPassword(login, password);
-        return user;
-    }
-
-    @Override
     public User findUserByLogin(String login) throws QuizInternalException {
         return userDao.findUserByLogin(login);
     }

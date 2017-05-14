@@ -6,6 +6,8 @@ import Exceptions.QuizInternalException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by eku on 08.05.17.
  */
@@ -21,5 +23,10 @@ public class AnswerService implements AnswerServiceInterface {
     @Override
     public void addAnswer(Answer answer) throws QuizInternalException {
         answerDao.addAnswer(answer);
+    }
+
+    @Override
+    public List<Answer> getAnswersByQuestionId(int questionId) throws QuizInternalException {
+        return answerDao.getAnswersByQuestionId(questionId);
     }
 }

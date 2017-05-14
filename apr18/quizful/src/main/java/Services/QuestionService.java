@@ -27,4 +27,9 @@ public class QuestionService implements QuestionServiceInterface {
     public void addQuestion(Question question) throws QuizInternalException {
         questionDao.addQuestion(question);
     }
+
+    @Override
+    public Question getById(int id) throws QuizInternalException {
+        return questionDao.getById(id);
+    }
 }

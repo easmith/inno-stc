@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.UserSession;
 import Models.forms.QuizForm;
+import Models.pojo.Answer;
 import Models.pojo.Category;
 import Models.pojo.Question;
 import Services.*;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by eku on 29.04.17.
@@ -76,25 +79,29 @@ public class UserController {
         return "quiz";
     }
 
-    @PostMapping(value = "/quiz/{id}")
-    public ModelAndView quizSave(
-            @PathVariable("id") int id, QuizForm quizForm, RedirectAttributes redirectAttributes) {
+    @RequestMapping(value = "/quiz/check/{questionId}", method = RequestMethod.POST)
+    @ResponseBody
+    public Object test(@PathVariable("questionId") int questionId, @RequestBody Object request, HttpSession session) {
+        Question question = questionService.getById(questionId);
 
-//        try {
-//            Result result = resultService.getResultsById(id);
-//            if (result == null) {
-//                redirectAttributes.addFlashAttribute("fatalError", "Тест не найден");
-//                return new ModelAndView("redirect:/user");
-//            }
-//            resultService.updateResult(result);
-//            questionResultServiceInterface.saveAnswers(quizForm.getAnswers());
-//        } catch (QuizInternalException e) {
-//            LOGGER.error(e);
-//            redirectAttributes.addFlashAttribute("fatalError", QuizInternalException.commonMessage);
-//            return new ModelAndView("redirect:/user");
-//        }
+        List<Integer> correctAnswers = new ArrayList<>();
+        for (Answer answer :
+                question.getAnswers()) {
+            if (answer.getCorrect()) {
+                correctAnswers.add(answer.getId());
+            }
+        }
+        //TODO: сохранить результат для пользователя
+        UserSession userSession = (UserSession) session.getAttribute("userSession");
+        if (userSession != null) {
+            LOGGER.info("save result");
+//            questionResultService.createQuestionResult(question, userSession.getId(), "", true);
+        }
 
-        return new ModelAndView("redirect:/user");
+        return new Object() {
+            public int question = questionId;
+            public List<Integer> answers = correctAnswers;
+        };
     }
 
 }

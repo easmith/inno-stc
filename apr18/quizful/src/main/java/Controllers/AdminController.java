@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -59,17 +61,20 @@ public class AdminController {
                 addQuestionForm.getQuestionText(),
                 addQuestionForm.getCategoryId());
         try {
-            questionService.addQuestion(question);
+//            questionService.addQuestion(question);
 
+            List<Answer> answers = new ArrayList<>();
             for (Map.Entry<Integer, String> entry :
                     addQuestionForm.getAnswer().entrySet()) {
-                answerService.addAnswer(new Answer(
-                        0,
-                        question.getId(),
-                        entry.getValue(),
-                        addQuestionForm.getAnswerIsCorrect().containsKey(entry.getKey())
-                ));
+                Answer answer = new Answer();
+                answer.setQuestion(question);
+                answer.setText(entry.getValue());
+                answer.setCorrect(addQuestionForm.getAnswerIsCorrect().containsKey(entry.getKey()));
+                answers.add(answer);
             }
+            question.setAnswers(answers);
+            questionService.addQuestion(question);
+            LOGGER.info(question.getId());
         } catch (QuizInternalException e) {
             LOGGER.error(e);
             model.addAttribute("fatalError", QuizInternalException.commonMessage);

@@ -54,12 +54,15 @@
                     </c:if>
                 </div>
 
-                <div class="md-form ${error_password2 != null ? "has-danger" : ""}">
+                <div class="md-form ${error_notEqualPass != null || error_password2 != null ? "has-danger" : ""}">
                     <i class="fa fa-lock prefix"></i>
                     <input name="password2" type="password" id="inputPassword2" class="form-control">
                     <label for="inputPassword2">Повтор пароля</label>
                     <c:if test="${error_password2 != null}">
                         <small class="form-control-feedback">${error_password2}</small>
+                    </c:if>
+                    <c:if test="${error_notEqualPass != null}">
+                        <small class="form-control-feedback">${error_notEqualPass}</small>
                     </c:if>
                 </div>
 

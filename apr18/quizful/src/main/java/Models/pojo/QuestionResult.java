@@ -1,15 +1,26 @@
 package Models.pojo;
 
+import javax.persistence.*;
+
 /**
  * Created by eku on 13.04.17.
  */
+@Entity
+@Table(name = "question_results")
 public class QuestionResult {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "question_id")
     private int questionId;
+    @Column(name = "user_id")
     private int userId;
+    @Column(name = "category_id")
     private int categoryId;
     private String answers;
+    @Column(name = "is_correct")
     private boolean isCorrect;
 
     public QuestionResult(int id, int questionId, int userId, int categoryId, String answers, boolean isCorrect) {
