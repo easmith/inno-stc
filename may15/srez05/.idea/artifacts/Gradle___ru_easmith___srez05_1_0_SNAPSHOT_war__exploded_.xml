@@ -37,6 +37,8 @@
           <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:3.2.2.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.8.RELEASE" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-taglibs/3.2.2.RELEASE/8cb9784b2f091a9b21fb78c75839fb7979852f86/spring-security-taglibs-3.2.2.RELEASE.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-acl/3.2.2.RELEASE/132b12103e7799e1a5591c29ce48938c0ef527b1/spring-security-acl-3.2.2.RELEASE.jar" />
         </element>
       </element>
     </root>

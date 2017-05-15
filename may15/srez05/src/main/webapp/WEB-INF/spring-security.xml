@@ -7,10 +7,11 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-    <http  access-denied-page="/WEB-INF/pages/error403.jsp">
+    <http access-denied-page="/WEB-INF/pages/error403.jsp" use-expressions="true">
         <!--<intercept-url pattern="/" access="ROLE_USER,ROLE_ANONYMOUS"/>-->
         <intercept-url pattern="/only_for_user*" access="ROLE_USER"/>
         <intercept-url pattern="/only_for_admin*" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/home*" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
 
         <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
         <form-login login-page="/" default-target-url="/home"

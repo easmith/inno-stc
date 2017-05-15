@@ -46,6 +46,7 @@
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-web:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-config:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-taglibs:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" level="project" />
     <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.3.8.RELEASE" level="project" />
@@ -54,5 +55,6 @@
     <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-core:3.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-acl:3.2.2.RELEASE" level="project" />
   </component>
 </module>
