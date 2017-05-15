@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <http  access-denied-page="/WEB-INF/pages/error403.jsp">
+        <!--<intercept-url pattern="/" access="ROLE_USER,ROLE_ANONYMOUS"/>-->
+        <intercept-url pattern="/only_for_user*" access="ROLE_USER"/>
+        <intercept-url pattern="/only_for_admin*" access="ROLE_ADMIN"/>
+
+        <!--<intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>-->
+        <form-login login-page="/" default-target-url="/home"
+                    login-processing-url="/j_spring_security_check"
+                    authentication-failure-url="/?error"
+                    username-parameter="username"
+                    password-parameter="password"/>
+        <logout logout-url="/logout" logout-success-url="/"/>
+        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
+        <remember-me/>
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="user" password="pass" authorities="ROLE_USER" />
+                <user name="admin" password="pass" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+
+</beans:beans>
