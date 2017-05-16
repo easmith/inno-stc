@@ -15,4 +15,14 @@ public class Converter {
         }
         return integer;
     }
+    public static Long strToLong(String str){
+        Long integer = 0L;
+        if (str == null) {
+            return 0L;
+        }
+        if (str.matches("\\d+")){
+            integer = Long.parseLong(str);
+        }
+        return integer;
+    }
 }

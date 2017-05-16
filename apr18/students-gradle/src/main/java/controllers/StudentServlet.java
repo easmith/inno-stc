@@ -69,10 +69,10 @@ public class StudentServlet extends HttpServlet {
         Student student = studentService.getStudentById(studentId);
 
         String studentName = req.getParameter("name");
-        Integer age = Converter.strToInteger(req.getParameter("age"));
+        Long age = Converter.strToLong(req.getParameter("age"));
         LOGGER.debug("stud name:" + studentName);
         if (studentId == 0) {
-            studentService.addStudent(new Student(0, studentName, age));
+            studentService.addStudent(new Student(0L, studentName, age));
         } else {
             student = studentService.getStudentById(studentId);
             if (student != null) {

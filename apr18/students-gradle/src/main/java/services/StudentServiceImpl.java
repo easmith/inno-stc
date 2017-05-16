@@ -1,21 +1,37 @@
 package services;
 
+import ma.glasnost.orika.BoundMapperFacade;
+import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
 import models.DAO.StudentDao;
+import models.DAO.StudentRepo;
 import models.POJO.Student;
+import models.hbn.StudentsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import utils.profiling.ProfilingAnnotation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by eku on 19.04.17.
  */
 @Service
-@ProfilingAnnotation
 public class StudentServiceImpl implements StudentService {
 
     private StudentDao studentDao;// = new StudentDaoImpl();
+
+    private StudentRepo studentRepo;
+
+    private static MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+
+    private static BoundMapperFacade<StudentsEntity, Student> boundMapper = mapperFactory.getMapperFacade(StudentsEntity.class, Student.class);
+
+    {
+//        mapperFactory.classMap(
+//                Student.class, StudentsEntity.class).field("group.id", "groupId");
+    }
 
     @Autowired
     public void setStudentDao(StudentDao studentDao) {
@@ -23,7 +39,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     public List<Student> getAllStudents() {
-        return studentDao.getAllStudents();
+//        return studentDao.getAllStudents();
+        List<StudentsEntity> studentEntities = (List<StudentsEntity>) studentRepo.findAll();
+        List<Student> students = new ArrayList<>();
+        studentEntities.forEach(student -> {
+            students.add(boundMapper.map(student));
+        });
+        return new ArrayList();
     }
 
     @Override
@@ -44,5 +66,10 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void updateStudent(Student student) {
         studentDao.updateStudent(student);
+    }
+
+    @Autowired
+    public void setStudentRepo(StudentRepo studentRepo) {
+        this.studentRepo = studentRepo;
     }
 }

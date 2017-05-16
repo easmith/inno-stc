@@ -1,5 +1,8 @@
 package models.DAO;
 
+import ma.glasnost.orika.BoundMapperFacade;
+import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
 import models.POJO.Student;
 import models.hbn.StudentsEntity;
 import org.apache.log4j.Logger;
@@ -25,19 +28,12 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao {
     private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
 
-    private static SessionFactory factory;
-
-    static {
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
-        factory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-    }
-
     @Override
     public void addStudent(Student student) {
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO students (name, age, group_id) VALUES (?, ?, 1)");
             statement.setString(1, student.getName());
-            statement.setInt(2, student.getAge());
+            statement.setLong(2, student.getAge());
             statement.execute();
             statement.close();
         } catch (SQLException e) {
@@ -46,15 +42,15 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     public void insertHiber(Student student) {
-        Session session = factory.openSession();
-        session.beginTransaction();
-        models.hbn.StudentsEntity studentsEntity = new StudentsEntity();
-        studentsEntity.setAge(student.getAge());
-        studentsEntity.setName(student.getName());
-
-        session.save(studentsEntity);
-        session.getTransaction().commit();
-        session.close();
+//        Session session = factory.openSession();
+//        session.beginTransaction();
+//        models.hbn.StudentsEntity studentsEntity = new StudentsEntity();
+//        studentsEntity.setAge(student.getAge());
+//        studentsEntity.setName(student.getName());
+//
+//        session.save(studentsEntity);
+//        session.getTransaction().commit();
+//        session.close();
     }
 
     public void deleteStudent(int studentId) {
@@ -73,7 +69,7 @@ public class StudentDaoImpl implements StudentDao {
         try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("UPDATE students SET name = ? WHERE id = ?");
             statement.setString(1, student.getName());
-            statement.setInt(2, student.getId());
+            statement.setLong(2, student.getId());
             statement.execute();
             statement.close();
         } catch (SQLException e) {
@@ -88,7 +84,9 @@ public class StudentDaoImpl implements StudentDao {
             PreparedStatement statement = connection.prepareStatement("select * from students");
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Student student = new Student(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getInt("age"));
+                Student student = new Student(resultSet.getLong("id"),
+                        resultSet.getString("name"),
+                        resultSet.getLong("age"));
                 students.add(student);
             }
             resultSet.close();
@@ -106,7 +104,9 @@ public class StudentDaoImpl implements StudentDao {
             statement.setInt(1, studentId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                student = new Student(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getInt("age"));
+                student = new Student(resultSet.getLong("id"),
+                        resultSet.getString("name"),
+                        resultSet.getLong("age"));
             }
             resultSet.close();
             statement.close();

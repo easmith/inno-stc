@@ -13,6 +13,8 @@ public class StudentsEntity {
     private Integer age;
 
     private GroupsEntity group;
+    private Integer groupId;
+    private Integer userId;
 
     @Id
     @Column(name = "id")
@@ -75,5 +77,25 @@ public class StudentsEntity {
 
     public void setGroup(GroupsEntity group) {
         this.group = group;
+    }
+
+    @Basic
+    @Column(name = "group_id")
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
+    }
+
+    @Basic
+    @Column(name = "user_id")
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

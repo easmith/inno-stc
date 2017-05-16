@@ -23,10 +23,21 @@
       <configuration>
         <datasource-map>
           <unit-entry name="a.xml" value="a00b2c36-46bb-497e-a7d3-0c98c6de1d53" />
-          <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="hibernate.cfg.xml" value="b718c8a3-32d5-4c8d-aa1f-605005caa70b" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/../../src/main/resources/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="Entities" />
+          <factory-entry name="emf" value="dataSource" />
+          <factory-entry name="noname-a.xml@0" value="a00b2c36-46bb-497e-a7d3-0c98c6de1d53" />
+        </datasource-mapping>
       </configuration>
     </facet>
     <facet type="web" name="Web Gradle : students-gradle-1.0-SNAPSHOT.war">
@@ -37,14 +48,6 @@
         <webroots>
           <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
         </webroots>
-      </configuration>
-    </facet>
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
-        <datasource-mapping />
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/../../src/main/resources/META-INF/percistence.xml" />
       </configuration>
     </facet>
   </component>
@@ -76,6 +79,8 @@
     <orderEntry type="library" name="Gradle: com.mchange:c3p0:0.9.5.2" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-entitymanager:5.2.3.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-orm:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-jpa:1.11.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: ma.glasnost.orika:orika-core:1.5.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" level="project" />
     <orderEntry type="library" name="Gradle: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
@@ -95,5 +100,14 @@
     <orderEntry type="library" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.mchange:mchange-commons-java:0.2.11" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-commons:1.13.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.aspectj:aspectjrt:1.8.10" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.24" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.24" level="project" />
+    <orderEntry type="library" name="Gradle: com.thoughtworks.paranamer:paranamer:2.8" level="project" />
+    <orderEntry type="library" name="Gradle: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.carrotsearch:java-sizeof:0.0.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.codehaus.janino:janino:2.7.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.codehaus.janino:commons-compiler:2.7.5" level="project" />
   </component>
 </module>

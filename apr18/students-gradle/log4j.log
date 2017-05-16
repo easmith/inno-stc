@@ -650,3 +650,59 @@ INFO    2017-05-10 11:58:35,811 [RMI TCP Connection(2)-127.0.0.1] org.springfram
 INFO    2017-05-10 11:58:36,009 [RMI TCP Connection(2)-127.0.0.1] org.springframework.web.servlet.DispatcherServlet  - FrameworkServlet 'mvc-dispatcher': initialization completed in 682 ms
 INFO    2017-05-10 12:21:20,186 [localhost-startStop-2] org.springframework.web.context.support.XmlWebApplicationContext  - Closing WebApplicationContext for namespace 'mvc-dispatcher-servlet': startup date [Wed May 10 11:58:35 MSK 2017]; parent: Root WebApplicationContext
 INFO    2017-05-10 12:21:20,220 [localhost-startStop-2] org.springframework.web.context.support.XmlWebApplicationContext  - Closing Root WebApplicationContext: startup date [Wed May 10 11:58:17 MSK 2017]; root of context hierarchy
+INFO    2017-05-16 10:53:05,064 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:04:51,643 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:05:44,424 [http-nio-8081-exec-2] controllers.interceptors.LoggerInterceptor  - Before handling the request
+INFO    2017-05-16 11:05:44,442 [http-nio-8081-exec-2] controllers.interceptors.LoggerInterceptor  - After handling the request
+INFO    2017-05-16 11:05:44,600 [http-nio-8081-exec-2] controllers.interceptors.LoggerInterceptor  - After rendering the view
+INFO    2017-05-16 11:15:27,666 [localhost-startStop-2] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:15:36,888 [RMI TCP Connection(5)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:22:08,316 [RMI TCP Connection(8)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:23:15,177 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:25:22,550 [RMI TCP Connection(5)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:26:49,675 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:47:36,701 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:52:18,224 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:53:23,490 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:57:27,273 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 11:57:27,797 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+WARN    2017-05-16 11:57:27,817 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.orm.deprecation  - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-mapping. Use namespace http://www.hibernate.org/dtd/hibernate-mapping instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+INFO    2017-05-16 11:57:28,554 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO    2017-05-16 12:01:02,758 [RMI TCP Connection(4)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:03:16,841 [localhost-startStop-2] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:03:31,521 [RMI TCP Connection(8)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:04:59,038 [localhost-startStop-3] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:04:59,686 [localhost-startStop-3] org.hibernate.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+INFO    2017-05-16 12:04:59,717 [localhost-startStop-3] org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO    2017-05-16 12:06:55,078 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:06:56,015 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+INFO    2017-05-16 12:06:56,180 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO    2017-05-16 12:09:56,956 [localhost-startStop-2] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:10:06,388 [RMI TCP Connection(7)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:10:58,549 [RMI TCP Connection(10)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:11:41,346 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:12:36,735 [RMI TCP Connection(3)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:15:04,963 [RMI TCP Connection(2)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:15:05,775 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+INFO    2017-05-16 12:15:06,222 [RMI TCP Connection(2)-127.0.0.1] org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO    2017-05-16 12:15:43,386 [http-nio-8081-exec-9] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator  - HHH000397: Using ASTQueryTranslatorFactory
+INFO    2017-05-16 12:25:16,996 [localhost-startStop-2] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:25:17,461 [localhost-startStop-2] org.hibernate.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+INFO    2017-05-16 12:25:17,508 [localhost-startStop-2] org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO    2017-05-16 12:26:23,929 [RMI TCP Connection(4)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
+INFO    2017-05-16 12:26:24,594 [RMI TCP Connection(4)-127.0.0.1] org.hibernate.jpa.internal.util.LogHelper  - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+INFO    2017-05-16 12:26:24,734 [RMI TCP Connection(4)-127.0.0.1] org.hibernate.dialect.Dialect  - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO    2017-05-16 12:45:39,611 [http-nio-8081-exec-6] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator  - HHH000397: Using ASTQueryTranslatorFactory
+INFO    2017-05-16 13:02:10,105 [RMI TCP Connection(4)-127.0.0.1] controllers.LoginServlet  - Send emailTo: easmithrus@gmail.com Text: App started
