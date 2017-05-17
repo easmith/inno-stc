@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="models.DAO.mappers.StudentMapper">
+    <select id="getAllStudents" resultMap="rm">
+        SELECT * FROM students
+    </select>
+    <select id="getStudentById" resultMap="rm" parameterType="java.lang.Long">
+        SELECT * FROM students WHERE id = #{id}
+    </select>
+
+    <insert id='insertUser' parameterType='Student' useGeneratedKeys='true' keyProperty='id'>
+        INSERT INTO students (name, age, group_id, user_id)
+        VALUES(#{name}, #{age}, #{groupt_id}, #{user_id})
+    </insert>
+
+    <update id='updateUser' parameterType='Student'>
+        UPDATE students
+        SET
+        name = #{name},
+        age = #{age},
+        WHERE id = #{id}
+    </update>
+
+    <delete id='deleteUser' parameterType='int'>
+        DELETE FROM students WHERE id = #{id}
+    </delete>
+
+    <resultMap id="rm" type="models.hbn.StudentsEntity"></resultMap>
+</mapper>

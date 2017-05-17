@@ -37,6 +37,7 @@
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:5.2.3.Final" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.3.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.data:spring-data-jpa:1.11.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: ma.glasnost.orika:orika-core:1.5.1" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" />
           <element id="library" level="project" name="Gradle: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
@@ -60,12 +61,13 @@
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjrt:1.8.10" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.24" />
           <element id="library" level="project" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.24" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/ma.glasnost.orika/orika-core/1.5.1/749ecdd48f49a1e45c7891a27d95bd23b3695027/orika-core-1.5.1.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.thoughtworks.paranamer/paranamer/2.8/619eba74c19ccf1da8ebec97a2d7f8ba05773dd6/paranamer-2.8.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.googlecode.concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/2eaf3d3c9746d526ff7e5b93931d482c3887e6ac/concurrentlinkedhashmap-lru-1.4.2.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.carrotsearch/java-sizeof/0.0.4/7a347178c4f234692088a1dff85d551ae28f5af9/java-sizeof-0.0.4.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.janino/janino/2.7.5/bea838734aeae6e66523a7dc4eaa212c7a72da9f/janino-2.7.5.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.janino/commons-compiler/2.7.5/86b12400e53d73446b11eec7fbde4f099adc3057/commons-compiler-2.7.5.jar" />
+          <element id="library" level="project" name="Gradle: com.thoughtworks.paranamer:paranamer:2.8" />
+          <element id="library" level="project" name="Gradle: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" />
+          <element id="library" level="project" name="Gradle: com.carrotsearch:java-sizeof:0.0.4" />
+          <element id="library" level="project" name="Gradle: org.codehaus.janino:janino:2.7.5" />
+          <element id="library" level="project" name="Gradle: org.codehaus.janino:commons-compiler:2.7.5" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis/3.1.1/8a9f355255ae72fc50009a7a2885313188b94037/mybatis-3.1.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis-spring/1.1.1/d653b85589c40cbdd15e6a11c8241f47bcc48664/mybatis-spring-1.1.1.jar" />
         </element>
       </element>
     </root>

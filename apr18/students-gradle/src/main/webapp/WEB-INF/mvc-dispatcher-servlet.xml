@@ -1,30 +1,23 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
-       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd
         http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security.xsd
-        http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
-        http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:interceptors-ref="loggerInterceptor" />-->
 
-    <context:component-scan base-package="services models controllers utils" />
+    <context:component-scan base-package="services models controllers utils"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost/students?useSSL=false" />
-        <property name="username" value="root" />
-        <property name="password" value="pass" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/students?useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="pass"/>
     </bean>
 
 
@@ -37,53 +30,67 @@
         </property>
     </bean>
 
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="typeAliasesPackage" value="models.hbn"/>
+        <property name="mapperLocations" value="classpath:mybatis-mapper.xml"/>
+    </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="models.DAO.mappers"/>
+    </bean>
+
     <!--<bean id="loggerInterceptor" class="controllers.interceptors.LoggerInterceptor" />-->
 
     <!--<mvc:interceptors>-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/home"/>-->
-            <!--<bean class="controllers.interceptors.LoggerInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
+    <!--<mvc:interceptor>-->
+    <!--<mvc:mapping path="/home"/>-->
+    <!--<bean class="controllers.interceptors.LoggerInterceptor"></bean>-->
+    <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
 
     <!--<bean id="homeController" class="controllers.HomeController" />-->
 
     <!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
-        <!--<property name="mappings">-->
-            <!--<props>-->
-                <!--<prop key="/home**">homeController</prop>-->
-            <!--</props>-->
-        <!--</property>-->
-        <!--<property name="interceptors">-->
-            <!--<list>-->
-                <!--<ref bean="loggerInterceptor" />-->
-            <!--</list>-->
-        <!--</property>-->
+    <!--<property name="mappings">-->
+    <!--<props>-->
+    <!--<prop key="/home**">homeController</prop>-->
+    <!--</props>-->
+    <!--</property>-->
+    <!--<property name="interceptors">-->
+    <!--<list>-->
+    <!--<ref bean="loggerInterceptor" />-->
+    <!--</list>-->
+    <!--</property>-->
     <!--</bean>-->
 
 
     <security:global-method-security secured-annotations="enabled"/>
 
-    <bean id="emf"
-          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="jpaVendorAdapter">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
-        </property>
-        <property name="packagesToScan" value="models.hbn"/>
-        <property name="jpaProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-            </props>
-        </property>
-    </bean>
+    <!--<bean id="emf"-->
+    <!--class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
+    <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--<property name="jpaVendorAdapter">-->
+    <!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>-->
+    <!--</property>-->
+    <!--<property name="packagesToScan" value="models.hbn"/>-->
+    <!--<property name="jpaProperties">-->
+    <!--<props>-->
+    <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+    <!--<prop key="hibernate.show_sql">true</prop>-->
+    <!--</props>-->
+    <!--</property>-->
+    <!--</bean>-->
 
-    <bean id="myTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="emf" />
-    </bean>
-    <tx:annotation-driven transaction-manager="myTransactionManager"/>
+    <!--<bean id="myTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
+    <!--<property name="entityManagerFactory" ref="emf" />-->
+    <!--</bean>-->
+    <!--<tx:annotation-driven transaction-manager="myTransactionManager"/>-->
 
-    <jpa:repositories base-package="models.DAO" entity-manager-factory-ref="emf" transaction-manager-ref="myTransactionManager"/>
+    <!--<jpa:repositories base-package="models.DAO" entity-manager-factory-ref="emf" transaction-manager-ref="myTransactionManager"/>-->
 
 </beans>

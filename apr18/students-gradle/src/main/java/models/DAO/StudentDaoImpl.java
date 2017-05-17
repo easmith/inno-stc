@@ -1,24 +1,20 @@
 package models.DAO;
 
-import ma.glasnost.orika.BoundMapperFacade;
-import ma.glasnost.orika.MapperFactory;
-import ma.glasnost.orika.impl.DefaultMapperFactory;
+import models.DAO.mappers.StudentMapper;
 import models.POJO.Student;
-import models.hbn.StudentsEntity;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import utils.DataSourceFactory;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +23,14 @@ import java.util.List;
 @Repository
 public class StudentDaoImpl implements StudentDao {
     private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
+
+    @Autowired
+    private StudentMapper studentMapper;
+
+//    @Autowired
+//    public void setStudentMapper(StudentMapper studentMapper) {
+//        this.studentMapper = studentMapper;
+//    }
 
     @Override
     public void addStudent(Student student) {
@@ -78,41 +82,28 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     public List<Student> getAllStudents() {
-        List<Student> students = new ArrayList<>();
+//        try {
+//            Reader reader = Resources.getResourceAsReader("mybatis.xml");
+//            SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+//            StudentMapper mapper = factory.openSession().getMapper(StudentMapper.class);
+//            return mapper.getAllStudents();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
 
-        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("select * from students");
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                Student student = new Student(resultSet.getLong("id"),
-                        resultSet.getString("name"),
-                        resultSet.getLong("age"));
-                students.add(student);
-            }
-            resultSet.close();
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return students;
+        return studentMapper.getAllStudents();
     }
 
     public Student getStudentById(int studentId) {
-        Student student = null;
-        try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
-            PreparedStatement statement = connection.prepareStatement("select * from students where id = ?");
-            statement.setInt(1, studentId);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                student = new Student(resultSet.getLong("id"),
-                        resultSet.getString("name"),
-                        resultSet.getLong("age"));
-            }
-            resultSet.close();
-            statement.close();
-        } catch (SQLException e) {
+        try {
+            Reader reader = Resources.getResourceAsReader("mybatis.xml");
+            SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
+            StudentMapper mapper = factory.openSession().getMapper(StudentMapper.class);
+            return mapper.getStudentById(Long.valueOf(studentId));
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        return student;
+        return null;
     }
 }
