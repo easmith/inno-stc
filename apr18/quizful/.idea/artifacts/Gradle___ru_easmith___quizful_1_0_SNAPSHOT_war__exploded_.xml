@@ -35,6 +35,7 @@
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-core:5.2.10.Final" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.8.1" />
           <element id="library" level="project" name="Gradle: net.sf.ehcache:ehcache-core:2.6.11" />
+          <element id="library" level="project" name="Gradle: org.hibernate:hibernate-ehcache:5.2.10.Final" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.0.M19" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.8.RELEASE" />
@@ -55,9 +56,8 @@
           <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.8" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-ehcache/5.2.10.Final/fe9362dbf95f0b12fff9589cb0eefcbde44b078a/hibernate-ehcache-5.2.10.Final.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.ehcache/ehcache/2.10.3/cf74f9a4a049f181833b147a1d9aa62159c9d01d/ehcache-2.10.3.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.7/2b8019b6249bb05d81d3a3094e468753e2b21311/slf4j-api-1.7.7.jar" />
+          <element id="library" level="project" name="Gradle: net.sf.ehcache:ehcache:2.10.3" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.7" />
         </element>
       </element>
     </root>
