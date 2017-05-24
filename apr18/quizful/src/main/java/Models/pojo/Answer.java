@@ -1,6 +1,8 @@
 package Models.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
 
 import javax.persistence.*;
 
@@ -10,6 +12,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "answers")
+@Cache(usage= CacheConcurrencyStrategy.READ_ONLY, region="answers")
 public class Answer {
 
     @Id

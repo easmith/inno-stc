@@ -1,6 +1,11 @@
 package Models.pojo;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.Cache;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  * Created by eku on 13.04.17.
@@ -8,6 +13,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "categories")
+@Cache(usage= CacheConcurrencyStrategy.READ_ONLY, region="categories")
 public class Category {
 
     @Id
